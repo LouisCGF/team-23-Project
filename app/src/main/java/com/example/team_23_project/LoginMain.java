@@ -38,6 +38,24 @@ public class LoginMain extends Fragment {
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
         });
+        binding.regStuBtn.setOnClickListener(new View.OnClickListener() { // <- Event handler for register for student
+            @Override
+            public void onClick(View v) {
+                //NavHostFragment.findNavController(LoginMain.this)
+                //        .navigate(R.id.action_FirstFragment_to_RegisterForStudent); <- Need to
+                //        create new action 'FirstFragement_to_RegisterForStudent' once a register
+                //        for student page gets created
+            }
+        });
+        binding.regStaBtn.setOnClickListener(new View.OnClickListener() { // <- Event handler for register for staff
+            @Override
+            public void onClick(View v) {
+                //NavHostFragment.findNavController(LoginMain.this)
+                //      .navigate(R.id.action_FirstFragment_to_RegisterForStaff); <- Need to
+                //      create new action 'FirstFragment_to_RegisterForStaff' once a register
+                //      for staff page gets created
+            }
+        });
     }
 
     @Override
