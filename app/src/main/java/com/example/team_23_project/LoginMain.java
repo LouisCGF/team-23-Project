@@ -11,7 +11,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.team_23_project.databinding.FragmentFirstBinding;
 
-public class FirstFragment extends Fragment {
+public class LoginMain extends Fragment {
 
     private FragmentFirstBinding binding;
 
@@ -28,11 +28,13 @@ public class FirstFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
+        binding.loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(FirstFragment.this)
+                System.out.println(binding.emailTxt.getText());
+                System.out.println(binding.passwordTxt.getText());
+
+                NavHostFragment.findNavController(LoginMain.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
         });
