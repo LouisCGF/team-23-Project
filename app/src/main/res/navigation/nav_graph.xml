@@ -14,6 +14,12 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_registerStudent"
+            app:destination="@id/registerStudent" />
+        <action
+            android:id="@+id/action_FirstFragment_to_registerStaff"
+            app:destination="@id/registerStaff" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -24,5 +30,21 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerStudent"
+        android:name="com.example.team_23_project.RegisterStudent"
+        android:label="RegisterStudent" >
+        <action
+            android:id="@+id/action_registerStudent_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerStaff"
+        android:name="com.example.team_23_project.RegisterStaff"
+        android:label="RegisterStaff" >
+        <action
+            android:id="@+id/action_registerStaff_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
     </fragment>
 </navigation>
