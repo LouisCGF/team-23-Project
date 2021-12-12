@@ -52,6 +52,13 @@ public class LoginMain extends Fragment {
                         .navigate(R.id.action_FirstFragment_to_registerStaff);
             }
         });
+        binding.faqBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view1) {
+                NavHostFragment.findNavController(LoginMain.this)
+                        .navigate(R.id.action_FirstFragment_to_FAQandQA);
+            }
+        });
     }
 
     @Override
