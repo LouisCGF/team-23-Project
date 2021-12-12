@@ -34,8 +34,8 @@ public class RegisterStaff extends Fragment{
                 System.out.println(binding.firstNameStaffTxt.getText());
                 System.out.println(binding.lastNameStaffTxt.getText());
                 System.out.println(binding.adminTxt.getText());
-                System.out.println(binding.passwordSaffRegTxt.getText());
-                System.out.println(binding.passwordConfirmSaffRegTxt.getText());
+                System.out.println(binding.passwordStaffRegTxt.getText());
+                System.out.println(binding.passwordConfirmStaffRegTxt.getText());
 
                 NavHostFragment.findNavController(RegisterStaff.this)
                         .navigate(R.id.action_registerStaff_to_SecondFragment);
