@@ -52,8 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/FAQandQA"
-        android:name="com.example.team_23_project.FAQandQA"
-        android:label="FAQandQA" >
+        android:name="com.example.team_23_project.FAQandQA">
         <action
             android:id="@+id/action_FAQandQA_to_FirstFragment"
             app:destination="@id/FirstFragment" />
