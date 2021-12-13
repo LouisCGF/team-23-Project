@@ -35,7 +35,7 @@ public class LoginMain extends Fragment {
                 System.out.println(binding.passwordTxt.getText());
 
                 NavHostFragment.findNavController(LoginMain.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+                        .navigate(R.id.action_FirstFragment_to_searchBar);
             }
         });
         binding.regStuBtn.setOnClickListener(new View.OnClickListener() {

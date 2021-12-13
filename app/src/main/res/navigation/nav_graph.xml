@@ -23,6 +23,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_FAQandQA"
             app:destination="@id/FAQandQA" />
+        <action
+            android:id="@+id/action_FirstFragment_to_searchBar"
+            app:destination="@id/searchBar" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -64,4 +67,9 @@
         android:id="@+id/contactUs"
         android:name="com.example.team_23_project.ContactUs"
         android:label="ContactUs" />
+    <activity
+        android:id="@+id/searchBar"
+        android:name="com.example.team_23_project.SearchBar"
+        android:label="activity_searchbar"
+        tools:layout="@layout/activity_searchbar" />
 </navigation>
