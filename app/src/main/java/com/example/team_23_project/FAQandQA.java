@@ -43,7 +43,7 @@ public class FAQandQA extends Fragment {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(FAQandQA.this)
-                        .navigate(R.id.action_FAQandQA_to_FirstFragment);
+                        .navigate(R.id.action_FAQandQA_to_contactUs);
             }
         });
     }

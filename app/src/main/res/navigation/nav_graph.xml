@@ -56,5 +56,12 @@
         <action
             android:id="@+id/action_FAQandQA_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_FAQandQA_to_contactUs"
+            app:destination="@id/contactUs" />
     </fragment>
+    <fragment
+        android:id="@+id/contactUs"
+        android:name="com.example.team_23_project.ContactUs"
+        android:label="ContactUs" />
 </navigation>
