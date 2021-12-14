@@ -3,6 +3,8 @@ package com.example.team_23_project;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -29,12 +31,24 @@ public class SearchBar extends AppCompatActivity {
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, universities);
         listView.setAdapter(arrayAdapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // <- Event handler for items in the list
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItem = (String) parent.getItemAtPosition(position); // <- Item the user
+                                                                                   // clicks on as a
+                                                                                   // String (e.g. will
+                                                                                   // output 'Oxford'
+                                                                                   // if user selects oxford)
+
+            }
+        });
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.nav_menu,menu);
+        getMenuInflater().inflate(R.menu.nav_menu, menu);
 
         MenuItem menuItem = menu.findItem(R.id.nav_search);
         SearchView searchView = (SearchView) menuItem.getActionView();
