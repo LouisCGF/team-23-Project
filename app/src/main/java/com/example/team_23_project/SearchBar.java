@@ -38,6 +38,7 @@ public class SearchBar extends AppCompatActivity {
 
         MenuItem menuItem = menu.findItem(R.id.nav_search);
         SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setIconified(false);
         searchView.setQueryHint("Search University");
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
