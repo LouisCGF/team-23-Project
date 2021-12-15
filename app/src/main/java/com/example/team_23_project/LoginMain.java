@@ -33,7 +33,7 @@ public class LoginMain extends Fragment {
             public void onClick(View view) {
                 System.out.println(binding.emailTxt.getText());
                 System.out.println(binding.passwordTxt.getText());
-
+                //if (binding.emailTxt == )
                 NavHostFragment.findNavController(LoginMain.this)
                         .navigate(R.id.action_FirstFragment_to_searchBar);
             }
