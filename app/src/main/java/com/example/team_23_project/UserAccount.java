@@ -7,12 +7,13 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.team_23_project.databinding.ContactUsBinding;
+import com.example.team_23_project.databinding.UserAccountBinding;
 
-public class ContactUs extends Fragment {
+public class UserAccount extends Fragment {
 
-    private ContactUsBinding binding;
+    private UserAccountBinding binding;
 
     @Override
     public View onCreateView(
@@ -20,17 +21,18 @@ public class ContactUs extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = ContactUsBinding.inflate(inflater, container, false);
+        binding = UserAccountBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.ContactUsBtn.setOnClickListener(new View.OnClickListener() {
+        binding.SettingsBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                NavHostFragment.findNavController(FAQandQA.this)
+                        .navigate(R.id.action_userAccount_to_userSettings);
             }
         });
 

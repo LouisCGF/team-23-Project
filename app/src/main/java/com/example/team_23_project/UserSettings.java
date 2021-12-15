@@ -4,15 +4,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.example.team_23_project.databinding.ContactUsBinding;
+import com.example.team_23_project.databinding.UserSettingsBinding;
 
-public class ContactUs extends Fragment {
+public class UserSettings extends Fragment {
 
-    private ContactUsBinding binding;
+    private UserSettingsBinding binding;
+
+
 
     @Override
     public View onCreateView(
@@ -20,19 +24,21 @@ public class ContactUs extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = ContactUsBinding.inflate(inflater, container, false);
+        binding = UserSettingsBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.ContactUsBtn.setOnClickListener(new View.OnClickListener() {
+        binding.textSizeSpinner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
         });
 
+
     }
+
 }

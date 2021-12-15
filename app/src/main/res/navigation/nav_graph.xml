@@ -72,4 +72,16 @@
         android:name="com.example.team_23_project.SearchBar"
         android:label="activity_searchbar"
         tools:layout="@layout/activity_searchbar" />
+    <fragment
+        android:id="@+id/userAccount"
+        android:name="com.example.team_23_project.UserAccount"
+        android:label="UserAccount" >
+        <action
+            android:id="@+id/action_userAccount_to_userSettings"
+            app:destination="@id/userSettings" />
+    </fragment>
+    <fragment
+        android:id="@+id/userSettings"
+        android:name="com.example.team_23_project.UserSettings"
+        android:label="UserSettings" />
 </navigation>
