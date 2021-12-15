@@ -15,24 +15,23 @@ public class DbManager extends SQLiteOpenHelper {
         super(context, dbname, null, 1);
     }
 
-    // This is for creating the table users (student and staff missing)
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "SELECT *";
         db.execSQL(query);
     }
 
-    // This is for deleting users table (student and staff missing)
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("SELECT * FROM csc2033_team23.sqlite");
         onCreate(db);
     }
 
-    public String addRecordUser(String email_address, String first_name, String last_name, String password) {
+    public String addRecordUser(String user_id, String email_address, String first_name, String last_name, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues cv = new ContentValues();
+        cv.put("user_id", user_id);
         cv.put("email_address", email_address);
         cv.put("first_name", first_name);
         cv.put("last_name", last_name);
@@ -46,13 +45,15 @@ public class DbManager extends SQLiteOpenHelper {
             return "Successfully inserted!";
     }
 
-    public String addRecordStudent(String student_number, String course, String stage){
+    public String addRecordStudent(String user_id, String course, String stage, String expiry, String school){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues cv = new ContentValues();
-        cv.put("student_number", student_number);
+        cv.put("user_id", user_id); //student number
         cv.put("course", course);
         cv.put("stage", stage);
+        cv.put("expiry", expiry);
+        cv.put("school", school);
 
         long res = db.insert("STUDENT_INFO", null, cv);
 
@@ -62,14 +63,96 @@ public class DbManager extends SQLiteOpenHelper {
             return "Successfully inserted!";
     }
 
-    public String addRecordStaff(String school, String admin){
+    public String addRecordStaff(String user_id, String school, String admin){
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues cv = new ContentValues();
+        cv.put("user_id", user_id); //staff id
         cv.put("school", school);
         cv.put("admin", admin);
 
         long res = db.insert("STAFF_INFO", null, cv);
+
+        if (res == -1)
+            return "Failed!";
+        else
+            return "Successfully inserted!";
+    }
+
+    public String addRecordSettings(String user_id, String theme, String text_size, Boolean colorblind){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues cv = new ContentValues();
+        cv.put("user_id", user_id);
+        cv.put("theme", theme);
+        cv.put("text_size", text_size);
+        cv.put("colorblind", colorblind);
+
+        long res = db.insert("SETTINGS", null, cv);
+
+        if (res == -1)
+            return "Failed!";
+        else
+            return "Successfully inserted!";
+    }
+
+    public String addRecordSchoolBuilding(String school, String building_name){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues cv = new ContentValues();
+        cv.put("school", school);
+        cv.put("building_name", building_name);
+
+        long res = db.insert("SCHOOL_BUILDING", null, cv);
+
+        if (res == -1)
+            return "Failed!";
+        else
+            return "Successfully inserted!";
+    }
+
+    public String addRecordBuildings(String building_name, String availability){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues cv = new ContentValues();
+        cv.put("building_name", building_name);
+        cv.put("availability", availability);
+
+        long res = db.insert("BUILDINGS", null, cv);
+
+        if (res == -1)
+            return "Failed!";
+        else
+            return "Successfully inserted!";
+    }
+
+    public String addRecordRoom(String room_id, String capacity, String type, String floor, String building_name){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues cv = new ContentValues();
+        cv.put("room_id", room_id);
+        cv.put("capacity", capacity);
+        cv.put("type", type);
+        cv.put("floor", floor);
+        cv.put("building_name", building_name);
+
+        long res = db.insert("ROOMS", null, cv);
+
+        if (res == -1)
+            return "Failed!";
+        else
+            return "Successfully inserted!";
+    }
+
+    public String addRecordAccessibility(String building_name, String room_id, String feature){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues cv = new ContentValues();
+        cv.put("building_name", building_name);
+        cv.put("room_id", room_id);
+        cv.put("feature", feature);
+
+        long res = db.insert("ACCESSIBILITY", null, cv);
 
         if (res == -1)
             return "Failed!";

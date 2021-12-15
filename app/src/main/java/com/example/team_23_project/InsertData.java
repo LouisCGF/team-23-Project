@@ -36,7 +36,8 @@ public class InsertData extends AppCompatActivity {
     public void addRecordUser(View view){
         DbManager db = new DbManager(this);
 
-        String resUser = db.addRecordUser(emailTxt.getText().toString(), firstNameTxt.getText().toString(), lastnameTxt.getText().toString(), passwordTxt.getText().toString());
+        // Temporary user_id null
+        String resUser = db.addRecordUser(null, emailTxt.getText().toString(), firstNameTxt.getText().toString(), lastnameTxt.getText().toString(), passwordTxt.getText().toString());
         Toast.makeText(this, resUser, Toast.LENGTH_LONG).show();
 
         emailTxt.setText("");
@@ -48,7 +49,8 @@ public class InsertData extends AppCompatActivity {
     public void addRecordStudent(View view) {
         DbManager db = new DbManager(this);
 
-        String resStudent = db.addRecordStudent(studentNumberTxt.getText().toString(), courseTxt.getText().toString(), stageTxt.getText().toString());
+        // Temporary user_id and expiry date null
+        String resStudent = db.addRecordStudent(null, courseTxt.getText().toString(), stageTxt.getText().toString(), null, schoolTxt.getText().toString());
         Toast.makeText(this, resStudent, Toast.LENGTH_LONG).show();
 
         studentNumberTxt.setText("");
@@ -59,7 +61,8 @@ public class InsertData extends AppCompatActivity {
     public void addRecordStaff(View view) {
         DbManager db = new DbManager(this);
 
-        String resStaff = db.addRecordStaff(schoolTxt.getText().toString(), adminTxt.getText().toString());
+        // Temporary user_id null
+        String resStaff = db.addRecordStaff(null, schoolTxt.getText().toString(), adminTxt.getText().toString());
         Toast.makeText(this, resStaff, Toast.LENGTH_LONG).show();
 
         schoolTxt.setText("");
