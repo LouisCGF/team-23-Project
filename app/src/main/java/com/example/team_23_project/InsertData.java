@@ -17,18 +17,18 @@ public class InsertData extends AppCompatActivity {
         setContentView(R.layout.register_student);
         setContentView(R.layout.register_staff);
 
-        // USERS TABLE
+        // USERS TABLE BINDING
         firstNameTxt = (EditText) findViewById(R.id.firstNameStudentTxt);
         lastnameTxt = (EditText) findViewById(R.id.lastNameStudentTxt);
         emailTxt = (EditText) findViewById(R.id.emailAdrStudentTxt);
         passwordTxt = (EditText) findViewById(R.id.passwordStudentRegTxt);
 
-        // STUDENT TABLE
+        // STUDENT TABLE BINDING
         studentNumberTxt = (EditText) findViewById(R.id.studentNumberTxt);
         courseTxt = (EditText) findViewById(R.id.courseStudentTxt);
         stageTxt = (EditText) findViewById(R.id.stageStudentTxt);
 
-        // STAFF TABLE
+        // STAFF TABLE BINDING
         schoolTxt = (EditText) findViewById(R.id.schoolStaffTxt);
         adminTxt = (EditText) findViewById(R.id.adminTxt);
     }

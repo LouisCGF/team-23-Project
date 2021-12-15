@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 
 public class DbManager extends SQLiteOpenHelper {
 
-    private static final String dbname="csc2033_team23.sqlite";
+    private static final String dbname="csc2033_team23.sqlite?allowMultiQueries=true";
 
     public DbManager(Context context) {
         super(context, dbname, null, 1);
@@ -18,14 +18,14 @@ public class DbManager extends SQLiteOpenHelper {
     // This is for creating the table users (student and staff missing)
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "create table USERS (user_id text primary key, email_address text, first_name text, last_name text, password text)";
+        String query = "SELECT *";
         db.execSQL(query);
     }
 
     // This is for deleting users table (student and staff missing)
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS USERS");
+        db.execSQL("SELECT * FROM csc2033_team23.sqlite");
         onCreate(db);
     }
 
