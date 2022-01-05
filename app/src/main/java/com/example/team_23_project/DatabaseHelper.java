@@ -1,0 +1,99 @@
+package com.example.team_23_project;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class DatabaseHelper extends SQLiteOpenHelper {
+    private static final String DATABASE_NAME = "app.db";
+    private static final int SCHEMA = 1;
+
+    // Created all of the tables needed for the database
+    static final String TABLE_ACCESSIBILITY = "ACCESSIBILITY";
+    static final String TABLE_BUILDINGS = "BUILDINGS";
+    static final String TABLE_ROOMS = "ROOMS";
+    static final String TABLE_SCHOOL_BUILDING = "SCHOOL_BUILDING";
+    static final String TABLE_SETTINGS = "SETTINGS";
+    static final String TABLE_STAFF_INFO = "STAFF_INFO";
+    static final String TABLE_STUDENT_INFO = "STUDENT_INFO";
+    static final String TABLE_USERS = "USERS";
+
+    // TABLE_ACCESSIBILITY
+    public static final String COLUMN_BUILDING_NAME = "building_name";
+    public static final String COLUMN_ROOM_ID = "room_id";
+    public static final String COLUMN_FEATURE = "feature";
+
+    // TABLE_BUILDINGS
+    public static final String COLUMN_AVAILABILITY = "availability";
+
+    // TABLE_ROOMS
+    public static final String COLUMN_CAPACITY = "capacity";
+    public static final String COLUMN_TYPE = "type";
+    public static final String COLUMN_FLOOR = "floor";
+
+    // TABLE_SCHOOL_BUILDING
+    public static final String COLUMN_SCHOOL = "school";
+
+    // TABLE_SETTINGS
+    public static final String COLUMN_USER_ID = "user_id";
+    public static final String COLUMN_THEME = "theme";
+    public static final String COLUMN_TEXT_SIZE = "text_size";
+    public static final String COLUMN_COLORBLIND = "colorblind";
+
+    // TABLE_STAFF_INFO
+    public static final String COLUMN_ADMIN = "admin";
+
+    // TABLE_STUDENT_INFO
+    public static final String COLUMN_COURSE = "course";
+    public static final String COLUMN_STAGE = "stage";
+    public static final String COLUMN_EXPIRY = "expiry";
+
+    // TABLE_USERS
+    public static final String COLUMN_EMAIL_ADDRESS = "email_address";
+    public static final String COLUMN_FIRST_NAME = "first_name";
+    public static final String COLUMN_LAST_NAME = "last_name";
+    public static final String COLUMN_PASSWORD = "password";
+
+    public DatabaseHelper(Context context) {
+        super(context, DATABASE_NAME, null, SCHEMA);
+    }
+
+    // Declare each table in a different sql query (It makes easier to see a declaration of each table)
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+
+        //TABLE_ACCESSIBILITY
+        db.execSQL("CREATE TABLE ACCESSIBILITY (" + COLUMN_BUILDING_NAME
+                + " TEXT PRIMARY KEY ," + COLUMN_ROOM_ID
+                + " INTEGER PRIMARY KEY AUTOINCREMENT , " + COLUMN_FEATURE + " TEXT);");
+
+        //TABLE_BUILDINGS
+        db.execSQL("CREATE TABLE BUILDINGS (" + COLUMN_BUILDING_NAME
+                        + " TEXT PRIMARY KEY ," + COLUMN_AVAILABILITY + " TEXT);");
+
+        //TABLE_ROOMS
+        db.execSQL("CREATE TABLE ROOMS (" + COLUMN_ROOM_ID
+                + " INTEGER PRIMARY KEY," + COLUMN_CAPACITY
+                + " INTEGER ," + COLUMN_TYPE
+                + " TEXT ," + COLUMN_FLOOR
+                + " INTEGER ," + COLUMN_BUILDING_NAME + " TEXT);");
+
+        // Add initial values into the table (I added rubbish info to show functionality, change or ignore it)
+
+        db.execSQL("INSERT INTO "+ TABLE_ACCESSIBILITY +" (" + COLUMN_BUILDING_NAME
+                + ", " + COLUMN_ROOM_ID  + ", " + COLUMN_FEATURE + ") VALUES " +
+                "('Urban Science Building', 1, 'Cool Building');");
+
+        db.execSQL("INSERT INTO "+ TABLE_BUILDINGS +" (" + COLUMN_AVAILABILITY + ") VALUES ('Free');");
+
+        db.execSQL("INSERT INTO "+ TABLE_ROOMS + " (" + COLUMN_ROOM_ID + ", " + COLUMN_CAPACITY
+                + ", " + COLUMN_TYPE + ", " + COLUMN_FLOOR + ", " + COLUMN_BUILDING_NAME + ") VALUES" +
+                "( 1, 32, 'Library', 3, 'Urban Science Building');");
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion,  int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS "+TABLE_ACCESSIBILITY + TABLE_BUILDINGS + TABLE_ROOMS);
+        onCreate(db);
+    }
+}
