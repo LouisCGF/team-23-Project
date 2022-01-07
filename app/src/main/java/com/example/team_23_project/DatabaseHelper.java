@@ -69,7 +69,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         //TABLE_BUILDINGS
         db.execSQL("CREATE TABLE BUILDINGS (" + COLUMN_BUILDING_NAME
-                        + " TEXT PRIMARY KEY ," + COLUMN_AVAILABILITY + " TEXT);");
+                + " TEXT PRIMARY KEY ," + COLUMN_AVAILABILITY + " TEXT);");
 
         //TABLE_ROOMS
         db.execSQL("CREATE TABLE ROOMS (" + COLUMN_ROOM_ID
@@ -77,6 +77,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + " INTEGER ," + COLUMN_TYPE
                 + " TEXT ," + COLUMN_FLOOR
                 + " INTEGER ," + COLUMN_BUILDING_NAME + " TEXT);");
+
+        //TABLE_SCHOOL_BUILDING
+        db.execSQL("CREATE TABLE SCHOOL_BUILDING (" + COLUMN_BUILDING_NAME
+                + " TEXT ," + COLUMN_SCHOOL
+                + " TEXT PRIMARY KEY);");
+
+        //TABLE_SETTINGS
+        db.execSQL("CREATE TABLE SETTINGS (" + COLUMN_USER_ID
+                + " INTEGER PRIMARY KEY ," + COLUMN_THEME
+                + " TEXT ," + COLUMN_TEXT_SIZE
+                + " TEXT ," + COLUMN_COLORBLIND + " INTEGER);");
+
+        //TABLE_STAFF_INFO
+        db.execSQL("CREATE TABLE STAFF_INFO (" + COLUMN_USER_ID
+                + " INTEGER PRIMARY KEY ," + COLUMN_SCHOOL
+                + " TEXT ," + COLUMN_ADMIN + " INTEGER);");
+
+        //TABLE_STUDENT_INFO
+        db.execSQL("CREATE TABLE STUDENT_INFO (" + COLUMN_USER_ID
+                + " INTEGER PRIMARY KEY ," + COLUMN_COURSE
+                + " TEXT ," + COLUMN_STAGE
+                + " INTEGER ," + COLUMN_EXPIRY
+                + " DATE ," + COLUMN_SCHOOL + " TEXT);");
+
+        //TABLE_USERS
+        db.execSQL("CREATE TABLE USERS (" + COLUMN_USER_ID
+                + " INTEGER PRIMARY KEY ," + COLUMN_EMAIL_ADDRESS
+                + " TEXT ," + COLUMN_FIRST_NAME
+                + " TEXT ," + COLUMN_LAST_NAME
+                + " TEXT ," + COLUMN_PASSWORD + " TEXT);");
+
 
         // Add initial values into the table (I added rubbish info to show functionality, change or ignore it)
 
@@ -93,7 +124,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion,  int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS "+TABLE_ACCESSIBILITY + TABLE_BUILDINGS + TABLE_ROOMS);
+        db.execSQL("DROP TABLE IF EXISTS "+TABLE_ACCESSIBILITY + TABLE_BUILDINGS + TABLE_ROOMS
+                + TABLE_SCHOOL_BUILDING + TABLE_SETTINGS + TABLE_STAFF_INFO + TABLE_STUDENT_INFO
+                + TABLE_USERS);
         onCreate(db);
     }
 }
