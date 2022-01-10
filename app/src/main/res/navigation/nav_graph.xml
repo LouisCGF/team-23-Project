@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.example.team_23_project.SecondFragment"
+        android:name="com.example.team_23_project.javaPageFragments.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 
@@ -39,7 +39,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerStudent"
-        android:name="com.example.team_23_project.RegisterStudent"
+        android:name="com.example.team_23_project.javaPageFragments.RegisterStudent"
         android:label="RegisterStudent" >
         <action
             android:id="@+id/action_registerStudent_to_SecondFragment"
@@ -47,7 +47,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerStaff"
-        android:name="com.example.team_23_project.RegisterStaff"
+        android:name="com.example.team_23_project.javaPageFragments.RegisterStaff"
         android:label="RegisterStaff" >
         <action
             android:id="@+id/action_registerStaff_to_SecondFragment"
@@ -55,7 +55,7 @@
     </fragment>
     <fragment
         android:id="@+id/FAQandQA"
-        android:name="com.example.team_23_project.FAQandQA">
+        android:name="com.example.team_23_project.javaPageFragments.FAQandQA">
         <action
             android:id="@+id/action_FAQandQA_to_FirstFragment"
             app:destination="@id/FirstFragment" />
@@ -65,7 +65,7 @@
     </fragment>
     <fragment
         android:id="@+id/contactUs"
-        android:name="com.example.team_23_project.ContactUs"
+        android:name="com.example.team_23_project.javaPageFragments.ContactUs"
         android:label="ContactUs" />
     <activity
         android:id="@+id/searchBar"
@@ -74,7 +74,7 @@
         tools:layout="@layout/activity_searchbar" />
     <fragment
         android:id="@+id/userAccount"
-        android:name="com.example.team_23_project.UserAccount"
+        android:name="com.example.team_23_project.javaPageFragments.UserAccount"
         android:label="UserAccount" >
         <action
             android:id="@+id/action_userAccount_to_userSettings"
@@ -82,6 +82,6 @@
     </fragment>
     <fragment
         android:id="@+id/userSettings"
-        android:name="com.example.team_23_project.UserSettings"
+        android:name="com.example.team_23_project.javaPageFragments.UserSettings"
         android:label="UserSettings" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.team_23_project;
+package com.example.team_23_project.javaPageFragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.team_23_project.R;
 import com.example.team_23_project.databinding.UserAccountBinding;
+import com.example.team_23_project.javaPageFragments.FAQandQA;
 
 public class UserAccount extends Fragment {
 
@@ -31,7 +33,7 @@ public class UserAccount extends Fragment {
         binding.SettingsBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(FAQandQA.this)
+                NavHostFragment.findNavController(UserAccount.this)
                         .navigate(R.id.action_userAccount_to_userSettings);
             }
         });

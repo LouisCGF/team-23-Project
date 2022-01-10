@@ -11,6 +11,7 @@
         android:layout_height="65dp"
         android:layout_marginBottom="20dp"
         android:text="Submit"
+        android:onClick="submitStaff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"

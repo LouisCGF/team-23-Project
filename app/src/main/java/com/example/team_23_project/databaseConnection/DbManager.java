@@ -1,4 +1,4 @@
-package com.example.team_23_project;
+package com.example.team_23_project.databaseConnection;
 
 import android.content.ContentValues;
 import android.content.Context;

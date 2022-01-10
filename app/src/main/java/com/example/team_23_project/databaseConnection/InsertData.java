@@ -1,4 +1,4 @@
-package com.example.team_23_project;
+package com.example.team_23_project.databaseConnection;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,6 +6,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.team_23_project.R;
+import com.example.team_23_project.databaseConnection.DbManager;
 
 public class InsertData extends AppCompatActivity {
 

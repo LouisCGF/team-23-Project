@@ -1,4 +1,4 @@
-package com.example.team_23_project;
+package com.example.team_23_project.javaPageFragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

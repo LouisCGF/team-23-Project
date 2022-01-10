@@ -1,4 +1,4 @@
-package com.example.team_23_project;
+package com.example.team_23_project.javaPageFragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.team_23_project.R;
 import com.example.team_23_project.databinding.RegisterStaffBinding;
 
 public class RegisterStaff extends Fragment{

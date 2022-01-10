@@ -1,8 +1,12 @@
 package com.example.team_23_project;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
+import com.example.team_23_project.databaseConnection.DbManager;
+import com.example.team_23_project.databaseConnection.InsertData;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,11 +22,17 @@ import com.example.team_23_project.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.SimpleCursorAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
+    DatabaseHelper databaseHelper;
+    SQLiteDatabase db;
+    Cursor userCursor;
+    SimpleCursorAdapter userAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
+        databaseHelper = new DatabaseHelper(getApplicationContext());
+
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,6 +56,14 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        db = databaseHelper.getReadableDatabase();
+
+
     }
 
     public void startDbApp(View view){
@@ -78,5 +98,23 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    // need some more work on this method. now it starts activity of both, however, it should be either one of them.
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intentStudent = new Intent(getApplicationContext(), UserActivityStudent.class);
+        Intent intentStaff = new Intent(getApplicationContext(), UserActivityStaff.class);
+        intentStudent.putExtra("id", id);
+        intentStaff.putExtra("id", id);
+        startActivity(intentStudent);
+        startActivity(intentStaff);
+    }
+
+    // Use this method wisely.
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        db.close();
+        userCursor.close();
     }
 }
