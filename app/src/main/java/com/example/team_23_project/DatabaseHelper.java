@@ -109,7 +109,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + " TEXT ," + COLUMN_PASSWORD + " TEXT);");
 
 
-        // Add initial values into the table (I added rubbish info to show functionality, change or ignore it)
+        // Add initial values into the table (if some are incorrect, change them)
 
         db.execSQL("INSERT INTO "+ TABLE_ACCESSIBILITY +" (" + COLUMN_BUILDING_NAME
                 + ", " + COLUMN_ROOM_ID  + ", " + COLUMN_FEATURE + ") VALUES " +
@@ -120,6 +120,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO "+ TABLE_ROOMS + " (" + COLUMN_ROOM_ID + ", " + COLUMN_CAPACITY
                 + ", " + COLUMN_TYPE + ", " + COLUMN_FLOOR + ", " + COLUMN_BUILDING_NAME + ") VALUES" +
                 "( 1, 32, 'Library', 3, 'Urban Science Building');");
+
+        // Not sure if the field for school is computer science
+        db.execSQL("INSERT INTO "+ TABLE_SCHOOL_BUILDING +" (" + COLUMN_BUILDING_NAME + ", "
+                + COLUMN_SCHOOL + ") VALUES" + "('Urban Science Building', 'Computer Science');");
+
+        db.execSQL("INSERT INTO "+ TABLE_SETTINGS +" (" + COLUMN_USER_ID + ", "
+                + COLUMN_THEME + ", " + COLUMN_COLORBLIND + ") VALUES"
+                + "(1, 'white', true);");
+
+        db.execSQL("INSERT INTO "+ TABLE_STAFF_INFO +" (" + COLUMN_USER_ID + ", "
+                + COLUMN_SCHOOL + ", " + COLUMN_ADMIN + ") VALUES"
+                + "(1, 'Computer Science', true);");
+
+        // COLUMN_SCHOOL same issue
+        db.execSQL("INSERT INTO "+ TABLE_STUDENT_INFO + " (" + COLUMN_USER_ID + ", " + COLUMN_COURSE
+                + ", " + COLUMN_STAGE + ", " + COLUMN_EXPIRY + ", " + COLUMN_SCHOOL + ") VALUES"
+                + "( 1, 'G400', 2, 30/06/2023, 'Urban Science Building');");
+
+        db.execSQL("INSERT INTO "+ TABLE_USERS + " (" + COLUMN_USER_ID + ", " + COLUMN_EMAIL_ADDRESS
+                + ", " + COLUMN_FIRST_NAME + ", " + COLUMN_LAST_NAME + ", " + COLUMN_PASSWORD + ") VALUES"
+                + "( 1, 'paul@email.com', 'Paul', 'Smith', 'Smith123!');");
     }
 
     @Override

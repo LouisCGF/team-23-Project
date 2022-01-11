@@ -39,7 +39,6 @@ public class UserActivityStudent extends AppCompatActivity {
 
         firstNameStudent = findViewById(R.id.firstNameStudentTxt);
         lastNameStudent = findViewById(R.id.lastNameStudentTxt);
-        studentNumber = findViewById(R.id.studentNumberTxt);
         emailAdrStudent = findViewById(R.id.emailAdrStudentTxt);
         courseStudent = findViewById(R.id.courseStudentTxt);
         stageStudent = findViewById(R.id.stageStudentTxt);

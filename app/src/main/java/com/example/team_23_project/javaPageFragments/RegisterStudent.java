@@ -36,15 +36,9 @@ public class RegisterStudent extends Fragment {
 
                 System.out.println(binding.firstNameStudentTxt.getText());
                 System.out.println(binding.lastNameStudentTxt.getText());
-                System.out.println(binding.studentNumberTxt.getText());
                 System.out.println(binding.courseStudentTxt.getText());
                 System.out.println(binding.passwordStudentRegTxt.getText());
                 System.out.println(binding.passwordConfirmStudentRegTxt.getText());
-                Editable firstName = binding.firstNameStudentTxt.getText();
-                Editable lastName = binding.lastNameStudentTxt.getText();
-//                if (firstName != null && lastName != null) {
-//                    addRecordUser
-//                }
 
                 NavHostFragment.findNavController(RegisterStudent.this)
                         .navigate(R.id.action_registerStudent_to_SecondFragment);
