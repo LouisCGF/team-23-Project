@@ -1,4 +1,4 @@
-package com.example.team_23_project;
+package com.example.team_23_project.databaseConnection;
 
 import android.os.StrictMode;
 import android.util.Log;

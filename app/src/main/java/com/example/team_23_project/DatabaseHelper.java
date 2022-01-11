@@ -1,6 +1,6 @@
 package com.example.team_23_project;
 
-import android.content.Context;
+import  android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -65,7 +65,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //TABLE_ACCESSIBILITY
         db.execSQL("CREATE TABLE ACCESSIBILITY (" + COLUMN_BUILDING_NAME
                 + " TEXT PRIMARY KEY ," + COLUMN_ROOM_ID
-                + " INTEGER PRIMARY KEY AUTOINCREMENT , " + COLUMN_FEATURE + " TEXT);");
+                + " INTEGER , " + COLUMN_FEATURE + " TEXT);");
 
         //TABLE_BUILDINGS
         db.execSQL("CREATE TABLE BUILDINGS (" + COLUMN_BUILDING_NAME
