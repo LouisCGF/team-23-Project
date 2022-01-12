@@ -40,6 +40,15 @@ public class RegisterStaff extends Fragment{
 
                 NavHostFragment.findNavController(RegisterStaff.this)
                         .navigate(R.id.action_registerStaff_to_SecondFragment);
+                getActivity().overridePendingTransition(R.anim.slide_in_left, R.anim.stay);
+            }
+        });
+
+        binding.backToSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(RegisterStaff.this)
+                        .navigate(R.id.action_registerStaff_to_FirstFragment);
             }
         });
 

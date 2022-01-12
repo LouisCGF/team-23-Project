@@ -21,10 +21,14 @@
             app:exitAnim="@anim/stay" />
         <action
             android:id="@+id/action_FirstFragment_to_registerStaff"
-            app:destination="@id/registerStaff" />
+            app:destination="@id/registerStaff"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/stay" />
         <action
             android:id="@+id/action_FirstFragment_to_FAQandQA"
-            app:destination="@id/FAQandQA" />
+            app:destination="@id/FAQandQA"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
         <action
             android:id="@+id/action_FirstFragment_to_searchBar"
             app:destination="@id/searchBar" />
@@ -62,6 +66,11 @@
         <action
             android:id="@+id/action_registerStaff_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_registerStaff_to_FirstFragment"
+            app:destination="@id/FirstFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/stay" />
     </fragment>
     <fragment
         android:id="@+id/FAQandQA"
