@@ -101,6 +101,6 @@
     </fragment>
     <fragment
         android:id="@+id/userSettings"
-        android:name="com.example.team_23_project.javaPageFragments.UserSettings"
+        android:name="com.example.team_23_project.UserSettings"
         android:label="UserSettings" />
 </navigation>
