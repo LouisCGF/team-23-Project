@@ -10,6 +10,12 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="search_for_university">Search For University</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="already_nhave_an_naccount">Already\nhave an \nAccount?</string>
+    <string name="login">Login</string>
+    <string name="new_user_register_for_student">New User? Register For Student</string>
+    <string name="register_for_staff">Register For Staff</string>
     <string-array name="text_sizes">
         <item>16</item>
         <item>18</item>
