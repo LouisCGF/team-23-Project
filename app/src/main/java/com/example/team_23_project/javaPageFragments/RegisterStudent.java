@@ -48,6 +48,13 @@ public class RegisterStudent extends Fragment {
                 getActivity().overridePendingTransition(R.anim.slide_in_left, android.R.anim.slide_out_right);
             }
         });
+        binding.minusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(RegisterStudent.this)
+                        .navigate(R.id.action_registerStudent_to_FirstFragment2);
+            }
+        });
 
     }
 

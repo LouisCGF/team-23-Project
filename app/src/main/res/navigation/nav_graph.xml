@@ -16,7 +16,9 @@
             app:destination="@id/SecondFragment" />
         <action
             android:id="@+id/action_FirstFragment_to_registerStudent"
-            app:destination="@id/registerStudent" />
+            app:destination="@id/registerStudent"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/stay" />
         <action
             android:id="@+id/action_FirstFragment_to_registerStaff"
             app:destination="@id/registerStaff" />
@@ -44,6 +46,14 @@
         <action
             android:id="@+id/action_registerStudent_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_registerStudent_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_registerStudent_to_FirstFragment2"
+            app:destination="@id/FirstFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/stay" />
     </fragment>
     <fragment
         android:id="@+id/registerStaff"

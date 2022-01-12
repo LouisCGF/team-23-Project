@@ -23,8 +23,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="-20dp">
+                android:layout_height="wrap_content">
 
                 <TextView
                     style="@style/viewParent.headerText.NoMode"
@@ -198,6 +197,7 @@
         android:background="@drawable/ic_side_bg"/>
 
     <ImageView
+        android:id="@+id/minusButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -205,6 +205,6 @@
         android:layout_marginRight="11dp"
         android:layout_marginBottom="30dp"
         android:adjustViewBounds="false"
-        android:src="@drawable/ic_back_img"/>
+        android:src="@drawable/ic_back_img" />
 
 </RelativeLayout>

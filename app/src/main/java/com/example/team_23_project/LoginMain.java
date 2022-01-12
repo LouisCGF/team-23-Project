@@ -49,6 +49,7 @@ public class LoginMain extends Fragment {
             public void onClick(View view1) {
                 NavHostFragment.findNavController(LoginMain.this)
                         .navigate(R.id.action_FirstFragment_to_registerStudent);
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
             }
         });
         binding.regStaBtn.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +64,14 @@ public class LoginMain extends Fragment {
             public void onClick(View view1) {
                 NavHostFragment.findNavController(LoginMain.this)
                         .navigate(R.id.action_FirstFragment_to_FAQandQA);
+            }
+        });
+        binding.plusIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(LoginMain.this)
+                        .navigate(R.id.action_FirstFragment_to_registerStudent);
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
             }
         });
     }
