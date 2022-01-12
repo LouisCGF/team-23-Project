@@ -16,21 +16,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Colourblind Mode"
-        android:textSize="20sp"
-        tools:ignore="UseSwitchCompatOrMaterialXml"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="309dp" />
-
-    <Spinner
-        android:id="@+id/textSizeSpinner"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="182dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

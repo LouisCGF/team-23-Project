@@ -1,10 +1,13 @@
 package com.example.team_23_project.javaPageFragments;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -42,8 +45,17 @@ public class RegisterStudent extends Fragment {
 
                 NavHostFragment.findNavController(RegisterStudent.this)
                         .navigate(R.id.action_registerStudent_to_SecondFragment);
+                getActivity().overridePendingTransition(R.anim.slide_in_left, android.R.anim.slide_out_right);
             }
         });
 
+    }
+
+    public void changeStatusBarColour(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            Window window = getActivity().getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(R.color.register_bk_color));
+        }
     }
 }
