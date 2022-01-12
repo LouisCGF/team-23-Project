@@ -1,5 +1,6 @@
 package com.example.team_23_project;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -20,6 +21,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.team_23_project.databinding.ActivityMainBinding;
+
 public class SearchBar extends AppCompatActivity {
 
     ListView listView;
@@ -37,6 +40,7 @@ public class SearchBar extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_searchbar);
 
         listView = findViewById(R.id.listView);
@@ -60,6 +64,8 @@ public class SearchBar extends AppCompatActivity {
                     }
             }
         });
+
+
 
     }
 
@@ -118,4 +124,14 @@ public class SearchBar extends AppCompatActivity {
             }
         });
     }
+
+    public void onAccountButtonClick(View view){
+
+    }
+
+    public void onSettingsButtonClick(View view){
+        Intent intent = new Intent(SearchBar.this, UserSettings.class);
+        SearchBar.this.startActivity(intent);
+    }
+
 }
