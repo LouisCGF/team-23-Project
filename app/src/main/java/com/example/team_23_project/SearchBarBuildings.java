@@ -1,6 +1,5 @@
 package com.example.team_23_project;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -15,53 +14,45 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.SearchView;
 
-
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
-public class SearchBar extends AppCompatActivity {
+public class SearchBarBuildings extends AppCompatActivity {
 
     ListView listView;
-    String[] universities = {"Newcastle University", "Northumbria University", "University of Bristol",
-            "UCL", "Oxford", "Cambridge",
-            "University of Manchester", "University of Liverpool", "University of Birmingham",
-            "University of Aberdeen", "University of Bath", "University of Brighton", "University of" +
-            " East Anglia", "University of Edinburgh", "University of Glasgow", "Imperial College London",
-            "University of Leeds", "University of London", "University of Nottingham", "Swansea University",
-            "University of Warwick", "University of York", "University of Westminster", "University of West London"};
-    // will get universities from database later, for now it's hardcoded in a String array
+    String[] buildings = {"Urban Sciences Building", "Institute of Genetic Medicine\n" +
+            "and NESCI", "Business School", "Faculty of Medical Sciences", "Old Library Building",
+            "Armstrong Building", "Bedson Building", "Students Union", "Herschel Building", "Politic" +
+            "s Building", "Newcastle Law School", "Architecture Building", "Medical School"};
+    // will get buildings from database later, for now it's hardcoded in a String array
 
     ArrayAdapter<String> arrayAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_searchbar);
+        setContentView(R.layout.activity_searchbar_buildings);
 
         listView = findViewById(R.id.listView);
 
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, universities);
+        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, buildings);
         listView.setAdapter(arrayAdapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // <- Event handler for items in the list
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String selectedItem = (String) parent.getItemAtPosition(position); // <- Item the user
-                                                                                   // clicks on as a
-                                                                                   // String (e.g. will
-                                                                                   // output 'Oxford'
-                                                                                   // if user selects oxford)
-                    if (!selectedItem.equals("Newcastle University")){
-                        showPopUpWindowUni(view);
-                    } else {
-                        Intent intent = new Intent(SearchBar.this, SearchBarBuildings.class);
-                        SearchBar.this.startActivity(intent);
-                    }
+                String selectedItem = (String) parent.getItemAtPosition(position);
+
+                if (!selectedItem.equals("Urban Sciences Building")){
+                    showPopUpWindowBuilding(view);
+                } else{
+                    // go to main functionality
+                }
             }
         });
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -71,7 +62,7 @@ public class SearchBar extends AppCompatActivity {
         MenuItem menuItem = menu.findItem(R.id.nav_search);
         SearchView searchView = (SearchView) menuItem.getActionView();
         searchView.setIconified(false);
-        searchView.setQueryHint("Search University");
+        searchView.setQueryHint("Search Building");
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -81,23 +72,21 @@ public class SearchBar extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-
                 arrayAdapter.getFilter().filter(newText);
                 return false;
             }
         });
 
 
-
         return super.onCreateOptionsMenu(menu);
     }
 
-    public void showPopUpWindowUni(View view) {
+    public void showPopUpWindowBuilding(View view) {
 
         // inflate the layout of the popup window
         LayoutInflater inflater = (LayoutInflater)
                 getSystemService(LAYOUT_INFLATER_SERVICE);
-        View popupView = inflater.inflate(R.layout.popup_window, null);
+        View popupView = inflater.inflate(R.layout.popup_window_2, null);
 
         // create the popup window
         int width = LinearLayout.LayoutParams.WRAP_CONTENT;

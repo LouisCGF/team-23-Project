@@ -103,4 +103,9 @@
         android:id="@+id/userSettings"
         android:name="com.example.team_23_project.UserSettings"
         android:label="UserSettings" />
+    <activity
+        android:id="@+id/searchBarBuildings"
+        android:name="com.example.team_23_project.SearchBarBuildings"
+        android:label="activity_searchbar_buildings"
+        tools:layout="@layout/activity_searchbar_buildings" />
 </navigation>
