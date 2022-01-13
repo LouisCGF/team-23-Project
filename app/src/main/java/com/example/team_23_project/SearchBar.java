@@ -11,6 +11,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
@@ -18,10 +20,11 @@ import android.widget.SearchView;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.team_23_project.databinding.ActivityMainBinding;
 
 public class SearchBar extends AppCompatActivity {
 
@@ -37,16 +40,18 @@ public class SearchBar extends AppCompatActivity {
 
     ArrayAdapter<String> arrayAdapter;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_searchbar);
 
         listView = findViewById(R.id.listView);
 
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, universities);
         listView.setAdapter(arrayAdapter);
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // <- Event handler for items in the list
             @Override
@@ -64,8 +69,6 @@ public class SearchBar extends AppCompatActivity {
                     }
             }
         });
-
-
 
     }
 
@@ -125,13 +128,6 @@ public class SearchBar extends AppCompatActivity {
         });
     }
 
-    public void onAccountButtonClick(View view){
 
-    }
-
-    public void onSettingsButtonClick(View view){
-        Intent intent = new Intent(SearchBar.this, UserSettings.class);
-        SearchBar.this.startActivity(intent);
-    }
 
 }
