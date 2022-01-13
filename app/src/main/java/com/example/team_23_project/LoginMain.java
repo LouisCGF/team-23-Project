@@ -40,7 +40,7 @@ public class LoginMain extends Fragment {
                 System.out.println(binding.passwordTxt.getText());
                 //if (binding.emailTxt == )
                 NavHostFragment.findNavController(LoginMain.this)
-                        .navigate(R.id.action_FirstFragment_to_searchBar);
+                        .navigate(R.id.action_FirstFragment_to_homePageActivity);
                 getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
             }
         });

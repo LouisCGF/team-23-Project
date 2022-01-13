@@ -32,6 +32,11 @@
         <action
             android:id="@+id/action_FirstFragment_to_searchBar"
             app:destination="@id/searchBar" />
+        <action
+            android:id="@+id/action_FirstFragment_to_homePageActivity"
+            app:destination="@id/homePageActivity"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -108,4 +113,9 @@
         android:name="com.example.team_23_project.SearchBarBuildings"
         android:label="activity_searchbar_buildings"
         tools:layout="@layout/activity_searchbar_buildings" />
+    <activity
+        android:id="@+id/homePageActivity"
+        android:name="com.example.team_23_project.HomePageActivity"
+        android:label="activity_home_page"
+        tools:layout="@layout/activity_home_page" />
 </navigation>
