@@ -41,6 +41,7 @@ public class UserSettings extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
 
+
         // In order for the Settings functionality to work:
 
         // TODO -> the Settings layout/fragment needs to be updated with these fields and buttons
@@ -58,6 +59,7 @@ public class UserSettings extends AppCompatActivity {
             userId = extras.getLong("id");
         }
 
+        /**
         if (userId > 0) {
             // Connection and reading of the Settings table
             userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE_SETTINGS
@@ -73,7 +75,9 @@ public class UserSettings extends AppCompatActivity {
         } else {
             saveSettings.setVisibility(View.GONE);
         }
+        **/
     }
+
 
     public void save(View view){
         ContentValues cv = new ContentValues();

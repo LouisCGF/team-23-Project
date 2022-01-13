@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
@@ -20,8 +21,6 @@ import android.widget.SearchView;
 
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -29,6 +28,8 @@ import androidx.navigation.fragment.NavHostFragment;
 public class SearchBar extends AppCompatActivity {
 
     ListView listView;
+    ImageView settingsBtn;
+    ImageView accountBtn;
     String[] universities = {"Newcastle University", "Northumbria University", "University of Bristol",
             "UCL", "Oxford", "Cambridge",
             "University of Manchester", "University of Liverpool", "University of Birmingham",
@@ -48,6 +49,8 @@ public class SearchBar extends AppCompatActivity {
         setContentView(R.layout.activity_searchbar);
 
         listView = findViewById(R.id.listView);
+        settingsBtn = findViewById(R.id.settingsImageView);
+        accountBtn = findViewById(R.id.accountImageView);
 
         arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, universities);
         listView.setAdapter(arrayAdapter);
@@ -69,6 +72,15 @@ public class SearchBar extends AppCompatActivity {
                     }
             }
         });
+
+        settingsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SearchBar.this.startActivity(new Intent(SearchBar.this, UserSettings.class));
+            }
+        });
+
+
 
     }
 
