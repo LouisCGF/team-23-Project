@@ -33,8 +33,8 @@
 
     <TextView
         android:id="@+id/numoOfAtemptstxt"
-        android:layout_width="193dp"
-        android:layout_height="27dp"
+        android:layout_width="199dp"
+        android:layout_height="49dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

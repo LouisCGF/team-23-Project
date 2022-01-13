@@ -16,6 +16,7 @@
     <string name="login">Login</string>
     <string name="new_user_register_for_student">New User? Register For Student</string>
     <string name="register_for_staff">Register For Staff</string>
+    <string name="num_of_attempts">Number of attempts remaining: %1$d</string>
     <string-array name="text_sizes">
         <item>16</item>
         <item>18</item>

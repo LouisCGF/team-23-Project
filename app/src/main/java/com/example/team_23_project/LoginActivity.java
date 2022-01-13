@@ -1,6 +1,7 @@
 package com.example.team_23_project;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -19,15 +20,15 @@ public class LoginActivity extends AppCompatActivity {
     private Button checkLogin;
     private TextView loginAttempts;
 
+    private String inputName;
+    private String inputPassword;
+
     private boolean isValid = false;
     private int counter = 5;
 
     DatabaseHelper sqlHelper;
     SQLiteDatabase db;
     Cursor userCursor;
-
-    String inputName = loginName.getText().toString();
-    String inputPassword = loginPassword.getText().toString();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +40,12 @@ public class LoginActivity extends AppCompatActivity {
         checkLogin = findViewById(R.id.checkLoginbtn);
         loginAttempts = findViewById(R.id.numoOfAtemptstxt);
 
+        inputName = loginName.getText().toString();
+        inputPassword = loginPassword.getText().toString();
+
         sqlHelper = new DatabaseHelper(this);
         db = sqlHelper.getWritableDatabase();
+        Resources res = getResources();
 
         checkLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +66,9 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "The details are incorrect",
                                 Toast.LENGTH_SHORT).show();
 
-                        loginAttempts.setText("Number of attempts left: " + counter);
+
+                        String text = String.format(res.getString(R.string.num_of_attempts), counter); // <- more robust way instead of setText("num attempts remaining" + counter)
+                        loginAttempts.setText(text);
 
                         if (counter == 0) {
                             checkLogin.setEnabled(false);
