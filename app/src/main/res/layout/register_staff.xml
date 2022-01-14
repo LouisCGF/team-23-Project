@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
+    tools:context=".RegisterActivityStaff"
     android:background="@color/register_bk_color"
     android:focusableInTouchMode="true"
     android:gravity="center">
@@ -64,6 +65,7 @@
                         <EditText
                             android:id="@+id/firstNameStaffTxt"
                             style="@style/modifiedEditText"
+                            android:backgroundTint="#FFFFFF"
                             android:hint="First Name"
                             android:inputType="textPersonName"
                             android:maxLines="1" />
@@ -78,6 +80,7 @@
                         <EditText
                             android:id="@+id/lastNameStaffTxt"
                             style="@style/modifiedEditText"
+                            android:backgroundTint="#FFFFFF"
                             android:hint="Last Name"
                             android:inputType="textPersonName"
                             android:maxLines="1" />
@@ -92,6 +95,7 @@
                         <EditText
                             android:id="@+id/emailAdrStaffTxt"
                             style="@style/modifiedEditText"
+                            android:backgroundTint="#FFFFFF"
                             android:hint="Email"
                             android:inputType="textEmailAddress"
                             android:maxLines="1" />
@@ -106,6 +110,7 @@
                         <EditText
                             android:id="@+id/schoolStaffTxt"
                             style="@style/modifiedEditText"
+                            android:backgroundTint="#FFFFFF"
                             android:hint="School"
                             android:inputType="text"
                             android:maxLines="1" />
@@ -120,6 +125,7 @@
                         <EditText
                             android:id="@+id/adminTxt"
                             style="@style/modifiedEditText"
+                            android:backgroundTint="#FFFFFF"
                             android:hint="Admin"
                             android:inputType="text"
                             android:maxLines="1" />
@@ -134,6 +140,7 @@
                         <EditText
                             android:id="@+id/passwordStaffRegTxt"
                             style="@style/modifiedEditText"
+                            android:backgroundTint="#FFFFFF"
                             android:hint="Password"
                             android:inputType="textPassword"
                             android:maxLines="1" />
@@ -148,13 +155,12 @@
                         <EditText
                             android:id="@+id/passwordConfirmStaffRegTxt"
                             style="@style/modifiedEditText"
+                            android:backgroundTint="#FFFFFF"
                             android:hint="Confirm Password"
                             android:inputType="textPassword"
                             android:maxLines="1" />
 
                     </com.google.android.material.textfield.TextInputLayout>
-
-
 
                     <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
                         android:id="@+id/submitStaffRegBtn"
@@ -185,5 +191,23 @@
 
     </ScrollView>
 
+    <View
+        android:layout_width="11dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_side_bg"/>
+
+    <ImageView
+        android:id="@+id/minusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="11dp"
+        android:layout_marginBottom="30dp"
+        android:adjustViewBounds="false"
+        android:src="@drawable/ic_back_img" />
 
 </RelativeLayout>

@@ -27,7 +27,6 @@ public class InsertData extends AppCompatActivity {
         passwordTxt = (EditText) findViewById(R.id.passwordStudentRegTxt);
 
         // STUDENT TABLE BINDING
-        studentNumberTxt = (EditText) findViewById(R.id.studentNumberTxt);
         courseTxt = (EditText) findViewById(R.id.courseStudentTxt);
         stageTxt = (EditText) findViewById(R.id.stageStudentTxt);
 

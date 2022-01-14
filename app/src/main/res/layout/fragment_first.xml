@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginMain"
+    tools:context=".LoginActivity"
     android:layout_gravity="center"
-    android:background="#FFFFFF"
     android:focusableInTouchMode="true"
     android:gravity="center">
 
@@ -29,14 +28,10 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/viewParent.headerText.NoMode"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    android:text="@string/already_nhave_an_naccount"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-                    android:textColor="#020000" />
+                    android:text="Already \nhave an \nAccount?"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -50,49 +45,44 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                style="@style/parent"
+                android:layout_marginTop="@dimen/loginViewsMargin">
 
                 <EditText
-                    android:id="@+id/emailTxt"
-                    android:textSize="12sp"
-                    android:backgroundTint="#11CFC5"
+                    android:id="@+id/editEmailTxt"
+                    style="@style/modifiedEditText"
+                    android:backgroundTint="#FFFFFF"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress"
-                    android:maxLines="1"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent" />
+                    android:maxLines="1"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                style="@style/parent"
+                android:layout_marginTop="@dimen/loginViewsMargin">
 
                 <EditText
-                    android:id="@+id/passwordTxt"
-                    android:textSize="12sp"
-                    android:backgroundTint="#11CFC5"
+                    android:id="@+id/editPasswordTxt"
+                    style="@style/modifiedEditText"
+                    android:backgroundTint="#FFFFFF"
                     android:hint="@string/password"
                     android:inputType="textPassword"
-                    android:maxLines="1"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"/>
+                    android:maxLines="1"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
                 android:id="@+id/loginBtn"
+                style="@style/loginButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_background_blue"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/loginViewsMargin"
                 android:text="@string/login"
                 app:initialCornerAngle="27dp"
                 app:spinning_bar_color="#FFF"
@@ -101,22 +91,24 @@
 
             <TextView
                 android:id="@+id/regStuBtn"
+                style="@style/parent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_margin="@dimen/loginViewsMargin"
                 android:text="@string/new_user_register_for_student"
                 android:textAlignment="center"
-                android:textColor="#11CFC5"
+                android:textColor="@color/themeColor"
                 android:textSize="17sp"
                 android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/regStaBtn"
+                style="@style/parent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/register_for_staff"
                 android:textAlignment="center"
-                android:textColor="#11CFC5"
+                android:textColor="@color/themeColor"
                 android:textSize="17sp"
                 android:textStyle="bold"/>
 
@@ -131,7 +123,7 @@
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_weight="3"
-                    android:background="#000000"/>
+                    android:background="@color/colorPrimaryDark"/>
 
                 <TextView
                     android:id="@+id/faqBtn"
@@ -139,7 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="FAQS and Q and As"
+                    android:text="FAQS and Q&#38;As"
                     android:textAlignment="center"
                     android:textSize="12sp"/>
 
@@ -147,7 +139,7 @@
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_weight="3"
-                    android:background="#000000"/>
+                    android:background="@color/colorPrimaryDark"/>
 
 
             </LinearLayout>
@@ -173,6 +165,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="11dp"
         android:layout_marginBottom="30dp"
+        android:onClick="onLoginClick"
         android:src="@drawable/ic_add_img" />
 
 </RelativeLayout>

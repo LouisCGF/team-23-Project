@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,7 +34,11 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_demo);
+        // This changes the status bar icon color
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
+        setContentView(R.layout.fragment_first);
 
         loginName = findViewById(R.id.loginNametxt);
         loginPassword = findViewById(R.id.loginPasswordtxt);
@@ -100,6 +105,11 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         return false;
+    }
+
+    public void onLoginClick(View view){
+        startActivity(new Intent(this, RegisterActivityStudent.class));
+        overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
     }
 
 }

@@ -36,8 +36,8 @@ public class LoginMain extends Fragment {
         binding.loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println(binding.emailTxt.getText());
-                System.out.println(binding.passwordTxt.getText());
+                System.out.println(binding.editEmailTxt.getText());
+                System.out.println(binding.editPasswordTxt.getText());
                 //if (binding.emailTxt == )
                 NavHostFragment.findNavController(LoginMain.this)
                         .navigate(R.id.action_FirstFragment_to_homePageActivity);

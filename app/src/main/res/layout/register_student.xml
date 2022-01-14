@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
+    tools:context=".RegisterActivityStudent"
     android:background="@color/register_bk_color"
     android:focusableInTouchMode="true"
     android:gravity="center">
@@ -57,13 +58,14 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/studentFNInput"
+                        android:id="@+id/studentFirstName"
                         style="@style/parent"
-                        android:layout_marginTop="@dimen/registerViewsMargin">
+                        android:layout_marginTop="@dimen/loginViewsMargin">
 
                         <EditText
                             android:id="@+id/firstNameStudentTxt"
                             style="@style/modifiedEditText"
+                            android:backgroundTint="#FFFFFF"
                             android:hint="First Name"
                             android:inputType="textPersonName"
                             android:maxLines="1" />
@@ -71,31 +73,18 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/studentLNInput"
+                        android:id="@+id/studentLastName"
                         style="@style/parent"
                         android:layout_marginTop="@dimen/registerViewsMargin">
 
                         <EditText
                             android:id="@+id/lastNameStudentTxt"
                             style="@style/modifiedEditText"
+                            android:backgroundTint="#FFFFFF"
                             android:hint="Last Name"
                             android:inputType="textPersonName"
                             android:maxLines="1"
                             tools:ignore="SpeakableTextPresentCheck" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/studentNumInput"
-                        style="@style/parent"
-                        android:layout_marginTop="@dimen/registerViewsMargin">
-
-                        <EditText
-                            android:id="@+id/studentNumberTxt"
-                            style="@style/modifiedEditText"
-                            android:hint="Student Number"
-                            android:inputType="text|number"
-                            android:maxLines="1" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -107,6 +96,7 @@
                         <EditText
                             android:id="@+id/emailAdrStudentTxt"
                             style="@style/modifiedEditText"
+                            android:backgroundTint="#FFFFFF"
                             android:hint="Email"
                             android:inputType="textEmailAddress"
                             android:maxLines="1" />
@@ -121,6 +111,7 @@
                         <EditText
                             android:id="@+id/courseStudentTxt"
                             style="@style/modifiedEditText"
+                            android:backgroundTint="#FFFFFF"
                             android:hint="Course"
                             android:inputType="text"
                             android:maxLines="1" />
@@ -135,6 +126,7 @@
                         <EditText
                             android:id="@+id/stageStudentTxt"
                             style="@style/modifiedEditText"
+                            android:backgroundTint="#FFFFFF"
                             android:hint="Stage"
                             android:inputType="text"
                             android:maxLines="1" />
@@ -149,6 +141,7 @@
                         <EditText
                             android:id="@+id/passwordStudentRegTxt"
                             style="@style/modifiedEditText"
+                            android:backgroundTint="#FFFFFF"
                             android:hint="Password"
                             android:inputType="textPassword"
                             android:maxLines="1" />
@@ -163,6 +156,7 @@
                         <EditText
                             android:id="@+id/passwordConfirmStudentRegTxt"
                             style="@style/modifiedEditText"
+                            android:backgroundTint="#FFFFFF"
                             android:hint="Confirm Password"
                             android:inputType="textPassword"
                             android:maxLines="1" />
@@ -174,7 +168,6 @@
                         style="@style/loginButton"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="@dimen/loginViewsMargin"
-                        android:layout_marginBottom="10dp"
                         android:text="Register"
                         app:initialCornerAngle="27dp"
                         app:spinning_bar_color="#FFF"
