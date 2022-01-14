@@ -36,8 +36,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
                         android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
                         android:text="Theme"
                         android:textColor="@color/whiteTextColor"
                         android:textSize="20sp" />
@@ -54,31 +54,31 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="90dp"
                         android:layout_marginLeft="20dp"
+                        android:layout_marginTop="90dp"
                         android:text="Colour Blind Mode:"
-                        android:textSize="20sp"
-                        android:textColor="@color/whiteTextColor"/>
+                        android:textColor="@color/whiteTextColor"
+                        android:textSize="20sp" />
 
                     <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/colourBlindModeSwitch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="80dp"/>
+                        android:layout_marginTop="80dp" />
 
                     <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
                         android:id="@+id/saveSettingsButton"
                         style="@style/loginButton"
-                        android:layout_marginTop="490dp"
                         android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="490dp"
                         android:text="Save" />
 
                     <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
                         android:id="@+id/feedbackButtonSettings"
                         style="@style/loginButton"
+                        android:layout_gravity="center_horizontal"
                         android:layout_marginTop="550dp"
                         android:layout_marginBottom="10dp"
-                        android:layout_gravity="center_horizontal"
                         android:text="Feedback" />
 
                 </androidx.cardview.widget.CardView>

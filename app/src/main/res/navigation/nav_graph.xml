@@ -98,7 +98,7 @@
         tools:layout="@layout/activity_searchbar" />
     <fragment
         android:id="@+id/userAccount"
-        android:name="com.example.team_23_project.javaPageFragments.UserAccount"
+        android:name="com.example.team_23_project.UserAccount"
         android:label="UserAccount" >
         <action
             android:id="@+id/action_userAccount_to_userSettings"
