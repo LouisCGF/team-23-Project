@@ -38,4 +38,9 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="contactUsText">Contact us</string>
+    <string name="full_name">Full Name</string>
+    <string name="send">Send</string>
+    <string name="enter_your_message_here">Enter your message here:</string>
+    <string name="email_address">Email address</string>
 </resources>

@@ -27,12 +27,15 @@ public class ContactUs extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.ContactUsBtn.setOnClickListener(new View.OnClickListener() {
+
+        binding.saveSendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
         });
+
+
 
     }
 }
