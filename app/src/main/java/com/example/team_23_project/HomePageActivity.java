@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.team_23_project.javaPageFragments.FAQandQA;
+import com.example.team_23_project.Activities.FAQandQAActivity;
 
 public class HomePageActivity extends AppCompatActivity {
 
@@ -50,7 +50,7 @@ public class HomePageActivity extends AppCompatActivity {
         faqs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HomePageActivity.this.startActivity(new Intent(HomePageActivity.this, FAQandQA.class));
+                HomePageActivity.this.startActivity(new Intent(HomePageActivity.this, FAQandQAActivity.class));
             }
         });
 

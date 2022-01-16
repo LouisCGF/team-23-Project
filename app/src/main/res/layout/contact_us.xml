@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     android:background="@color/primaryTextColor"
     android:focusableInTouchMode="true"
-    tools:context="com.example.team_23_project.javaPageFragments.ContactUs"
+    tools:context="com.example.team_23_project.Activities.ContactUsActivity"
     android:gravity="center"
     android:padding="4dp">
 

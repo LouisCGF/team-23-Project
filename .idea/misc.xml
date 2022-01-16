@@ -3,47 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProjects/proj23/app/src/main/res/layout/activity_faq_and_qa.xml" value="0.2296195652173913" />
         <entry key="..\:/AndroidProjects/proj23/app/src/main/res/layout/activity_home_page.xml" value="0.2296195652173913" />
         <entry key="..\:/AndroidProjects/proj23/app/src/main/res/layout/activity_main.xml" value="0.2296195652173913" />
+        <entry key="..\:/AndroidProjects/proj23/app/src/main/res/layout/contact_us.xml" value="0.2296195652173913" />
         <entry key="..\:/AndroidProjects/proj23/app/src/main/res/layout/content_main.xml" value="0.2296195652173913" />
+        <entry key="..\:/AndroidProjects/proj23/app/src/main/res/layout/faq_page.xml" value="0.2296195652173913" />
         <entry key="..\:/AndroidProjects/proj23/app/src/main/res/layout/fragment_second.xml" value="0.18020833333333333" />
         <entry key="..\:/AndroidProjects/proj23/app/src/main/res/layout/login_demo.xml" value="0.2296195652173913" />
         <entry key="..\:/AndroidProjects/proj23/app/src/main/res/layout/register_staff.xml" value="0.23369565217391305" />
         <entry key="..\:/AndroidProjects/proj23/app/src/main/res/layout/register_student.xml" value="0.23369565217391305" />
         <entry key="..\:/AndroidProjects/proj23/app/src/main/res/layout/user_account.xml" value="0.2296195652173913" />
         <entry key="..\:/AndroidProjects/proj23/app/src/main/res/layout/user_settings.xml" value="0.2296195652173913" />
-        <entry key="..\:/Users/Ducu/AndroidStudioProjects/team-23-Project/app/src/main/res/drawable/ic_login_hero.xml" value="0.3828125" />
-        <entry key="..\:/Users/Ducu/AndroidStudioProjects/team-23-Project/app/src/main/res/layout/activity_building_view.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/Ducu/AndroidStudioProjects/team-23-Project/app/src/main/res/layout/activity_home_page.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Ducu/AndroidStudioProjects/team-23-Project/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Ducu/AndroidStudioProjects/team-23-Project/app/src/main/res/layout/activity_searchbar.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Ducu/AndroidStudioProjects/team-23-Project/app/src/main/res/layout/activity_searchbar_buildings.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Ducu/AndroidStudioProjects/team-23-Project/app/src/main/res/layout/contact_us.xml" value="0.33" />
-        <entry key="..\:/Users/Ducu/AndroidStudioProjects/team-23-Project/app/src/main/res/layout/content_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Ducu/AndroidStudioProjects/team-23-Project/app/src/main/res/layout/faq_page.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Ducu/AndroidStudioProjects/team-23-Project/app/src/main/res/layout/fragment_first.xml" value="0.33" />
         <entry key="..\:/Users/Ducu/AndroidStudioProjects/team-23-Project/app/src/main/res/layout/fragment_second.xml" value="0.3645833333333333" />
-        <entry key="..\:/Users/Ducu/AndroidStudioProjects/team-23-Project/app/src/main/res/layout/login_demo.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Ducu/AndroidStudioProjects/team-23-Project/app/src/main/res/layout/popup_window_2.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Ducu/AndroidStudioProjects/team-23-Project/app/src/main/res/layout/register_staff.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Ducu/AndroidStudioProjects/team-23-Project/app/src/main/res/layout/register_student.xml" value="0.33" />
-        <entry key="..\:/Users/Ducu/AndroidStudioProjects/team-23-Project/app/src/main/res/layout/user_account.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Ducu/AndroidStudioProjects/team-23-Project/app/src/main/res/layout/user_settings.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/drawable/button_background_blue.xml" value="0.21837606837606838" />
-        <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/drawable/cut_card_background.xml" value="0.21837606837606838" />
-        <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/drawable/ic_login_hero.xml" value="0.21561181434599155" />
-        <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/drawable/ic_main_entrance_icon.xml" value="0.21837606837606838" />
-        <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/drawable/ic_register_hero.xml" value="0.21837606837606838" />
-        <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/drawable/ic_room_icon.xml" value="0.21837606837606838" />
-        <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/drawable/ic_side_bg.xml" value="0.21837606837606838" />
-        <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/layout/activity_building_view.xml" value="0.264" />
+        <entry key="..\:/Users/Ducu/AndroidStudioProjects/team-23-Project/app/src/main/res/layout/register_student.xml" value="0.3645833333333333" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/layout/contact_us.xml" value="0.264" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/layout/content_main.xml" value="0.1793478260869565" />
-        <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/layout/faq_page.xml" value="0.10025062656641603" />
-        <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/layout/fragment_first.xml" value="0.264" />
-        <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/layout/register_staff.xml" value="0.264" />
-        <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/layout/register_student.xml" value="0.264" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/layout/fragment_first.xml" value="0.176" />
       </map>
     </option>
   </component>
@@ -52,12 +30,5 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.264" />
-      </ProjectState>
-    </option>
   </component>
 </project>
