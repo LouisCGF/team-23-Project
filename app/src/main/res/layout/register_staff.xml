@@ -30,15 +30,19 @@
                     style="@style/viewParent.headerText.NoMode"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    android:text="Register \nFor Staff"
+                    android:layout_marginStart="21dp"
+                    android:text="@string/register_nfor_staff"
                     android:textColor="@color/whiteTextColor" />
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="203dp"
+                    android:layout_height="145dp"
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_login_hero" />
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="168dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/white_logo" />
 
 
             </RelativeLayout>
@@ -46,7 +50,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginBottom="20dp"
                 app:cardBackgroundColor="@color/whiteTextColor"
                 app:cardCornerRadius="10dp">
@@ -58,22 +62,22 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/staffFNInput"
+                        android:id="@+id/staffFirstNameInput"
                         style="@style/parent"
-                        android:layout_marginTop="@dimen/registerViewsMargin">
+                        android:layout_marginTop="@dimen/loginViewsMargin">
 
                         <EditText
                             android:id="@+id/firstNameStaffTxt"
                             style="@style/modifiedEditText"
                             android:backgroundTint="#FFFFFF"
-                            android:hint="First Name"
+                            android:hint="@string/first_name"
                             android:inputType="textPersonName"
                             android:maxLines="1" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/staffLNInput"
+                        android:id="@+id/staffLastNameInput"
                         style="@style/parent"
                         android:layout_marginTop="@dimen/registerViewsMargin">
 
@@ -81,7 +85,7 @@
                             android:id="@+id/lastNameStaffTxt"
                             style="@style/modifiedEditText"
                             android:backgroundTint="#FFFFFF"
-                            android:hint="Last Name"
+                            android:hint="@string/last_name"
                             android:inputType="textPersonName"
                             android:maxLines="1" />
 
@@ -96,7 +100,7 @@
                             android:id="@+id/emailAdrStaffTxt"
                             style="@style/modifiedEditText"
                             android:backgroundTint="#FFFFFF"
-                            android:hint="Email"
+                            android:hint="@string/email"
                             android:inputType="textEmailAddress"
                             android:maxLines="1" />
 
@@ -111,7 +115,7 @@
                             android:id="@+id/schoolStaffTxt"
                             style="@style/modifiedEditText"
                             android:backgroundTint="#FFFFFF"
-                            android:hint="School"
+                            android:hint="@string/school"
                             android:inputType="text"
                             android:maxLines="1" />
 
@@ -126,7 +130,7 @@
                             android:id="@+id/adminTxt"
                             style="@style/modifiedEditText"
                             android:backgroundTint="#FFFFFF"
-                            android:hint="Admin"
+                            android:hint="@string/admin"
                             android:inputType="text"
                             android:maxLines="1" />
 
@@ -141,7 +145,7 @@
                             android:id="@+id/passwordStaffRegTxt"
                             style="@style/modifiedEditText"
                             android:backgroundTint="#FFFFFF"
-                            android:hint="Password"
+                            android:hint="@string/password"
                             android:inputType="textPassword"
                             android:maxLines="1" />
 
@@ -156,7 +160,7 @@
                             android:id="@+id/passwordConfirmStaffRegTxt"
                             style="@style/modifiedEditText"
                             android:backgroundTint="#FFFFFF"
-                            android:hint="Confirm Password"
+                            android:hint="@string/confirm_password"
                             android:inputType="textPassword"
                             android:maxLines="1" />
 
@@ -167,7 +171,7 @@
                         style="@style/loginButton"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="@dimen/loginViewsMargin"
-                        android:text="Register"
+                        android:text="@string/register"
                         app:initialCornerAngle="27dp"
                         app:spinning_bar_color="#FFF"
                         app:spinning_bar_padding="6dp"
@@ -179,7 +183,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="8dp"
-                        android:text="Already Have an Account? Sign in"
+                        android:text="@string/already_have_an_account_sign_in"
                         android:textColor="@color/darkTextColor"/>
 
 

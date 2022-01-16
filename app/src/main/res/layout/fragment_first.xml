@@ -15,6 +15,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="10dp"
         android:paddingTop="20dp">
 
         <LinearLayout
@@ -25,27 +27,27 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="173dp">
+                android:layout_height="173dp"
+                android:layout_marginBottom="20dp">
 
 
                 <ImageView
-                    android:layout_width="151dp"
-                    android:layout_height="148dp"
-                    android:layout_alignParentLeft="true"
+                    android:layout_width="160dp"
+                    android:layout_height="153dp"
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginLeft="31dp"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="0dp"
                     android:src="@drawable/blue_logo" />
 
                 <ImageView
-                    android:layout_width="140dp"
-                    android:layout_height="65dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="125dp"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="177dp"
-                    android:layout_marginLeft="175dp"
-                    android:layout_marginTop="85dp"
+                    android:layout_marginStart="188dp"
+                    android:layout_marginTop="56dp"
                     android:src="@drawable/logo_blue_text" />
 
 
@@ -59,10 +61,10 @@
                 <EditText
                     android:id="@+id/editEmailTxt"
                     style="@style/modifiedEditText"
-                    android:backgroundTint="#FFFFFF"
+                    android:backgroundTint="#2E2E2E"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress"
-                    android:maxLines="1"/>
+                    android:maxLines="1" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,10 +76,10 @@
                 <EditText
                     android:id="@+id/editPasswordTxt"
                     style="@style/modifiedEditText"
-                    android:backgroundTint="#FFFFFF"
+                    android:backgroundTint="#2E2E2E"
                     android:hint="@string/password"
                     android:inputType="textPassword"
-                    android:maxLines="1"/>
+                    android:maxLines="1" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,12 +88,12 @@
                 style="@style/loginButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_background_blue"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/loginViewsMargin"
+                android:background="@drawable/button_background_blue"
                 android:text="@string/login"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
                 app:initialCornerAngle="27dp"
                 app:spinning_bar_color="#FFF"
                 app:spinning_bar_padding="6dp"
@@ -107,7 +109,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/themeColor"
                 android:textSize="17sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/regStaBtn"
@@ -118,7 +120,7 @@
                 android:textAlignment="center"
                 android:textColor="@color/themeColor"
                 android:textSize="17sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -131,23 +133,23 @@
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_weight="3"
-                    android:background="@color/colorPrimaryDark"/>
+                    android:background="#2E2E2E" />
 
                 <TextView
                     android:id="@+id/faqBtn"
-                    android:textColor="#020000"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="6"
-                    android:text="FAQS and Q&#38;As"
+                    android:text="@string/faqs_and_qas"
                     android:textAlignment="center"
-                    android:textSize="12sp"/>
+                    android:textColor="#2E2E2E"
+                    android:textSize="12sp" />
 
                 <View
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_weight="3"
-                    android:background="@color/colorPrimaryDark"/>
+                    android:background="#2E2E2E" />
 
 
             </LinearLayout>

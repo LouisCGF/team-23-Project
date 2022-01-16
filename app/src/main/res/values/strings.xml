@@ -10,8 +10,6 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="search_for_university">Search For University</string>
-    <string name="password">Password</string>
-    <string name="email">Email</string>
     <string name="already_nhave_an_naccount">Already\nhave an \nAccount?</string>
     <string name="login">Login</string>
     <string name="new_user_register_for_student">New User? Register For Student</string>
@@ -45,6 +43,20 @@
     <string name="email_address">Email address</string>
     <string name="select_an_email">Select an email</string>
     <string name="subject">Subject:</string>
+    <string name="faqs_and_qas"><![CDATA[FAQS and Q&As]]></string>
+    <string name="register_nfor_student">Register \nFor Student</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="course">Course</string>
+    <string name="stage">Stage</string>
+    <string name="register_nfor_staff">Register \nFor Staff</string>
+    <string name="school">School</string>
+    <string name="admin">Admin</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register">Register</string>
+    <string name="already_have_an_account_sign_in">Already Have an Account? Sign in</string>
 
     <string-array name="emails">
         <item>c0034793@newcastle.ac.uk</item>

@@ -30,15 +30,19 @@
                     style="@style/viewParent.headerText.NoMode"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
-                    android:text="Register \nFor Student"
+                    android:layout_marginStart="21dp"
+                    android:text="@string/register_nfor_student"
                     android:textColor="@color/whiteTextColor" />
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="203dp"
+                    android:layout_height="145dp"
+                    android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/ic_login_hero" />
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="168dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/white_logo" />
 
 
             </RelativeLayout>
@@ -46,7 +50,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginBottom="20dp"
                 app:cardBackgroundColor="@color/whiteTextColor"
                 app:cardCornerRadius="10dp">
@@ -58,30 +62,30 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/studentFirstName"
+                        android:id="@+id/studentFirstNameInput"
                         style="@style/parent"
                         android:layout_marginTop="@dimen/loginViewsMargin">
 
                         <EditText
                             android:id="@+id/firstNameStudentTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#FFFFFF"
-                            android:hint="First Name"
+                            android:backgroundTint="#2E2E2E"
+                            android:hint="@string/first_name"
                             android:inputType="textPersonName"
                             android:maxLines="1" />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/studentLastName"
+                        android:id="@+id/studentLastNameInput"
                         style="@style/parent"
                         android:layout_marginTop="@dimen/registerViewsMargin">
 
                         <EditText
                             android:id="@+id/lastNameStudentTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#FFFFFF"
-                            android:hint="Last Name"
+                            android:backgroundTint="#2E2E2E"
+                            android:hint="@string/last_name"
                             android:inputType="textPersonName"
                             android:maxLines="1"
                             tools:ignore="SpeakableTextPresentCheck" />
@@ -96,8 +100,8 @@
                         <EditText
                             android:id="@+id/emailAdrStudentTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#FFFFFF"
-                            android:hint="Email"
+                            android:backgroundTint="#2E2E2E"
+                            android:hint="@string/email"
                             android:inputType="textEmailAddress"
                             android:maxLines="1" />
 
@@ -111,8 +115,8 @@
                         <EditText
                             android:id="@+id/courseStudentTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#FFFFFF"
-                            android:hint="Course"
+                            android:backgroundTint="#2E2E2E"
+                            android:hint="@string/course"
                             android:inputType="text"
                             android:maxLines="1" />
 
@@ -126,8 +130,8 @@
                         <EditText
                             android:id="@+id/stageStudentTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#FFFFFF"
-                            android:hint="Stage"
+                            android:backgroundTint="#2E2E2E"
+                            android:hint="@string/stage"
                             android:inputType="text"
                             android:maxLines="1" />
 
@@ -141,8 +145,8 @@
                         <EditText
                             android:id="@+id/passwordStudentRegTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#FFFFFF"
-                            android:hint="Password"
+                            android:backgroundTint="#2E2E2E"
+                            android:hint="@string/password"
                             android:inputType="textPassword"
                             android:maxLines="1" />
 
@@ -156,8 +160,8 @@
                         <EditText
                             android:id="@+id/passwordConfirmStudentRegTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#FFFFFF"
-                            android:hint="Confirm Password"
+                            android:backgroundTint="#2E2E2E"
+                            android:hint="@string/confirm_password"
                             android:inputType="textPassword"
                             android:maxLines="1" />
 
@@ -168,7 +172,7 @@
                         style="@style/loginButton"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="@dimen/loginViewsMargin"
-                        android:text="Register"
+                        android:text="@string/register"
                         app:initialCornerAngle="27dp"
                         app:spinning_bar_color="#FFF"
                         app:spinning_bar_padding="6dp"
@@ -187,7 +191,7 @@
         android:layout_width="11dp"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/ic_side_bg"/>
 
@@ -195,9 +199,9 @@
         android:id="@+id/minusButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="11dp"
+        android:layout_marginEnd="11dp"
         android:layout_marginBottom="30dp"
         android:adjustViewBounds="false"
         android:src="@drawable/ic_back_img" />
