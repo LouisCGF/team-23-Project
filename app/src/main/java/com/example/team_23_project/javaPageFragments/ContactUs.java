@@ -1,41 +1,61 @@
 package com.example.team_23_project.javaPageFragments;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.EditText;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
+import com.example.team_23_project.R;
 
-import com.example.team_23_project.databinding.ContactUsBinding;
+public class ContactUs extends AppCompatActivity {
 
-public class ContactUs extends Fragment {
-
-    private ContactUsBinding binding;
+    private EditText mEditTextSubject;
+    private EditText mEditTextMessage;
 
     @Override
-    public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState
-    ) {
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.contact_us);
 
-        binding = ContactUsBinding.inflate(inflater, container, false);
-        return binding.getRoot();
+        String[] emails = getResources().getStringArray(R.array.emails);
 
-    }
+        //mEditTextSubject = findViewById(R.id.subjectField);
+        mEditTextMessage = findViewById(R.id.messageBox);
 
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        AutoCompleteTextView editText = findViewById(R.id.emailSelector);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, emails);
+        editText.setAdapter(adapter);
 
-        binding.saveSendMessage.setOnClickListener(new View.OnClickListener() {
+
+        Button buttonSend = findViewById(R.id.buttonSend);
+        buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
+            public void onClick(View v) {
+                sendMail();
             }
         });
-
-
-
     }
+
+    private void sendMail() {
+        String[] emails = getResources().getStringArray(R.array.emails);
+
+        String subject = mEditTextSubject.getText().toString();
+        String message = mEditTextMessage.getText().toString();
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_EMAIL, emails);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+
+        intent.setType("message/rfc822");
+        startActivity(Intent.createChooser(intent, "Choose an email client"));
+    }
+
 }
