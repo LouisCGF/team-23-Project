@@ -16,7 +16,6 @@ public class RegisterActivityStaff extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register_staff);
 
-        changeStatusBarColor();
     }
 
 
@@ -31,6 +30,5 @@ public class RegisterActivityStaff extends AppCompatActivity {
 
     public void onLoginClick(View view){
         startActivity(new Intent(this, LoginActivity.class));
-        overridePendingTransition(R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
 }
