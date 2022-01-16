@@ -25,20 +25,28 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="173dp">
 
-                <TextView
-                    style="@style/viewParent.headerText.NoMode"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:text="Already \nhave an \nAccount?"/>
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="151dp"
+                    android:layout_height="148dp"
+                    android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_register_hero" />
+                    android:layout_marginLeft="31dp"
+                    android:layout_marginTop="3dp"
+                    android:src="@drawable/blue_logo" />
+
+                <ImageView
+                    android:layout_width="140dp"
+                    android:layout_height="65dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="177dp"
+                    android:layout_marginLeft="175dp"
+                    android:layout_marginTop="85dp"
+                    android:src="@drawable/logo_blue_text" />
 
 
             </RelativeLayout>
