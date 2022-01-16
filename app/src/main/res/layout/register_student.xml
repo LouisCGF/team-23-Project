@@ -22,6 +22,7 @@
             android:orientation="vertical"
             android:padding="20dp">
 
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -64,12 +65,13 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/studentFirstNameInput"
                         style="@style/parent"
-                        android:layout_marginTop="@dimen/loginViewsMargin">
+                        android:layout_marginTop="@dimen/loginViewsMargin"
+                        app:boxStrokeColor="#2E2E2E">
 
                         <EditText
                             android:id="@+id/firstNameStudentTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#2E2E2E"
+                            android:backgroundTint="@color/white"
                             android:hint="@string/first_name"
                             android:inputType="textPersonName"
                             android:maxLines="1" />
@@ -79,12 +81,13 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/studentLastNameInput"
                         style="@style/parent"
-                        android:layout_marginTop="@dimen/registerViewsMargin">
+                        android:layout_marginTop="@dimen/registerViewsMargin"
+                        app:boxStrokeColor="#2E2E2E">
 
                         <EditText
                             android:id="@+id/lastNameStudentTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#2E2E2E"
+                            android:backgroundTint="@color/white"
                             android:hint="@string/last_name"
                             android:inputType="textPersonName"
                             android:maxLines="1"
@@ -95,12 +98,13 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/studentEmailInput"
                         style="@style/parent"
-                        android:layout_marginTop="@dimen/registerViewsMargin">
+                        android:layout_marginTop="@dimen/registerViewsMargin"
+                        app:boxStrokeColor="#2E2E2E">
 
                         <EditText
                             android:id="@+id/emailAdrStudentTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#2E2E2E"
+                            android:backgroundTint="@color/white"
                             android:hint="@string/email"
                             android:inputType="textEmailAddress"
                             android:maxLines="1" />
@@ -110,12 +114,13 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/studentCourseInput"
                         style="@style/parent"
-                        android:layout_marginTop="@dimen/registerViewsMargin">
+                        android:layout_marginTop="@dimen/registerViewsMargin"
+                        app:boxStrokeColor="#2E2E2E">
 
                         <EditText
                             android:id="@+id/courseStudentTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#2E2E2E"
+                            android:backgroundTint="@color/white"
                             android:hint="@string/course"
                             android:inputType="text"
                             android:maxLines="1" />
@@ -125,12 +130,13 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/studentStageInput"
                         style="@style/parent"
-                        android:layout_marginTop="@dimen/registerViewsMargin">
+                        android:layout_marginTop="@dimen/registerViewsMargin"
+                        app:boxStrokeColor="#2E2E2E">
 
                         <EditText
                             android:id="@+id/stageStudentTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#2E2E2E"
+                            android:backgroundTint="@color/white"
                             android:hint="@string/stage"
                             android:inputType="text"
                             android:maxLines="1" />
@@ -140,12 +146,13 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/studentPassInput"
                         style="@style/parent"
-                        android:layout_marginTop="@dimen/registerViewsMargin">
+                        android:layout_marginTop="@dimen/registerViewsMargin"
+                        app:boxStrokeColor="#2E2E2E">
 
                         <EditText
                             android:id="@+id/passwordStudentRegTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#2E2E2E"
+                            android:backgroundTint="@color/white"
                             android:hint="@string/password"
                             android:inputType="textPassword"
                             android:maxLines="1" />
@@ -155,12 +162,13 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/studentConfPassInput"
                         style="@style/parent"
-                        android:layout_marginTop="@dimen/registerViewsMargin">
+                        android:layout_marginTop="@dimen/registerViewsMargin"
+                        app:boxStrokeColor="#2E2E2E">
 
                         <EditText
                             android:id="@+id/passwordConfirmStudentRegTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#2E2E2E"
+                            android:backgroundTint="@color/white"
                             android:hint="@string/confirm_password"
                             android:inputType="textPassword"
                             android:maxLines="1" />

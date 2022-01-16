@@ -56,12 +56,13 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputEmail"
                 style="@style/parent"
-                android:layout_marginTop="@dimen/loginViewsMargin">
+                android:layout_marginTop="@dimen/loginViewsMargin"
+                app:boxStrokeColor="#2E2E2E">
 
                 <EditText
                     android:id="@+id/editEmailTxt"
                     style="@style/modifiedEditText"
-                    android:backgroundTint="#2E2E2E"
+                    android:backgroundTint="@color/white"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress"
                     android:maxLines="1" />
@@ -71,12 +72,13 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputPassword"
                 style="@style/parent"
-                android:layout_marginTop="@dimen/loginViewsMargin">
+                android:layout_marginTop="@dimen/loginViewsMargin"
+                app:boxStrokeColor="#2E2E2E">
 
                 <EditText
                     android:id="@+id/editPasswordTxt"
                     style="@style/modifiedEditText"
-                    android:backgroundTint="#2E2E2E"
+                    android:backgroundTint="@color/white"
                     android:hint="@string/password"
                     android:inputType="textPassword"
                     android:maxLines="1" />
