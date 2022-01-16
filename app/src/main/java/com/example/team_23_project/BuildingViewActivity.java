@@ -92,6 +92,7 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
         streetViewPanoramaFragment.getStreetViewPanoramaAsync(this);
 
         currentPosition = entrance;
+
         
         // -- Ground Floor Buttons --
         groundFloorButton = findViewById(R.id.groundFloorButton);
@@ -150,6 +151,7 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
                 setVisibility(4);
                 setAnimation(4);
                 fourthFloorClicked = !fourthFloorClicked;
+                retractOpenButtonsExceptCurrent(4);
 
             }
         });
@@ -160,6 +162,7 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
                 setVisibility(3);
                 setAnimation(3);
                 thirdFloorClicked = !thirdFloorClicked;
+                retractOpenButtonsExceptCurrent(3);
 
             }
         });
@@ -170,6 +173,7 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
                 setVisibility(2);
                 setAnimation(2);
                 secondFloorClicked = !secondFloorClicked;
+                retractOpenButtonsExceptCurrent(2);
 
             }
         });
@@ -180,6 +184,7 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
                 setVisibility(1);
                 setAnimation(1);
                 firstFloorClicked = !firstFloorClicked;
+                retractOpenButtonsExceptCurrent(1);
 
             }
         });
@@ -190,6 +195,7 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
                 setVisibility(0);
                 setAnimation(0);
                 groundFloorClicked = !groundFloorClicked;
+                retractOpenButtonsExceptCurrent(0);
 
             }
         });
@@ -202,7 +208,6 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
             public void onClick(View v) {
                 currentPosition = entrance;
                 retractButtons(0);
-                groundFloorClicked = false;
                 onStreetViewPanoramaReady(streetViewPanoramaMain);
             }
         });
@@ -212,7 +217,6 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
             public void onClick(View v) {
                 currentPosition = roomG003;
                 retractButtons(0);
-                groundFloorClicked = false;
                 onStreetViewPanoramaReady(streetViewPanoramaMain);
             }
         });
@@ -222,7 +226,6 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
             public void onClick(View v) {
                 currentPosition = groundFloorLifts;
                 retractButtons(0);
-                groundFloorClicked = false;
                 onStreetViewPanoramaReady(streetViewPanoramaMain);
             }
         });
@@ -234,7 +237,6 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
             public void onClick(View v) {
                 currentPosition = lectureRoom1006;
                 retractButtons(1);
-                firstFloorClicked = false;
                 onStreetViewPanoramaReady(streetViewPanoramaMain);
             }
         });
@@ -244,7 +246,6 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
             public void onClick(View v) {
                 currentPosition = firstFloorCorridor;
                 retractButtons(1);
-                firstFloorClicked = false;
                 onStreetViewPanoramaReady(streetViewPanoramaMain);
             }
         });
@@ -256,7 +257,6 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
             public void onClick(View v) {
                 currentPosition = secondFloorCorridor;
                 retractButtons(2);
-                secondFloorClicked = false;
                 onStreetViewPanoramaReady(streetViewPanoramaMain);
             }
         });
@@ -266,7 +266,6 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
             public void onClick(View v) {
                 currentPosition = room2015;
                 retractButtons(2);
-                secondFloorClicked = false;
                 onStreetViewPanoramaReady(streetViewPanoramaMain);
             }
         });
@@ -276,7 +275,6 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
             public void onClick(View v) {
                 currentPosition = room2022;
                 retractButtons(2);
-                secondFloorClicked = false;
                 onStreetViewPanoramaReady(streetViewPanoramaMain);
             }
         });
@@ -288,7 +286,6 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
             public void onClick(View v) {
                 currentPosition = thirdFloorCorridor;
                 retractButtons(3);
-                thirdFloorClicked = false;
                 onStreetViewPanoramaReady(streetViewPanoramaMain);
             }
         });
@@ -298,7 +295,6 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
             public void onClick(View v) {
                 currentPosition = room3015;
                 retractButtons(3);
-                thirdFloorClicked = false;
                 onStreetViewPanoramaReady(streetViewPanoramaMain);
             }
         });
@@ -308,7 +304,6 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
            public void onClick(View v) {
                currentPosition = room3018;
                retractButtons(3);
-               thirdFloorClicked = false;
                onStreetViewPanoramaReady(streetViewPanoramaMain);
            }
        });
@@ -320,7 +315,6 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
             public void onClick(View v) {
                 currentPosition = fourthFloorCorridor;
                 retractButtons(4);
-                fourthFloorClicked = false;
                 onStreetViewPanoramaReady(streetViewPanoramaMain);
             }
         });
@@ -330,7 +324,6 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
             public void onClick(View v) {
                 currentPosition = room4005;
                 retractButtons(4);
-                fourthFloorClicked = false;
                 onStreetViewPanoramaReady(streetViewPanoramaMain);
             }
         });
@@ -542,6 +535,18 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
     public void retractButtons(int button){
         setVisibility(button);
         setAnimation(button);
+        if (button == 0){ // <- I can't pass in 'clicked' as a parameter and do clicked = false
+            //                  instead cos it wouldn't update the global value
+            groundFloorClicked = false;
+        } else if (button == 1){
+            firstFloorClicked = false;
+        } else if (button == 2){
+            secondFloorClicked = false;
+        } else if (button == 3){
+            thirdFloorClicked = false;
+        } else {
+            fourthFloorClicked = false;
+        }
     }
 
     public void retractOpenButtonsExceptCurrent(int current){ // <- Closes any other currently open button except for the one pressed
@@ -552,11 +557,11 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
             }
             if (pressedButtons[i]){
                 retractButtons(i);
-                pressedButtons[i] = false;
             }
         }
 
     }
+
 
 
     @Override
