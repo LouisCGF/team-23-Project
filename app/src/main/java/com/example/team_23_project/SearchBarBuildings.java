@@ -1,5 +1,6 @@
 package com.example.team_23_project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -46,7 +47,8 @@ public class SearchBarBuildings extends AppCompatActivity {
                 if (!selectedItem.equals("Urban Sciences Building")){
                     showPopUpWindowBuilding(view);
                 } else{
-                    // go to main functionality
+                    Intent intent = new Intent(SearchBarBuildings.this, BuildingViewActivity.class);
+                    SearchBarBuildings.this.startActivity(intent);
                 }
             }
         });

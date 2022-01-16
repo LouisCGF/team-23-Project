@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BuildingViewActivity">
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/googleMapsStreetView"
+        android:name="com.google.android.gms.maps.SupportStreetViewPanoramaFragment"
+        android:layout_centerInParent="true"/>
+
+    <!-- Ground Floor -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/groundFloorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="60dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_plus_icon" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="18dp"
+        android:text="Ground\n  Floor"
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/entranceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="120dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_main_entrance_icon"
+        android:backgroundTint="@color/teal_700"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/entranceTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="85dp"
+        android:layout_marginBottom="143dp"
+        android:text="Entrance"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        android:textColor="@color/white"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/g003Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="180dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_room_icon"
+        android:backgroundTint="@color/teal_700"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/g003Txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="85dp"
+        android:layout_marginBottom="203dp"
+        android:text="Room G.003"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        android:textColor="@color/white"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/groundFloorLiftsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="240dp"
+        android:backgroundTint="@color/teal_700"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_room_icon"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/groundFloorLiftsTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="85dp"
+        android:layout_marginBottom="263dp"
+        android:text="Ground Floor Lifts"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        android:textColor="@color/white"/>
+
+
+
+
+
+    <!-- First Floor -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/firstFloorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="95dp"
+        android:layout_marginBottom="60dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_plus_icon" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="109dp"
+        android:layout_marginBottom="18dp"
+        android:text="First\nFloor"
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/lectureTheatreButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="95dp"
+        android:layout_marginBottom="120dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_room_icon"
+        android:backgroundTint="@color/teal_700"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/lectureTheatreTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="145dp"
+        android:layout_marginBottom="143dp"
+        android:text="Lecture Theatre"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:visibility="invisible"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/firstFloorCorridorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="95dp"
+        android:layout_marginBottom="180dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_corridor_icon"
+        android:backgroundTint="@color/teal_700"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/firstFloorCorridorTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="145dp"
+        android:layout_marginBottom="198dp"
+        android:text="Corridor"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:visibility="invisible"/>
+
+
+
+
+
+    <!-- Second Floor -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/secondFloorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="165dp"
+        android:layout_marginBottom="60dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_plus_icon" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="170dp"
+        android:layout_marginBottom="18dp"
+        android:text="Second\n  Floor"
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/secondFloorCorridorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="165dp"
+        android:layout_marginBottom="120dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_corridor_icon"
+        android:backgroundTint="@color/teal_700"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/secondFloorCorridorTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="225dp"
+        android:layout_marginBottom="143dp"
+        android:text="Corridor"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:visibility="invisible"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/room2015Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="165dp"
+        android:layout_marginBottom="180dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_room_icon"
+        android:backgroundTint="@color/teal_700"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/room2015Txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="225dp"
+        android:layout_marginBottom="203dp"
+        android:text="Room 2.015"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:visibility="invisible"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/room2022Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="165dp"
+        android:layout_marginBottom="240dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_room_icon"
+        android:backgroundTint="@color/teal_700"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/room2022Txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="225dp"
+        android:layout_marginBottom="263dp"
+        android:text="Room 2.022"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:visibility="invisible"/>
+
+
+
+
+
+    <!-- Third Floor -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/thirdFloorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="235dp"
+        android:layout_marginBottom="60dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_plus_icon" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="248dp"
+        android:layout_marginBottom="18dp"
+        android:text="Third\nFloor"
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/thirdFloorCorridorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="235dp"
+        android:layout_marginBottom="120dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_corridor_icon"
+        android:backgroundTint="@color/teal_700"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/thirdFloorCorridorTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="288dp"
+        android:layout_marginBottom="138dp"
+        android:text="Corridor"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:visibility="invisible"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/room3015Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="235dp"
+        android:layout_marginBottom="180dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_room_icon"
+        android:backgroundTint="@color/teal_700"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/room3015Txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="288dp"
+        android:layout_marginBottom="198dp"
+        android:text="Room 3.015"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:visibility="invisible"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/room3018Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="235dp"
+        android:layout_marginBottom="240dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_room_icon"
+        android:backgroundTint="@color/teal_700"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/room3018Txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="288dp"
+        android:layout_marginBottom="258dp"
+        android:text="Room 3.018"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:visibility="invisible"/>
+
+
+
+    <!-- Fourth Floor -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fourthFloorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="305dp"
+        android:layout_marginBottom="60dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_plus_icon" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="313dp"
+        android:layout_marginBottom="18dp"
+        android:text="Fourth\n Floor"
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fourthFloorCorridorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="305dp"
+        android:layout_marginBottom="120dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_corridor_icon"
+        android:backgroundTint="@color/teal_700"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/fourthFloorCorridorTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="248dp"
+        android:layout_marginBottom="138dp"
+        android:text="Corridor"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:visibility="invisible"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/room4005Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="305dp"
+        android:layout_marginBottom="180dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_room_icon"
+        android:backgroundTint="@color/teal_700"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/room4005Txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="228dp"
+        android:layout_marginBottom="198dp"
+        android:text="Room 4.005"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:visibility="invisible"/>
+
+
+
+</RelativeLayout>
