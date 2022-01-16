@@ -2,13 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/userName"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="@color/primaryTextColor"
     android:focusableInTouchMode="true"
-    android:gravity="center">
+    tools:context="com.example.team_23_project.javaPageFragments.ContactUs"
+    android:gravity="center"
+    android:padding="4dp">
 
 
     <RelativeLayout
@@ -56,32 +57,37 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/userFullName"
-                    style="@style/parent"
-                    android:layout_marginTop="0dp">
+                    android:id="@+id/emailSelector"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:hint="@string/select_an_email">
 
-                    <EditText
-                        android:id="@+id/fullNameUserTxt"
-                        style="@style/modifiedEditText"
-                        android:backgroundTint="#FFFFFF"
-                        android:hint="@string/full_name"
-                        android:inputType="textPersonName"
-                        android:maxLines="1" />
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:completionThreshold="1"
+                        android:textSize="14sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/emailAdrTxt"
-                    style="@style/parent"
-                    android:layout_marginTop="@dimen/registerViewsMargin">
+                    android:id="@+id/enterSubjectField"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:hint="@string/subject"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                    <EditText
-                        android:id="@+id/lastNameStudentTxt"
-                        style="@style/modifiedEditText"
-                        android:backgroundTint="#FFFFFF"
-                        android:hint="@string/email_address"
-                        android:inputType="textEmailAddress"
-                        android:maxLines="1" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,24 +98,25 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="30dp">
+                    android:layout_marginBottom="10dp">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/messageBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="top"
-                        android:textSize="14sp"
+                        android:gravity="start|top"
                         android:hint="@string/enter_your_message_here"
                         android:inputType="textMultiLine"
                         android:lines="20"
                         android:overScrollMode="always"
                         android:scrollbarStyle="insideInset"
                         android:scrollbars="vertical"
-                        android:scrollHorizontally="false" />
+                        android:scrollHorizontally="false"
+                        android:textSize="14sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
-                    android:id="@+id/saveSendMessage"
+                    android:id="@+id/buttonSend"
                     style="@style/loginButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
