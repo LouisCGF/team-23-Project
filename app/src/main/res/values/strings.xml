@@ -43,4 +43,13 @@
     <string name="send">Send</string>
     <string name="enter_your_message_here">Enter your message here:</string>
     <string name="email_address">Email address</string>
+    <string name="select_an_email">Select an email</string>
+    <string name="subject">Subject:</string>
+
+    <string-array name="emails">
+        <item>c0034793@newcastle.ac.uk</item>
+        <item>test2@gmail.com</item>
+        <item>bogdanNotATest@gmail.com</item>
+        <item>yetanother@gmail.com</item>
+    </string-array>
 </resources>

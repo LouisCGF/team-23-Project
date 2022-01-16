@@ -105,11 +105,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intentStaff);
     }
 
-    // Use this method wisely.
-    @Override
-    public void onDestroy(){
-        super.onDestroy();
-        db.close();
-        userCursor.close();
-    }
+
 }
