@@ -147,78 +147,236 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
         fourthFloorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!fourthFloorClicked){
-                    fourthFloorCorridorButton.setVisibility(View.VISIBLE);
-                    room4005Button.setVisibility(View.VISIBLE);
-                    fourthFloorCorridorTxt.setVisibility(View.VISIBLE);
-                    room4005Button.setVisibility(View.VISIBLE);
-
-                    fourthFloorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.rotate_open_anim));
-                    fourthFloorCorridorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
-                    room4005Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
-                    fourthFloorCorridorTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
-                    room4005Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
-
-                } else{
-                    fourthFloorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.rotate_close_anim));
-                    fourthFloorCorridorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-                    room4005Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-                    fourthFloorCorridorTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-                    room4005Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-
-                    fourthFloorCorridorButton.setVisibility(View.INVISIBLE);
-                    room4005Button.setVisibility(View.INVISIBLE);
-                    fourthFloorCorridorTxt.setVisibility(View.INVISIBLE);
-                    room4005Txt.setVisibility(View.INVISIBLE);
-                }
-
+                setVisibility(4);
+                setAnimation(4);
                 fourthFloorClicked = !fourthFloorClicked;
+
             }
         });
 
         thirdFloorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!thirdFloorClicked){
-                    thirdFloorCorridorButton.setVisibility(View.VISIBLE);
-                    room3015Button.setVisibility(View.VISIBLE);
-                    room3018Button.setVisibility(View.VISIBLE);
-                    thirdFloorCorridorTxt.setVisibility(View.VISIBLE);
-                    room3015Button.setVisibility(View.VISIBLE);
-                    room3018Button.setVisibility(View.VISIBLE);
-
-                    thirdFloorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.rotate_open_anim));
-                    thirdFloorCorridorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
-                    room3015Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
-                    room3018Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
-                    thirdFloorCorridorTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
-                    room3015Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
-                    room3018Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
-                } else{
-                    thirdFloorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.rotate_close_anim));
-                    thirdFloorCorridorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-                    room3015Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-                    room3018Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-                    thirdFloorCorridorTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-                    room3015Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-                    room3018Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-
-                    thirdFloorCorridorButton.setVisibility(View.INVISIBLE);
-                    room3015Button.setVisibility(View.INVISIBLE);
-                    room3018Button.setVisibility(View.INVISIBLE);
-                    thirdFloorCorridorTxt.setVisibility(View.INVISIBLE);
-                    room3015Txt.setVisibility(View.INVISIBLE);
-                    room3018Txt.setVisibility(View.INVISIBLE);
-
-                }
-
+                setVisibility(3);
+                setAnimation(3);
                 thirdFloorClicked = !thirdFloorClicked;
+
             }
         });
 
         secondFloorButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                setVisibility(2);
+                setAnimation(2);
+                secondFloorClicked = !secondFloorClicked;
+
+            }
+        });
+
+        firstFloorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setVisibility(1);
+                setAnimation(1);
+                firstFloorClicked = !firstFloorClicked;
+
+            }
+        });
+
+        groundFloorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setVisibility(0);
+                setAnimation(0);
+                groundFloorClicked = !groundFloorClicked;
+
+            }
+        });
+
+
+
+        // -- GROUND FLOOR --
+        entranceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentPosition = entrance;
+                retractButtons(0);
+                groundFloorClicked = false;
+                onStreetViewPanoramaReady(streetViewPanoramaMain);
+            }
+        });
+
+        g003Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentPosition = roomG003;
+                retractButtons(0);
+                groundFloorClicked = false;
+                onStreetViewPanoramaReady(streetViewPanoramaMain);
+            }
+        });
+
+        groundFloorLiftsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentPosition = groundFloorLifts;
+                retractButtons(0);
+                groundFloorClicked = false;
+                onStreetViewPanoramaReady(streetViewPanoramaMain);
+            }
+        });
+
+        // -- FIRST FLOOR --
+
+        lectureTheatreButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentPosition = lectureRoom1006;
+                retractButtons(1);
+                firstFloorClicked = false;
+                onStreetViewPanoramaReady(streetViewPanoramaMain);
+            }
+        });
+
+        firstFloorCorridorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentPosition = firstFloorCorridor;
+                retractButtons(1);
+                firstFloorClicked = false;
+                onStreetViewPanoramaReady(streetViewPanoramaMain);
+            }
+        });
+
+        // -- SECOND FLOOR --
+
+        secondFloorCorridorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentPosition = secondFloorCorridor;
+                retractButtons(2);
+                secondFloorClicked = false;
+                onStreetViewPanoramaReady(streetViewPanoramaMain);
+            }
+        });
+
+        room2015Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentPosition = room2015;
+                retractButtons(2);
+                secondFloorClicked = false;
+                onStreetViewPanoramaReady(streetViewPanoramaMain);
+            }
+        });
+
+        room2022Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentPosition = room2022;
+                retractButtons(2);
+                secondFloorClicked = false;
+                onStreetViewPanoramaReady(streetViewPanoramaMain);
+            }
+        });
+
+        // -- THIRD FLOOR --
+
+        thirdFloorCorridorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentPosition = thirdFloorCorridor;
+                retractButtons(3);
+                thirdFloorClicked = false;
+                onStreetViewPanoramaReady(streetViewPanoramaMain);
+            }
+        });
+
+        room3015Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentPosition = room3015;
+                retractButtons(3);
+                thirdFloorClicked = false;
+                onStreetViewPanoramaReady(streetViewPanoramaMain);
+            }
+        });
+
+       room3018Button.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               currentPosition = room3018;
+               retractButtons(3);
+               thirdFloorClicked = false;
+               onStreetViewPanoramaReady(streetViewPanoramaMain);
+           }
+       });
+
+       // -- FOURTH FLOOR --
+
+        fourthFloorCorridorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentPosition = fourthFloorCorridor;
+                retractButtons(4);
+                fourthFloorClicked = false;
+                onStreetViewPanoramaReady(streetViewPanoramaMain);
+            }
+        });
+
+        room4005Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentPosition = room4005;
+                retractButtons(4);
+                fourthFloorClicked = false;
+                onStreetViewPanoramaReady(streetViewPanoramaMain);
+            }
+        });
+
+
+
+    }
+
+    public void setVisibility(int buttonPressed){
+        switch (buttonPressed){
+            case 0: // <- Ground Floor
+                if (!groundFloorClicked){
+                    entranceButton.setVisibility(View.VISIBLE);
+                    g003Button.setVisibility(View.VISIBLE);
+                    groundFloorLiftsButton.setVisibility(View.VISIBLE);
+                    entranceTxt.setVisibility(View.VISIBLE);
+                    g003Txt.setVisibility(View.VISIBLE);
+                    groundFloorLiftsTxt.setVisibility(View.VISIBLE);
+
+                } else{
+                    entranceButton.setVisibility(View.INVISIBLE);
+                    g003Button.setVisibility(View.INVISIBLE);
+                    groundFloorLiftsButton.setVisibility(View.INVISIBLE);
+                    entranceTxt.setVisibility(View.INVISIBLE);
+                    g003Txt.setVisibility(View.INVISIBLE);
+                    groundFloorLiftsTxt.setVisibility(View.INVISIBLE);
+                }
+
+                break;
+
+            case 1: // <- First Floor
+                if (!firstFloorClicked){
+                    lectureTheatreButton.setVisibility(View.VISIBLE);
+                    firstFloorCorridorButton.setVisibility(View.VISIBLE);
+                    lectureTheatreTxt.setVisibility(View.VISIBLE);
+                    firstFloorCorridorTxt.setVisibility(View.VISIBLE);
+
+                } else{
+                    lectureTheatreButton.setVisibility(View.INVISIBLE);
+                    firstFloorCorridorButton.setVisibility(View.INVISIBLE);
+                    lectureTheatreTxt.setVisibility(View.INVISIBLE);
+                    firstFloorCorridorTxt.setVisibility(View.INVISIBLE);
+                }
+                break;
+
+            case 2: // <- Second Floor
                 if (!secondFloorClicked){
                     secondFloorCorridorButton.setVisibility(View.VISIBLE);
                     room2015Button.setVisibility(View.VISIBLE);
@@ -227,6 +385,99 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
                     room2015Txt.setVisibility(View.VISIBLE);
                     room2022Txt.setVisibility(View.VISIBLE);
 
+                } else{
+                    secondFloorCorridorButton.setVisibility(View.INVISIBLE);
+                    room2015Button.setVisibility(View.INVISIBLE);
+                    room2022Button.setVisibility(View.INVISIBLE);
+                    secondFloorCorridorTxt.setVisibility(View.INVISIBLE);
+                    room2015Txt.setVisibility(View.INVISIBLE);
+                    room2022Txt.setVisibility(View.INVISIBLE);
+                }
+                break;
+
+            case 3: // <- Third Floor
+                if (!thirdFloorClicked){
+                    thirdFloorCorridorButton.setVisibility(View.VISIBLE);
+                    room3015Button.setVisibility(View.VISIBLE);
+                    room3018Button.setVisibility(View.VISIBLE);
+                    thirdFloorCorridorTxt.setVisibility(View.VISIBLE);
+                    room3015Button.setVisibility(View.VISIBLE);
+                    room3018Button.setVisibility(View.VISIBLE);
+
+                } else{
+                    thirdFloorCorridorButton.setVisibility(View.INVISIBLE);
+                    room3015Button.setVisibility(View.INVISIBLE);
+                    room3018Button.setVisibility(View.INVISIBLE);
+                    thirdFloorCorridorTxt.setVisibility(View.INVISIBLE);
+                    room3015Txt.setVisibility(View.INVISIBLE);
+                    room3018Txt.setVisibility(View.INVISIBLE);
+                }
+                break;
+
+            case 4: // <- Fourth Floor
+                if (!fourthFloorClicked){
+                    fourthFloorCorridorButton.setVisibility(View.VISIBLE);
+                    room4005Button.setVisibility(View.VISIBLE);
+                    fourthFloorCorridorTxt.setVisibility(View.VISIBLE);
+                    room4005Button.setVisibility(View.VISIBLE);
+
+                } else{
+                    fourthFloorCorridorButton.setVisibility(View.INVISIBLE);
+                    room4005Button.setVisibility(View.INVISIBLE);
+                    fourthFloorCorridorTxt.setVisibility(View.INVISIBLE);
+                    room4005Txt.setVisibility(View.INVISIBLE);
+
+                }
+                break;
+        }
+
+    }
+
+    public void setAnimation(int buttonPressed){
+        switch (buttonPressed){
+            case 0: // <- Ground Floor
+                if (!groundFloorClicked){
+                    groundFloorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.rotate_open_anim));
+                    entranceButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+                    g003Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+                    groundFloorLiftsButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+                    entranceTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+                    g003Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+                    groundFloorLiftsTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+
+                } else{
+                    groundFloorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.rotate_close_anim));
+                    entranceButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
+                    g003Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
+                    groundFloorLiftsButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
+                    entranceTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
+                    g003Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
+                    groundFloorLiftsTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
+
+                }
+
+                break;
+
+            case 1: // <- First Floor
+                if (!firstFloorClicked){
+                    firstFloorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.rotate_open_anim));
+                    lectureTheatreButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+                    firstFloorCorridorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+                    lectureTheatreTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+                    firstFloorCorridorTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+
+
+                } else{
+                    firstFloorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.rotate_close_anim));
+                    lectureTheatreButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
+                    firstFloorCorridorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
+                    lectureTheatreTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
+                    firstFloorCorridorTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
+                }
+                break;
+
+            case 2: // <- Second Floor
+                if (!secondFloorClicked){
                     secondFloorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.rotate_open_anim));
                     secondFloorCorridorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
                     room2015Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
@@ -243,208 +494,67 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
                     secondFloorCorridorTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
                     room2015Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
                     room2022Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-
-                    secondFloorCorridorButton.setVisibility(View.INVISIBLE);
-                    room2015Button.setVisibility(View.INVISIBLE);
-                    room2022Button.setVisibility(View.INVISIBLE);
-                    secondFloorCorridorTxt.setVisibility(View.INVISIBLE);
-                    room2015Txt.setVisibility(View.INVISIBLE);
-                    room2022Txt.setVisibility(View.INVISIBLE);
                 }
+                break;
 
-                secondFloorClicked = !secondFloorClicked;
-            }
-        });
-
-        groundFloorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!groundFloorClicked){
-
-                    entranceButton.setVisibility(View.VISIBLE);
-                    g003Button.setVisibility(View.VISIBLE);
-                    groundFloorLiftsButton.setVisibility(View.VISIBLE);
-                    entranceTxt.setVisibility(View.VISIBLE);
-                    g003Txt.setVisibility(View.VISIBLE);
-                    groundFloorLiftsTxt.setVisibility(View.VISIBLE);
-
-                    groundFloorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.rotate_open_anim));
-                    entranceButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
-                    g003Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
-                    groundFloorLiftsButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
-                    entranceTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
-                    g003Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
-                    groundFloorLiftsTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+            case 3: // <- Third Floor
+                if (!thirdFloorClicked){
+                    thirdFloorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.rotate_open_anim));
+                    thirdFloorCorridorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+                    room3015Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+                    room3018Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+                    thirdFloorCorridorTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+                    room3015Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+                    room3018Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
 
                 } else{
-
-                    groundFloorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.rotate_close_anim));
-                    entranceButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-                    g003Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-                    groundFloorLiftsButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-                    entranceTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-                    g003Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-                    groundFloorLiftsTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-
-                    entranceButton.setVisibility(View.INVISIBLE);
-                    g003Button.setVisibility(View.INVISIBLE);
-                    groundFloorLiftsButton.setVisibility(View.INVISIBLE);
-                    entranceTxt.setVisibility(View.INVISIBLE);
-                    g003Txt.setVisibility(View.INVISIBLE);
-                    groundFloorLiftsTxt.setVisibility(View.INVISIBLE);
+                    thirdFloorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.rotate_close_anim));
+                    thirdFloorCorridorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
+                    room3015Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
+                    room3018Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
+                    thirdFloorCorridorTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
+                    room3015Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
+                    room3018Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
 
                 }
+                break;
 
-                groundFloorClicked = !groundFloorClicked;
-            }
-        });
-
-        firstFloorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!firstFloorClicked){
-                    lectureTheatreButton.setVisibility(View.VISIBLE);
-                    firstFloorCorridorButton.setVisibility(View.VISIBLE);
-                    lectureTheatreTxt.setVisibility(View.VISIBLE);
-                    firstFloorCorridorTxt.setVisibility(View.VISIBLE);
-
-                    firstFloorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.rotate_open_anim));
-                    lectureTheatreButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
-                    firstFloorCorridorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
-                    lectureTheatreTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
-                    firstFloorCorridorTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+            case 4: // <- Fourth Floor
+                if (!fourthFloorClicked){
+                    fourthFloorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.rotate_open_anim));
+                    fourthFloorCorridorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+                    room4005Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+                    fourthFloorCorridorTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+                    room4005Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
 
                 } else{
-                    firstFloorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.rotate_close_anim));
-                    lectureTheatreButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-                    firstFloorCorridorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-                    lectureTheatreTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-                    firstFloorCorridorTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-
-                    lectureTheatreButton.setVisibility(View.INVISIBLE);
-                    firstFloorCorridorButton.setVisibility(View.INVISIBLE);
-                    lectureTheatreTxt.setVisibility(View.INVISIBLE);
-                    firstFloorCorridorTxt.setVisibility(View.INVISIBLE);
+                    fourthFloorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.rotate_close_anim));
+                    fourthFloorCorridorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
+                    room4005Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
+                    fourthFloorCorridorTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
+                    room4005Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
                 }
+                break;
+        }
 
-                firstFloorClicked = !firstFloorClicked;
+    }
+
+    public void retractButtons(int button){
+        setVisibility(button);
+        setAnimation(button);
+    }
+
+    public void retractOpenButtonsExceptCurrent(int current){ // <- Closes any other currently open button except for the one pressed
+        boolean[] pressedButtons = {groundFloorClicked, firstFloorClicked, secondFloorClicked, thirdFloorClicked, fourthFloorClicked};
+        for (int i = 0; i < pressedButtons.length; i++){
+            if (i == current){
+                continue;
             }
-        });
-
-        // -- GROUND FLOOR --
-        entranceButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = entrance;
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
+            if (pressedButtons[i]){
+                retractButtons(i);
+                pressedButtons[i] = false;
             }
-        });
-
-        g003Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = roomG003;
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
-        });
-
-        groundFloorLiftsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = groundFloorLifts;
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
-        });
-
-        // -- FIRST FLOOR --
-
-        lectureTheatreButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = lectureRoom1006;
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
-        });
-
-        firstFloorCorridorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = firstFloorCorridor;
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
-        });
-
-        // -- SECOND FLOOR --
-
-        secondFloorCorridorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = secondFloorCorridor;
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
-        });
-
-        room2015Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = room2015;
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
-        });
-
-        room2022Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = room2022;
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
-        });
-
-        // -- THIRD FLOOR --
-
-        thirdFloorCorridorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = thirdFloorCorridor;
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
-        });
-
-        room3015Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = room3015;
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
-        });
-
-       room3018Button.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               currentPosition = room3018;
-               onStreetViewPanoramaReady(streetViewPanoramaMain);
-           }
-       });
-
-       // -- FOURTH FLOOR --
-
-        fourthFloorCorridorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = fourthFloorCorridor;
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
-        });
-
-        room4005Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = room4005;
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
-        });
-
-
+        }
 
     }
 
