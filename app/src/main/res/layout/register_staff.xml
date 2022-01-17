@@ -64,7 +64,8 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/staffFirstNameInput"
                         style="@style/parent"
-                        android:layout_marginTop="@dimen/loginViewsMargin">
+                        android:layout_marginTop="@dimen/loginViewsMargin"
+                        app:boxStrokeColor="#2E2E2E">
 
                         <EditText
                             android:id="@+id/firstNameStaffTxt"
@@ -79,7 +80,8 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/staffLastNameInput"
                         style="@style/parent"
-                        android:layout_marginTop="@dimen/registerViewsMargin">
+                        android:layout_marginTop="@dimen/registerViewsMargin"
+                        app:boxStrokeColor="#2E2E2E">
 
                         <EditText
                             android:id="@+id/lastNameStaffTxt"
@@ -94,7 +96,8 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/staffEmailInput"
                         style="@style/parent"
-                        android:layout_marginTop="@dimen/registerViewsMargin">
+                        android:layout_marginTop="@dimen/registerViewsMargin"
+                        app:boxStrokeColor="#2E2E2E">
 
                         <EditText
                             android:id="@+id/emailAdrStaffTxt"
@@ -109,7 +112,8 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/staffSchoolInput"
                         style="@style/parent"
-                        android:layout_marginTop="@dimen/registerViewsMargin">
+                        android:layout_marginTop="@dimen/registerViewsMargin"
+                        app:boxStrokeColor="#2E2E2E">
 
                         <EditText
                             android:id="@+id/schoolStaffTxt"
@@ -124,7 +128,8 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/staffAdminInput"
                         style="@style/parent"
-                        android:layout_marginTop="@dimen/registerViewsMargin">
+                        android:layout_marginTop="@dimen/registerViewsMargin"
+                        app:boxStrokeColor="#2E2E2E">
 
                         <EditText
                             android:id="@+id/adminTxt"
@@ -139,7 +144,8 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/staffPassInput"
                         style="@style/parent"
-                        android:layout_marginTop="@dimen/registerViewsMargin">
+                        android:layout_marginTop="@dimen/registerViewsMargin"
+                        app:boxStrokeColor="#2E2E2E">
 
                         <EditText
                             android:id="@+id/passwordStaffRegTxt"
@@ -154,7 +160,8 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/staffConfPassInput"
                         style="@style/parent"
-                        android:layout_marginTop="@dimen/registerViewsMargin">
+                        android:layout_marginTop="@dimen/registerViewsMargin"
+                        app:boxStrokeColor="#2E2E2E">
 
                         <EditText
                             android:id="@+id/passwordConfirmStaffRegTxt"
