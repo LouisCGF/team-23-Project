@@ -3,6 +3,7 @@ package com.example.team_23_project;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -585,8 +586,62 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
     private final StreetViewPanorama.OnStreetViewPanoramaChangeListener panoramaChangeListener = new StreetViewPanorama.OnStreetViewPanoramaChangeListener() {
         @Override
         public void onStreetViewPanoramaChange(@NonNull StreetViewPanoramaLocation streetViewPanoramaLocation) {
-            Toast.makeText(BuildingViewActivity.this, "Location Updated", Toast.LENGTH_SHORT).show();
+            LatLng position = streetViewPanoramaLocation.position;
+            String locationText = getLocationText(position);
+
+            Toast.makeText(BuildingViewActivity.this, "Location Updated to " + locationText, Toast.LENGTH_SHORT).show();
         }
 
     };
+
+    @SuppressLint("DefaultLocale")
+    public String getLocationText(LatLng position){
+        // There's probably a much better way of doing this.
+        // Probably gonna remove this in a bit cos it looks awful
+        String posLatStr = String.format("%.4f", position.latitude);
+        String posLongStr = String.format("%.4f", position.longitude);
+
+        if (String.format("%.4f", entrance.latitude).equals(posLatStr) && String.format("%.4f", entrance.longitude).equals(posLongStr)){
+            return "Entrance";
+        }
+        if (String.format("%.4f", roomG003.latitude).equals(posLatStr) && String.format("%.4f", roomG003.longitude).equals(posLongStr)){
+            return "Room G.003";
+        }
+        if (String.format("%.4f", lectureRoom1006.latitude).equals(posLatStr) && String.format("%.4f", lectureRoom1006.longitude).equals(posLongStr)){
+            return "Lecture Room";
+        }
+        if (String.format("%.4f", room2015.latitude).equals(posLatStr) && String.format("%.4f", room2015.longitude).equals(posLongStr)){
+            return "Room 2.015";
+        }
+        if (String.format("%.4f", room2022.latitude).equals(posLatStr) && String.format("%.4f", room2022.longitude).equals(posLongStr)){
+            return "Room 2.022";
+        }
+        if (String.format("%.4f", room3015.latitude).equals(posLatStr) && String.format("%.4f", room3015.longitude).equals(posLongStr)){
+            return "Room 3.015";
+        }
+        if (String.format("%.4f", room3018.latitude).equals(posLatStr) && String.format("%.4f", room3018.longitude).equals(posLongStr)){
+            return "Room 3.018";
+        }
+        if (String.format("%.4f", room4005.latitude).equals(posLatStr) && String.format("%.4f", room4005.longitude).equals(posLongStr)){
+            return "Room 4.005";
+        }
+        if (String.format("%.4f", groundFloorLifts.latitude).equals(posLatStr) && String.format("%.4f", groundFloorLifts.longitude).equals(posLongStr)){
+            return "Ground Floor Lifts";
+        }
+        if (String.format("%.4f", firstFloorCorridor.latitude).equals(posLatStr) && String.format("%.4f", firstFloorCorridor.longitude).equals(posLongStr)){
+            return "First Floor Corridor";
+        }
+        if (String.format("%.4f", secondFloorCorridor.latitude).equals(posLatStr) && String.format("%.4f", secondFloorCorridor.longitude).equals(posLongStr)){
+            return "Second Floor Corridor";
+        }
+        if (String.format("%.4f", thirdFloorCorridor.latitude).equals(posLatStr) && String.format("%.4f", thirdFloorCorridor.longitude).equals(posLongStr)){
+            return "Third Floor Corridor";
+        }
+        if (String.format("%.4f", fourthFloorCorridor.latitude).equals(posLatStr) && String.format("%.4f", fourthFloorCorridor.longitude).equals(posLongStr)){
+            return "Fourth Floor Corridor";
+        }
+
+        return "[Unknown]";
+
+    }
 }
