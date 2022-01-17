@@ -142,7 +142,7 @@ public class LoginActivity extends AppCompatActivity {
     private boolean validateLogin(String name, String password) {
 
         userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE_USERS + " where "
-                + DatabaseHelper.COLUMN_USER_ID + "=? and " + DatabaseHelper.COLUMN_PASSWORD + "=?",
+                + DatabaseHelper.COLUMN_EMAIL_ADDRESS + "=? and " + DatabaseHelper.COLUMN_PASSWORD + "=?",
                 new String[] {name, password});
 
         return userCursor.getCount() > 1;
