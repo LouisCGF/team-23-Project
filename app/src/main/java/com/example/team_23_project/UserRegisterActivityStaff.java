@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -15,16 +16,19 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
 public class UserRegisterActivityStaff extends AppCompatActivity {
 
     // Fields in the staff register page
-    EditText firstNameStaff;
-    EditText lastNameStaff;
-    EditText emailAdrStaff;
-    EditText schoolStaff;
-    EditText admin;
-    EditText passwordStaffReg;
-    EditText passwordConfirmStaffReg;
+    private TextInputLayout firstNameStaff;
+    private TextInputLayout lastNameStaff;
+    private TextInputLayout emailAdrStaff;
+    private TextInputLayout schoolStaff;
+    private TextInputLayout admin;
+    private TextInputLayout passwordStaffReg;
+    private TextInputLayout passwordConfirmStaffReg;
 
     Button submitStaffReg;
 
@@ -32,7 +36,7 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
     SQLiteDatabase db;
     Cursor userCursor;
 
-    long userId=0;
+    long userId = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +44,13 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
         // Getting connection.
         setContentView(R.layout.register_staff);
 
-        firstNameStaff = findViewById(R.id.firstNameStaffTxt);
-        lastNameStaff = findViewById(R.id.lastNameStaffTxt);
-        emailAdrStaff = findViewById(R.id.emailAdrStaffTxt);
-        schoolStaff = findViewById(R.id.schoolStaffTxt);
-        admin = findViewById(R.id.adminTxt);
-        passwordStaffReg = findViewById(R.id.passwordStaffRegTxt);
-        passwordConfirmStaffReg = findViewById(R.id.passwordConfirmStaffRegTxt);
+        firstNameStaff = findViewById(R.id.staffFirstNameInput);
+        lastNameStaff = findViewById(R.id.staffLastNameInput);
+        emailAdrStaff = findViewById(R.id.staffEmailInput);
+        schoolStaff = findViewById(R.id.staffSchoolInput);
+        admin = findViewById(R.id.staffAdminInput);
+        passwordStaffReg = findViewById(R.id.staffPassInput);
+        passwordConfirmStaffReg = findViewById(R.id.staffConfPassInput);
 
         submitStaffReg = findViewById(R.id.submitStaffRegBtn);
         TextView backToSignIn = findViewById(R.id.backToSignIn);
@@ -64,18 +68,18 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
             userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE_STAFF_INFO
                     + " where " + DatabaseHelper.COLUMN_USER_ID + "=?", new String[]{String.valueOf(userId)});
             userCursor.moveToFirst();
-            schoolStaff.setText(userCursor.getString(1));
-            admin.setText(userCursor.getString(2));
+            schoolStaff.getEditText().setText(userCursor.getString(1));
+            admin.getEditText().setText(userCursor.getString(2));
             userCursor.close();
 
             // Connection and reading of the Users table
             userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE_USERS + " where "
                     + DatabaseHelper.COLUMN_USER_ID + "=?", new String[]{String.valueOf(userId)});
-            firstNameStaff.setText(userCursor.getString(1));
-            lastNameStaff.setText(userCursor.getString(2));
-            emailAdrStaff.setText(userCursor.getString(3));
-            passwordStaffReg.setText(userCursor.getString(4));
-            passwordConfirmStaffReg.setText(userCursor.getString(5));
+            firstNameStaff.getEditText().setText(userCursor.getString(1));
+            lastNameStaff.getEditText().setText(userCursor.getString(2));
+            emailAdrStaff.getEditText().setText(userCursor.getString(3));
+            passwordStaffReg.getEditText().setText(userCursor.getString(4));
+            passwordConfirmStaffReg.getEditText().setText(userCursor.getString(5));
             userCursor.close();
 
         }
@@ -88,18 +92,37 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
             }
         });
 
+        submitStaffReg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextInputLayout[] inputFields = {firstNameStaff, lastNameStaff, emailAdrStaff, schoolStaff, admin, passwordStaffReg, passwordConfirmStaffReg};
+                boolean valid = true;
+                for (TextInputLayout inputField : inputFields){
+                    if (TextUtils.isEmpty(inputField.getEditText().getText())){
+                        valid = false;
+                        inputField.setError("You must fill out this field");
+                        continue;
+                    }
+                    inputField.setError(null);
+                }
+                if (valid){
+                    submitStaff();
+                }
+            }
+        });
+
     }
 
-    public void submitStaff(View view) {
+    public void submitStaff() {
         // Putting data into the database after clicking on the submit button.
         ContentValues cv1 = new ContentValues();
         ContentValues cv2 = new ContentValues();
-        cv1.put(DatabaseHelper.COLUMN_FIRST_NAME,firstNameStaff.getText().toString());
-        cv1.put(DatabaseHelper.COLUMN_LAST_NAME, lastNameStaff.getText().toString());
-        cv1.put(DatabaseHelper.COLUMN_EMAIL_ADDRESS, emailAdrStaff.getText().toString());
-        cv1.put(DatabaseHelper.COLUMN_PASSWORD, passwordStaffReg.getText().toString());
-        cv2.put(DatabaseHelper.COLUMN_SCHOOL, schoolStaff.getText().toString());
-        cv2.put(DatabaseHelper.COLUMN_ADMIN, admin.getText().toString());
+        cv1.put(DatabaseHelper.COLUMN_FIRST_NAME,firstNameStaff.getEditText().getText().toString());
+        cv1.put(DatabaseHelper.COLUMN_LAST_NAME, lastNameStaff.getEditText().getText().toString());
+        cv1.put(DatabaseHelper.COLUMN_EMAIL_ADDRESS, emailAdrStaff.getEditText().getText().toString());
+        cv1.put(DatabaseHelper.COLUMN_PASSWORD, passwordStaffReg.getEditText().getText().toString());
+        cv2.put(DatabaseHelper.COLUMN_SCHOOL, schoolStaff.getEditText().getText().toString());
+        cv2.put(DatabaseHelper.COLUMN_ADMIN, admin.getEditText().getText().toString());
 
         if (userId > 0) {
             db.update(DatabaseHelper.TABLE_STAFF_INFO, cv2, DatabaseHelper.COLUMN_USER_ID
