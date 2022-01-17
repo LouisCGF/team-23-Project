@@ -10,6 +10,7 @@ import com.example.team_23_project.databaseConnection.InsertData;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Handler;
 import android.view.View;
 
 import androidx.navigation.NavController;
@@ -24,7 +25,7 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.SimpleCursorAdapter;
 
-public class MainActivity extends AppCompatActivity {
+public class StartUpActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
@@ -42,9 +43,19 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+        //appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
+        //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+
+        // This shows the logo when the app opens for 2 seconds
+        Runnable r = new Runnable() {
+            @Override
+            public void run(){
+                StartUpActivity.this.startActivity(new Intent(StartUpActivity.this, LoginActivity.class));
+            }
+        };
+        Handler h = new Handler();
+        h.postDelayed(r, 2000);
 
         databaseHelper = new DatabaseHelper(getApplicationContext());
 
@@ -85,12 +96,14 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+    **/
 
     // need some more work on this method. now it starts activity of both, however, it should be either one of them.
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

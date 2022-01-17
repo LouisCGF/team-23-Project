@@ -97,6 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "Login was successful",
                                 Toast.LENGTH_SHORT).show();
 
+
                         Intent intent = new Intent( LoginActivity.this, HomePageActivity.class);
                         startActivity(intent);
                     }
@@ -108,6 +109,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 LoginActivity.this.startActivity( new Intent( LoginActivity.this, UserRegisterActivityStudent.class ));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
             }
         });
 
@@ -115,6 +117,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 LoginActivity.this.startActivity( new Intent( LoginActivity.this, UserRegisterActivityStaff.class ));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
             }
         });
 
@@ -129,6 +132,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 LoginActivity.this.startActivity( new Intent( LoginActivity.this, UserRegisterActivityStudent.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
             }
         });
     }
