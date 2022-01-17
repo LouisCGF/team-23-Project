@@ -7,28 +7,10 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.team_23_project.LoginMain"
+        android:name="com.example.team_23_project.LoginActivity"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first">
 
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-        <action
-            android:id="@+id/action_FirstFragment_to_registerStudent"
-            app:destination="@id/registerStudent"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/stay" />
-        <action
-            android:id="@+id/action_FirstFragment_to_registerStaff"
-            app:destination="@id/registerStaff"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/stay" />
-        <action
-            android:id="@+id/action_FirstFragment_to_FAQandQA"
-            app:destination="@id/FAQandQA"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim" />
         <action
             android:id="@+id/action_FirstFragment_to_searchBar"
             app:destination="@id/searchBar" />
@@ -37,77 +19,21 @@
             app:destination="@id/homePageActivity"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_FirstFragment_to_FAQandQAActivity"
+            app:destination="@id/FAQandQAActivity" />
+        <action
+            android:id="@+id/action_FirstFragment_to_userActivityStaff"
+            app:destination="@id/userActivityStaff" />
+        <action
+            android:id="@+id/action_FirstFragment_to_userActivityStudent"
+            app:destination="@id/userActivityStudent" />
     </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.team_23_project.Activities.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/registerStudent"
-        android:name="com.example.team_23_project.Activities.RegisterStudent"
-        android:label="RegisterStudent" >
-        <action
-            android:id="@+id/action_registerStudent_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-        <action
-            android:id="@+id/action_registerStudent_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-        <action
-            android:id="@+id/action_registerStudent_to_FirstFragment2"
-            app:destination="@id/FirstFragment"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/stay" />
-    </fragment>
-    <fragment
-        android:id="@+id/registerStaff"
-        android:name="com.example.team_23_project.Activities.RegisterStaff"
-        android:label="RegisterStaff" >
-        <action
-            android:id="@+id/action_registerStaff_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-        <action
-            android:id="@+id/action_registerStaff_to_FirstFragment"
-            app:destination="@id/FirstFragment"
-            app:enterAnim="@anim/slide_in_left"
-            app:exitAnim="@anim/stay" />
-    </fragment>
-    <fragment
-        android:id="@+id/FAQandQA"
-        android:name="com.example.team_23_project.Activities.FAQandQA">
-        <action
-            android:id="@+id/action_FAQandQA_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-        <action
-            android:id="@+id/action_FAQandQA_to_contactUs"
-            app:destination="@id/contactUs" />
-    </fragment>
-    <fragment
-        android:id="@+id/contactUs"
-        android:name="com.example.team_23_project.Activities.ContactUsActivity"
-        android:label="ContactUs" />
     <activity
         android:id="@+id/searchBar"
         android:name="com.example.team_23_project.SearchBar"
         android:label="activity_searchbar"
         tools:layout="@layout/activity_searchbar" />
-    <fragment
-        android:id="@+id/userAccount"
-        android:name="com.example.team_23_project.UserAccount"
-        android:label="UserAccount" >
-        <action
-            android:id="@+id/action_userAccount_to_userSettings"
-            app:destination="@id/userSettings" />
-    </fragment>
-    <fragment
-        android:id="@+id/userSettings"
-        android:name="com.example.team_23_project.UserSettings"
-        android:label="UserSettings" />
     <activity
         android:id="@+id/searchBarBuildings"
         android:name="com.example.team_23_project.SearchBarBuildings"
@@ -115,7 +41,35 @@
         tools:layout="@layout/activity_searchbar_buildings" />
     <activity
         android:id="@+id/homePageActivity"
-        android:name="com.example.team_23_project.Activities.HomePageActivity"
+        android:name="com.example.team_23_project.HomePageActivity"
         android:label="activity_home_page"
         tools:layout="@layout/activity_home_page" />
+    <activity
+        android:id="@+id/FAQandQAActivity"
+        android:name="com.example.team_23_project.Activities.FAQandQAActivity"
+        android:label="activity_faq_and_qa"
+        tools:layout="@layout/activity_faq_and_qa" />
+    <activity
+        android:id="@+id/contactUsActivity"
+        android:name="com.example.team_23_project.Activities.ContactUsActivity"
+        android:label="contact_us"
+        tools:layout="@layout/contact_us" />
+    <activity
+        android:id="@+id/userAccount"
+        android:name="com.example.team_23_project.UserAccountActivity"
+        android:label="UserAccount" />
+    <activity
+        android:id="@+id/userSettings"
+        android:name="com.example.team_23_project.UserSettings"
+        android:label="UserSettings" />
+    <activity
+        android:id="@+id/userActivityStaff"
+        android:name="com.example.team_23_project.UserRegisterActivityStaff"
+        android:label="register_staff"
+        tools:layout="@layout/register_staff" />
+    <activity
+        android:id="@+id/userActivityStudent"
+        android:name="com.example.team_23_project.UserRegisterActivityStudent"
+        android:label="register_student"
+        tools:layout="@layout/register_student" />
 </navigation>

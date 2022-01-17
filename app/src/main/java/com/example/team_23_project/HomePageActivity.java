@@ -43,7 +43,7 @@ public class HomePageActivity extends AppCompatActivity {
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HomePageActivity.this.startActivity(new Intent(HomePageActivity.this, LoginMain.class));
+                HomePageActivity.this.startActivity(new Intent(HomePageActivity.this, LoginActivity.class));
             }
         });
 

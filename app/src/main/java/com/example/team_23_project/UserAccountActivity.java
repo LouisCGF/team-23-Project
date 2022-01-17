@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class UserAccount extends AppCompatActivity {
+public class UserAccountActivity extends AppCompatActivity {
 
     TextView firstName;
     TextView lastName;

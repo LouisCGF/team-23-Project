@@ -9,17 +9,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.team_23_project.Activities.FAQandQAActivity;
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText loginName;
     private EditText loginPassword;
-    private Button checkLogin;
     private TextView loginAttempts;
+
+    private Button checkLogin;
+    private TextView regStu;
+    private TextView regSta;
+    private TextView faq;
+    private ImageView plusIcon;
 
     private String inputName;
     private String inputPassword;
@@ -40,10 +48,15 @@ public class LoginActivity extends AppCompatActivity {
         }
         setContentView(R.layout.fragment_first);
 
-        loginName = findViewById(R.id.loginNametxt);
-        loginPassword = findViewById(R.id.loginPasswordtxt);
-        checkLogin = findViewById(R.id.checkLoginbtn);
+        loginName = findViewById(R.id.editEmailTxt);
+        loginPassword = findViewById(R.id.editPasswordTxt);
         loginAttempts = findViewById(R.id.numoOfAtemptstxt);
+
+        checkLogin = findViewById(R.id.loginBtn);
+        regStu = findViewById(R.id.regStuBtn);
+        regSta = findViewById(R.id.regStaBtn);
+        faq = findViewById(R.id.faqBtn);
+        plusIcon = findViewById(R.id.plusIcon);
 
         inputName = loginName.getText().toString();
         inputPassword = loginPassword.getText().toString();
@@ -90,6 +103,34 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+        regStu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginActivity.this.startActivity( new Intent( LoginActivity.this, UserRegisterActivityStudent.class ));
+            }
+        });
+
+        regSta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginActivity.this.startActivity( new Intent( LoginActivity.this, UserRegisterActivityStaff.class ));
+            }
+        });
+
+        faq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginActivity.this.startActivity( new Intent( LoginActivity.this, FAQandQAActivity.class));
+            }
+        });
+
+        plusIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginActivity.this.startActivity( new Intent( LoginActivity.this, UserRegisterActivityStudent.class));
+            }
+        });
     }
 
     private boolean validateLogin(String name, String password) {
@@ -107,9 +148,6 @@ public class LoginActivity extends AppCompatActivity {
         return false;
     }
 
-    public void onLoginClick(View view){
-        startActivity(new Intent(this, MainActivity.class));
-        overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
-    }
+
 
 }

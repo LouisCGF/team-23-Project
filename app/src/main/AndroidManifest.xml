@@ -61,7 +61,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegisterActivityStudent"
+            android:name=".UserRegisterActivityStudent"
             android:exported="true"
             android:label="Register Activity"
             android:theme="@style/AppTheme.NoActionBar">

@@ -7,7 +7,6 @@ import android.os.Bundle;
 
 import com.example.team_23_project.databaseConnection.DbManager;
 import com.example.team_23_project.databaseConnection.InsertData;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,8 +23,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.SimpleCursorAdapter;
-
-import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -97,8 +94,8 @@ public class MainActivity extends AppCompatActivity {
 
     // need some more work on this method. now it starts activity of both, however, it should be either one of them.
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intentStudent = new Intent(getApplicationContext(), UserActivityStudent.class);
-        Intent intentStaff = new Intent(getApplicationContext(), UserActivityStaff.class);
+        Intent intentStudent = new Intent(getApplicationContext(), UserRegisterActivityStudent.class);
+        Intent intentStaff = new Intent(getApplicationContext(), UserRegisterActivityStaff.class);
         intentStudent.putExtra("id", id);
         intentStaff.putExtra("id", id);
         startActivity(intentStudent);

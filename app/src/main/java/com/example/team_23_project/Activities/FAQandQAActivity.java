@@ -4,10 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.team_23_project.Activities.ContactUsActivity;
 import com.example.team_23_project.LoginActivity;
 import com.example.team_23_project.R;
 
@@ -31,17 +31,18 @@ public class FAQandQAActivity extends AppCompatActivity {
         backToMainFaq = findViewById(R.id.backToMainFaqBtn2);
         contactFromFaq = findViewById(R.id.contactFromFaqBtn2);
 
-    }
+        backToMainFaq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FAQandQAActivity.this.startActivity( new Intent( FAQandQAActivity.this, LoginActivity.class));
+            }
+        });
 
-    private void setBackToMainFaq() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        startActivity(intent);
-    }
-
-    private void setContactFromFaq() {
-        Intent intent = new Intent(this, ContactUsActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-            startActivity(intent);
+        infoFaq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FAQandQAActivity.this.startActivity( new Intent( FAQandQAActivity.this, ContactUsActivity.class));
+            }
+        });
     }
 }

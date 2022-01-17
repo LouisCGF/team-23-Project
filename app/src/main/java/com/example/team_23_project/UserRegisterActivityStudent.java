@@ -4,14 +4,17 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class UserActivityStudent extends AppCompatActivity {
+public class UserRegisterActivityStudent extends AppCompatActivity {
 
     // Fields in the student register page
     EditText firstNameStudent;
@@ -103,6 +106,15 @@ public class UserActivityStudent extends AppCompatActivity {
             db.insert(DatabaseHelper.TABLE_USERS, null, cv1);
         }
         goHome();
+    }
+
+    public void changeStatusBarColor(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(R.color.register_bk_color));
+        }
     }
 
     // Method for closing the database and transferring user to the next stage. Name and properties of the class can be changed.
