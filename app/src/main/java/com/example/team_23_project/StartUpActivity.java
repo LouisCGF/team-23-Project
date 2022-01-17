@@ -10,6 +10,7 @@ import com.example.team_23_project.databaseConnection.InsertData;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Handler;
 import android.view.View;
 
 import androidx.navigation.NavController;
@@ -45,7 +46,16 @@ public class StartUpActivity extends AppCompatActivity {
         //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         //appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        StartUpActivity.this.startActivity(new Intent(StartUpActivity.this, LoginActivity.class));
+
+        // This shows the logo when the app opens for 2 seconds
+        Runnable r = new Runnable() {
+            @Override
+            public void run(){
+                StartUpActivity.this.startActivity(new Intent(StartUpActivity.this, LoginActivity.class));
+            }
+        };
+        Handler h = new Handler();
+        h.postDelayed(r, 2000);
 
         databaseHelper = new DatabaseHelper(getApplicationContext());
 
