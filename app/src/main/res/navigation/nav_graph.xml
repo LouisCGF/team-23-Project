@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.example.team_23_project.javaPageFragments.SecondFragment"
+        android:name="com.example.team_23_project.Activities.SecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 
@@ -50,7 +50,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerStudent"
-        android:name="com.example.team_23_project.javaPageFragments.RegisterStudent"
+        android:name="com.example.team_23_project.Activities.RegisterStudent"
         android:label="RegisterStudent" >
         <action
             android:id="@+id/action_registerStudent_to_SecondFragment"
@@ -66,7 +66,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerStaff"
-        android:name="com.example.team_23_project.javaPageFragments.RegisterStaff"
+        android:name="com.example.team_23_project.Activities.RegisterStaff"
         android:label="RegisterStaff" >
         <action
             android:id="@+id/action_registerStaff_to_SecondFragment"
@@ -79,7 +79,7 @@
     </fragment>
     <fragment
         android:id="@+id/FAQandQA"
-        android:name="com.example.team_23_project.javaPageFragments.FAQandQA">
+        android:name="com.example.team_23_project.Activities.FAQandQA">
         <action
             android:id="@+id/action_FAQandQA_to_FirstFragment"
             app:destination="@id/FirstFragment" />
@@ -89,7 +89,7 @@
     </fragment>
     <fragment
         android:id="@+id/contactUs"
-        android:name="com.example.team_23_project.javaPageFragments.ContactUs"
+        android:name="com.example.team_23_project.Activities.ContactUsActivity"
         android:label="ContactUs" />
     <activity
         android:id="@+id/searchBar"
@@ -115,7 +115,7 @@
         tools:layout="@layout/activity_searchbar_buildings" />
     <activity
         android:id="@+id/homePageActivity"
-        android:name="com.example.team_23_project.HomePageActivity"
+        android:name="com.example.team_23_project.Activities.HomePageActivity"
         android:label="activity_home_page"
         tools:layout="@layout/activity_home_page" />
 </navigation>

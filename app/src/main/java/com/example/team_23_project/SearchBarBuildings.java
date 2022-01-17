@@ -18,6 +18,8 @@ import android.widget.SearchView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.team_23_project.Activities.BuildingViewActivity;
+
 public class SearchBarBuildings extends AppCompatActivity {
 
     ListView listView;
