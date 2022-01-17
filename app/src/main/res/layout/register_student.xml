@@ -68,7 +68,7 @@
                         android:layout_marginTop="@dimen/loginViewsMargin"
                         app:boxStrokeColor="#2E2E2E">
 
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/firstNameStudentTxt"
                             style="@style/modifiedEditText"
                             android:backgroundTint="@color/white"
@@ -84,7 +84,7 @@
                         android:layout_marginTop="@dimen/registerViewsMargin"
                         app:boxStrokeColor="#2E2E2E">
 
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/lastNameStudentTxt"
                             style="@style/modifiedEditText"
                             android:backgroundTint="@color/white"
@@ -101,7 +101,7 @@
                         android:layout_marginTop="@dimen/registerViewsMargin"
                         app:boxStrokeColor="#2E2E2E">
 
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/emailAdrStudentTxt"
                             style="@style/modifiedEditText"
                             android:backgroundTint="@color/white"
@@ -117,7 +117,7 @@
                         android:layout_marginTop="@dimen/registerViewsMargin"
                         app:boxStrokeColor="#2E2E2E">
 
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/courseStudentTxt"
                             style="@style/modifiedEditText"
                             android:backgroundTint="@color/white"
@@ -133,7 +133,7 @@
                         android:layout_marginTop="@dimen/registerViewsMargin"
                         app:boxStrokeColor="#2E2E2E">
 
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/stageStudentTxt"
                             style="@style/modifiedEditText"
                             android:backgroundTint="@color/white"
@@ -149,7 +149,7 @@
                         android:layout_marginTop="@dimen/registerViewsMargin"
                         app:boxStrokeColor="#2E2E2E">
 
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/passwordStudentRegTxt"
                             style="@style/modifiedEditText"
                             android:backgroundTint="@color/white"
@@ -165,7 +165,7 @@
                         android:layout_marginTop="@dimen/registerViewsMargin"
                         app:boxStrokeColor="#2E2E2E">
 
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/passwordConfirmStudentRegTxt"
                             style="@style/modifiedEditText"
                             android:backgroundTint="@color/white"

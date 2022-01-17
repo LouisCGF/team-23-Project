@@ -15,17 +15,20 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
 public class UserRegisterActivityStudent extends AppCompatActivity {
 
     // Fields in the student register page
-    EditText firstNameStudent;
-    EditText lastNameStudent;
-    EditText studentNumber;
-    EditText emailAdrStudent;
-    EditText courseStudent;
-    EditText stageStudent;
-    EditText passwordStudentReg;
-    EditText passwordConfirmStudentReg;
+    TextInputLayout firstNameStudent;
+    TextInputLayout lastNameStudent;
+    TextInputLayout studentNumber;
+    TextInputLayout emailAdrStudent;
+    TextInputLayout courseStudent;
+    TextInputLayout stageStudent;
+    TextInputLayout passwordStudentReg;
+    TextInputLayout passwordConfirmStudentReg;
 
     Button submitStudentReg;
 
@@ -41,13 +44,13 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
         // Getting connection.
         setContentView(R.layout.register_student);
 
-        firstNameStudent = findViewById(R.id.firstNameStudentTxt);
-        lastNameStudent = findViewById(R.id.lastNameStudentTxt);
-        emailAdrStudent = findViewById(R.id.emailAdrStudentTxt);
-        courseStudent = findViewById(R.id.courseStudentTxt);
-        stageStudent = findViewById(R.id.stageStudentTxt);
-        passwordStudentReg = findViewById(R.id.passwordStudentRegTxt);
-        passwordConfirmStudentReg = findViewById(R.id.passwordConfirmStudentRegTxt);
+        firstNameStudent = findViewById(R.id.studentFirstNameInput);
+        lastNameStudent = findViewById(R.id.studentLastNameInput);
+        emailAdrStudent = findViewById(R.id.studentEmailInput);
+        courseStudent = findViewById(R.id.studentCourseInput);
+        stageStudent = findViewById(R.id.studentStageInput);
+        passwordStudentReg = findViewById(R.id.studentPassInput);
+        passwordConfirmStudentReg = findViewById(R.id.studentConfPassInput);
 
         submitStudentReg = findViewById(R.id.submitStudentRegBtn);
         ImageView minusButton = findViewById(R.id.minusButton);
@@ -65,19 +68,19 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
             userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE_STUDENT_INFO
                     + " where " + DatabaseHelper.COLUMN_USER_ID + "=?", new String[]{String.valueOf(userId)});
             userCursor.moveToFirst();
-            studentNumber.setText(userCursor.getString(1));
-            courseStudent.setText(userCursor.getString(2));
-            stageStudent.setText(userCursor.getString(3));
+            studentNumber.getEditText().setText(userCursor.getString(1));
+            courseStudent.getEditText().setText(userCursor.getString(2));
+            stageStudent.getEditText().setText(userCursor.getString(3));
             userCursor.close();
 
             // Connection and reading of the Users table
             userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE_USERS + " where "
                     + DatabaseHelper.COLUMN_USER_ID + "=?", new String[]{String.valueOf(userId)});
-            firstNameStudent.setText(userCursor.getString(1));
-            lastNameStudent.setText(userCursor.getString(2));
-            emailAdrStudent.setText(userCursor.getString(3));
-            passwordStudentReg.setText(userCursor.getString(4));
-            passwordConfirmStudentReg.setText(userCursor.getString(5));
+            firstNameStudent.getEditText().setText(userCursor.getString(1));
+            lastNameStudent.getEditText().setText(userCursor.getString(2));
+            emailAdrStudent.getEditText().setText(userCursor.getString(3));
+            passwordStudentReg.getEditText().setText(userCursor.getString(4));
+            passwordConfirmStudentReg.getEditText().setText(userCursor.getString(5));
             userCursor.close();
 
         }
@@ -90,18 +93,25 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
             }
         });
 
+        submitStudentReg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                submitStudent();
+            }
+        });
+
     }
 
-    public void submitStudent(View view) {
+    public void submitStudent() {
         // Putting data into the database after clicking on the submit button.
         ContentValues cv1 = new ContentValues();
         ContentValues cv2 = new ContentValues();
-        cv1.put(DatabaseHelper.COLUMN_FIRST_NAME,firstNameStudent.getText().toString());
-        cv1.put(DatabaseHelper.COLUMN_LAST_NAME, lastNameStudent.getText().toString());
-        cv1.put(DatabaseHelper.COLUMN_EMAIL_ADDRESS, emailAdrStudent.getText().toString());
-        cv1.put(DatabaseHelper.COLUMN_PASSWORD, passwordStudentReg.getText().toString());
-        cv2.put(DatabaseHelper.COLUMN_COURSE, courseStudent.getText().toString());
-        cv2.put(DatabaseHelper.COLUMN_STAGE, stageStudent.getText().toString());
+        cv1.put(DatabaseHelper.COLUMN_FIRST_NAME,firstNameStudent.getEditText().getText().toString());
+        cv1.put(DatabaseHelper.COLUMN_LAST_NAME, lastNameStudent.getEditText().getText().toString());
+        cv1.put(DatabaseHelper.COLUMN_EMAIL_ADDRESS, emailAdrStudent.getEditText().getText().toString());
+        cv1.put(DatabaseHelper.COLUMN_PASSWORD, passwordStudentReg.getEditText().getText().toString());
+        cv2.put(DatabaseHelper.COLUMN_COURSE, courseStudent.getEditText().getText().toString());
+        cv2.put(DatabaseHelper.COLUMN_STAGE, stageStudent.getEditText().getText().toString());
 
         if (userId > 0) {
             db.update(DatabaseHelper.TABLE_STUDENT_INFO, cv2, DatabaseHelper.COLUMN_USER_ID
