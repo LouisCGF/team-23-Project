@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,11 +18,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.team_23_project.Activities.FAQandQAActivity;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText loginName;
-    private EditText loginPassword;
+    private TextInputLayout loginName;
+    private TextInputLayout loginPassword;
     private TextView loginAttempts;
 
     private Button checkLogin;
@@ -29,8 +33,8 @@ public class LoginActivity extends AppCompatActivity {
     private TextView faq;
     private ImageView plusIcon;
 
-    private String inputName;
-    private String inputPassword;
+    private Editable inputName;
+    private Editable inputPassword;
 
     private boolean isValid = false;
     private int counter = 5;
@@ -48,8 +52,8 @@ public class LoginActivity extends AppCompatActivity {
         }
         setContentView(R.layout.fragment_first);
 
-        loginName = findViewById(R.id.editEmailTxt);
-        loginPassword = findViewById(R.id.editPasswordTxt);
+        loginName = findViewById(R.id.textInputEmail);
+        loginPassword = findViewById(R.id.textInputPassword);
         loginAttempts = findViewById(R.id.numoOfAtemptstxt);
 
         checkLogin = findViewById(R.id.loginBtn);
@@ -58,8 +62,8 @@ public class LoginActivity extends AppCompatActivity {
         faq = findViewById(R.id.faqBtn);
         plusIcon = findViewById(R.id.plusIcon);
 
-        inputName = loginName.getText().toString();
-        inputPassword = loginPassword.getText().toString();
+        inputName = loginName.getEditText().getText();
+        inputPassword = loginPassword.getEditText().getText();
 
         sqlHelper = new DatabaseHelper(this);
         db = sqlHelper.getWritableDatabase();
@@ -68,39 +72,37 @@ public class LoginActivity extends AppCompatActivity {
         checkLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println(inputName);
+                System.out.println(inputPassword);
 
-                if (inputName.isEmpty() || inputPassword.isEmpty()) {
+                if (TextUtils.isEmpty(inputName) || TextUtils.isEmpty(inputPassword)) {
                     Toast.makeText(LoginActivity.this, "Please enter valid details",
                             Toast.LENGTH_SHORT).show();
 
+                } else if (!validateLogin(inputName.toString(), inputPassword.toString())){
+
+                    counter--;
+
+                    Toast.makeText(LoginActivity.this, "The details are incorrect",
+                            Toast.LENGTH_SHORT).show();
+
+
+                    //String text = String.format(res.getString(R.string.num_of_attempts), counter); // <- more robust way instead of setText("num attempts remaining" + counter)
+                    //loginAttempts.setText(text);
+
+                    if (counter == 0) {
+                        checkLogin.setEnabled(false);
+                    }
+
+
                 } else {
 
-                    isValid = validateLogin(inputName, inputPassword);
-
-                    if (!isValid) {
-
-                        counter--;
-
-                        Toast.makeText(LoginActivity.this, "The details are incorrect",
-                                Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Login was successful",
+                            Toast.LENGTH_SHORT).show();
 
 
-                        String text = String.format(res.getString(R.string.num_of_attempts), counter); // <- more robust way instead of setText("num attempts remaining" + counter)
-                        loginAttempts.setText(text);
-
-                        if (counter == 0) {
-                            checkLogin.setEnabled(false);
-                        }
-
-                    } else {
-
-                        Toast.makeText(LoginActivity.this, "Login was successful",
-                                Toast.LENGTH_SHORT).show();
-
-
-                        Intent intent = new Intent( LoginActivity.this, HomePageActivity.class);
-                        startActivity(intent);
-                    }
+                    Intent intent = new Intent( LoginActivity.this, HomePageActivity.class);
+                    startActivity(intent);
                 }
             }
         });
@@ -143,13 +145,7 @@ public class LoginActivity extends AppCompatActivity {
                 + DatabaseHelper.COLUMN_USER_ID + "=? and " + DatabaseHelper.COLUMN_PASSWORD + "=?",
                 new String[] {name, password});
 
-        if (userCursor.getCount()>0) {
-
-            return true;
-
-        }
-
-        return false;
+        return userCursor.getCount() > 1;
     }
 
 

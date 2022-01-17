@@ -59,7 +59,7 @@
                 android:layout_marginTop="@dimen/loginViewsMargin"
                 app:boxStrokeColor="#2E2E2E">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editEmailTxt"
                     style="@style/modifiedEditText"
                     android:backgroundTint="@color/white"
@@ -75,7 +75,7 @@
                 android:layout_marginTop="@dimen/loginViewsMargin"
                 app:boxStrokeColor="#2E2E2E">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editPasswordTxt"
                     style="@style/modifiedEditText"
                     android:backgroundTint="@color/white"
