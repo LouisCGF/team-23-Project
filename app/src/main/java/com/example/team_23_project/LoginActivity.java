@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.team_23_project.Activities.FAQandQAActivity;
@@ -76,15 +78,14 @@ public class LoginActivity extends AppCompatActivity {
                 System.out.println(inputPassword);
 
                 if (TextUtils.isEmpty(inputName) || TextUtils.isEmpty(inputPassword)) {
-                    Toast.makeText(LoginActivity.this, "Please enter valid details",
-                            Toast.LENGTH_SHORT).show();
+                    loginName.setError("Please enter an email");
+                    loginPassword.setError("Please enter a password");
 
                 } else if (!validateLogin(inputName.toString(), inputPassword.toString())){
 
                     counter--;
-
-                    Toast.makeText(LoginActivity.this, "The details are incorrect",
-                            Toast.LENGTH_SHORT).show();
+                    loginName.setError("Incorrect email or password");
+                    loginPassword.setError("Incorrect email or password");
 
 
                     //String text = String.format(res.getString(R.string.num_of_attempts), counter); // <- more robust way instead of setText("num attempts remaining" + counter)

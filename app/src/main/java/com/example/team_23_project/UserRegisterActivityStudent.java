@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -17,6 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
+import org.w3c.dom.Text;
 
 public class UserRegisterActivityStudent extends AppCompatActivity {
 
@@ -96,7 +99,19 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
         submitStudentReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                submitStudent();
+                TextInputLayout[] inputFields = {firstNameStudent, lastNameStudent, emailAdrStudent, courseStudent, stageStudent, passwordStudentReg, passwordConfirmStudentReg};
+                boolean valid = true;
+                for (TextInputLayout inputField : inputFields){
+                    if (TextUtils.isEmpty(inputField.getEditText().getText())){
+                        valid = false;
+                        inputField.setError("You must fill out this field");
+                        continue;
+                    }
+                    inputField.setError(null);
+                }
+                if (valid){
+                    submitStudent();
+                }
             }
         });
 
