@@ -108,6 +108,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 LoginActivity.this.startActivity( new Intent( LoginActivity.this, UserRegisterActivityStudent.class ));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
             }
         });
 
@@ -115,6 +116,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 LoginActivity.this.startActivity( new Intent( LoginActivity.this, UserRegisterActivityStaff.class ));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
             }
         });
 
@@ -129,6 +131,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 LoginActivity.this.startActivity( new Intent( LoginActivity.this, UserRegisterActivityStudent.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
             }
         });
     }

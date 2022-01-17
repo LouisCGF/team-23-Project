@@ -11,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -48,6 +49,7 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
         passwordConfirmStaffReg = findViewById(R.id.passwordConfirmStaffRegTxt);
 
         submitStaffReg = findViewById(R.id.submitStaffRegBtn);
+        TextView backToSignIn = findViewById(R.id.backToSignIn);
 
         sqlHelper = new DatabaseHelper(this);
         db = sqlHelper.getWritableDatabase();
@@ -76,10 +78,15 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
             passwordConfirmStaffReg.setText(userCursor.getString(5));
             userCursor.close();
 
-        } else {
-            // If some fields are empty - make button disappear
-            submitStaffReg.setVisibility(View.GONE);
         }
+
+        backToSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserRegisterActivityStaff.this.startActivity(new Intent(UserRegisterActivityStaff.this, LoginActivity.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.stay);
+            }
+        });
 
     }
 

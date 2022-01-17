@@ -11,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -49,6 +50,7 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
         passwordConfirmStudentReg = findViewById(R.id.passwordConfirmStudentRegTxt);
 
         submitStudentReg = findViewById(R.id.submitStudentRegBtn);
+        ImageView minusButton = findViewById(R.id.minusButton);
 
         sqlHelper = new DatabaseHelper(this);
         db = sqlHelper.getWritableDatabase();
@@ -78,10 +80,15 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
             passwordConfirmStudentReg.setText(userCursor.getString(5));
             userCursor.close();
 
-        } else {
-            // If some fields are empty - make button disappear
-            submitStudentReg.setVisibility(View.GONE);
         }
+
+        minusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserRegisterActivityStudent.this.startActivity(new Intent(UserRegisterActivityStudent.this, LoginActivity.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.stay);
+            }
+        });
 
     }
 
