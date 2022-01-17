@@ -24,7 +24,7 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.SimpleCursorAdapter;
 
-public class MainActivity extends AppCompatActivity {
+public class StartUpActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         //appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        MainActivity.this.startActivity(new Intent(MainActivity.this, LoginActivity.class));
+        StartUpActivity.this.startActivity(new Intent(StartUpActivity.this, LoginActivity.class));
 
         databaseHelper = new DatabaseHelper(getApplicationContext());
 

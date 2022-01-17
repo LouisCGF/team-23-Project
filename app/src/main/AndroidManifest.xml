@@ -21,11 +21,11 @@
             android:exported="false" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".StartUpActivity"
             android:exported="true"
             android:label="Login Activity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".StartUpActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
