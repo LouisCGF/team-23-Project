@@ -4,9 +4,12 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -19,6 +22,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.Objects;
+import java.util.regex.Pattern;
+
 public class UserRegisterActivityStaff extends AppCompatActivity {
 
     // Fields in the staff register page
@@ -29,6 +35,11 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
     private TextInputLayout admin;
     private TextInputLayout passwordStaffReg;
     private TextInputLayout passwordConfirmStaffReg;
+
+    private TextView lowerCaseLetter;
+    private TextView upperCaseLetter;
+    private TextView oneNumber;
+    private TextView characterCount;
 
     Button submitStaffReg;
 
@@ -51,6 +62,23 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
         admin = findViewById(R.id.staffAdminInput);
         passwordStaffReg = findViewById(R.id.staffPassInput);
         passwordConfirmStaffReg = findViewById(R.id.staffConfPassInput);
+
+        lowerCaseLetter = new TextView(this);
+        upperCaseLetter = new TextView(this);
+        oneNumber = new TextView(this);
+        characterCount = new TextView(this);
+        lowerCaseLetter.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT));
+        lowerCaseLetter.setText("One lower case letter");
+        lowerCaseLetter.setTextSize(11);
+        upperCaseLetter.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT));
+        upperCaseLetter.setText("One upper case letter");
+        upperCaseLetter.setTextSize(11);
+        oneNumber.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT));
+        oneNumber.setText("At least one number");
+        oneNumber.setTextSize(11);
+        characterCount.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT));
+        characterCount.setText("At least 8 character");
+        characterCount.setTextSize(11);
 
         submitStaffReg = findViewById(R.id.submitStaffRegBtn);
         TextView backToSignIn = findViewById(R.id.backToSignIn);
@@ -95,6 +123,10 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
         submitStaffReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                passwordStaffReg.removeView(lowerCaseLetter);
+                passwordStaffReg.removeView(upperCaseLetter);
+                passwordStaffReg.removeView(oneNumber);
+                passwordStaffReg.removeView(characterCount);
                 TextInputLayout[] inputFields = {firstNameStaff, lastNameStaff, emailAdrStaff, schoolStaff, admin, passwordStaffReg, passwordConfirmStaffReg};
                 boolean valid = true;
                 for (TextInputLayout inputField : inputFields){
@@ -105,12 +137,88 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
                     }
                     inputField.setError(null);
                 }
+                if (!validatePassword(passwordStaffReg.getEditText().getText().toString())){
+                    valid = false;
+                }
                 if (valid){
                     submitStaff();
                 }
             }
         });
 
+        Objects.requireNonNull(passwordStaffReg.getEditText()).addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Can ignore this method, don't need it but cannot remove as it is required by TextWatcher
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                passwordStaffReg.removeView(lowerCaseLetter);
+                passwordStaffReg.removeView(upperCaseLetter);
+                passwordStaffReg.removeView(oneNumber);
+                passwordStaffReg.removeView(characterCount);
+                validatePassword(passwordStaffReg.getEditText().getText().toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Can ignore this method, don't need it but cannot remove as it is required by TextWatcher
+            }
+        });
+
+    }
+
+
+
+    public boolean validatePassword(String password) {
+        boolean valid = true;
+        // check for pattern
+        Pattern uppercase = Pattern.compile("[A-Z]");
+        Pattern lowercase = Pattern.compile("[a-z]");
+        Pattern digit = Pattern.compile("[0-9]");
+        passwordStaffReg.addView(lowerCaseLetter);
+        passwordStaffReg.addView(upperCaseLetter);
+        passwordStaffReg.addView(oneNumber);
+        passwordStaffReg.addView(characterCount);
+
+        if (TextUtils.isEmpty(passwordStaffReg.getEditText().getText())){
+            passwordStaffReg.removeView(lowerCaseLetter);
+            passwordStaffReg.removeView(upperCaseLetter);
+            passwordStaffReg.removeView(oneNumber);
+            passwordStaffReg.removeView(characterCount);
+
+        }
+
+
+        if (!lowercase.matcher(password).find()) { // <- If lowercase character is not present
+            lowerCaseLetter.setTextColor(-43230);
+            valid = false;
+        } else { // <- If lowercase character is  present
+            lowerCaseLetter.setTextColor(Color.parseColor("#6EFF94"));
+        }
+
+        if (!uppercase.matcher(password).find()) { // <- If uppercase character is not present
+            upperCaseLetter.setTextColor(-43230);
+            valid = false;
+        } else { // <- If uppercase character is  present
+            upperCaseLetter.setTextColor(Color.parseColor("#6EFF94"));
+        }
+
+        if (!digit.matcher(password).find()) { // <- If digit is not present
+            oneNumber.setTextColor(-43230);
+            valid = false;
+        } else { // <- If digit is present
+            oneNumber.setTextColor(Color.parseColor("#6EFF94")); // <- If digit is present
+        }
+
+        if (password.length() < 8) { // <- If password length is less than 8
+            characterCount.setTextColor(-43230);
+            valid = false;
+        } else { // <- If password length is at least 8
+            characterCount.setTextColor(Color.parseColor("#6EFF94"));
+        }
+        return valid;
     }
 
     public void submitStaff() {
