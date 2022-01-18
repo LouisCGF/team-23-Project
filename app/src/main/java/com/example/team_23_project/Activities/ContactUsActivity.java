@@ -7,14 +7,17 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.team_23_project.R;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class ContactUsActivity extends AppCompatActivity {
 
-    private EditText mEditTextSubject;
-    private EditText mEditTextMessage;
+    private TextInputLayout mEditTextSubject;
+    private TextInputLayout mEditTextMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -23,10 +26,10 @@ public class ContactUsActivity extends AppCompatActivity {
 
         String[] emails = getResources().getStringArray(R.array.emails);
 
-        mEditTextSubject = findViewById(R.id.subjectField);
+        mEditTextSubject = findViewById(R.id.enterSubjectField);
         mEditTextMessage = findViewById(R.id.messageBox);
 
-        AutoCompleteTextView editText = findViewById(R.id.emailSelector);
+        Spinner editText = findViewById(R.id.emailSelector);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, emails);
         editText.setAdapter(adapter);
@@ -44,8 +47,8 @@ public class ContactUsActivity extends AppCompatActivity {
     private void sendMail() {
         String[] emails = getResources().getStringArray(R.array.emails);
 
-        String subject = mEditTextSubject.getText().toString();
-        String message = mEditTextMessage.getText().toString();
+        String subject = mEditTextSubject.getEditText().getText().toString();
+        String message = mEditTextMessage.getEditText().getText().toString();
 
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.putExtra(Intent.EXTRA_EMAIL, emails);

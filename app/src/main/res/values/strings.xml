@@ -34,6 +34,7 @@
     <string name="attachment_title">Text Size</string>
 
     <string name="contactUsText">Contact us</string>
+    <string name="FAQText">Frequently Asked Questions</string>
     <string name="full_name">Full Name</string>
     <string name="send">Send</string>
     <string name="enter_your_message_here">Enter your message here:</string>
@@ -55,6 +56,15 @@
     <string name="register">Register</string>
     <string name="already_have_an_account_sign_in">Already Have an Account? Sign in</string>
 
+    <!-- FAQs -->
+    <string name="question1">Q: My University/Building doesn\'t have support, when will it?</string>
+    <string name="answer1">A: Right now, we only have support for Newcastle University, we will have support for other Universities in future updates</string>
+    <string name="question2">Q: Can I use the app if I\'m not a student?</string>
+    <string name="answer2">A: Yes you can, however to register an account you must put in a course and stage/year</string>
+    <string name="question3">Q: I can\'t see all of the rooms in my building, why not?</string>
+    <string name="answer3">A: If you can\'t see a specific room, it means that room has restricted access and therefore cannot be entered to photograph it</string>
+
+
     <string-array name="emails">
         <item>c0034793@newcastle.ac.uk</item>
         <item>test2@gmail.com</item>
@@ -73,4 +83,5 @@
     <string name="text_size">Select text size</string>
     <string name="save">Save</string>
     <string name="feedback">Feedback</string>
+    <string name="back_to_main_page">Back To Main Page</string>
 </resources>

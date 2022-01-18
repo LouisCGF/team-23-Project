@@ -20,9 +20,7 @@
             android:name=".SettingsActivity"
             android:exported="false"
             android:label="@string/title_activity_settings" />
-        <activity
-            android:name=".Activities.FAQandQAActivity"
-            android:exported="false" />
+
         <activity
             android:name=".StartUpActivity"
             android:exported="true"
@@ -109,6 +107,29 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.FAQandQAActivity"
+            android:exported="true"
+            android:label="FAQ Activity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.ContactUsActivity"
+            android:exported="true"
+            android:label="Contact Us Activity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
         </activity>
 
         <meta-data

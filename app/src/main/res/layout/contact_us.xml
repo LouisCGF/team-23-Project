@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     android:background="@color/primaryTextColor"
     android:focusableInTouchMode="true"
-    tools:context="com.example.team_23_project.Activities.ContactUsActivity"
+    tools:context=".Activities.ContactUsActivity"
     android:gravity="center"
     android:padding="4dp">
 
@@ -56,9 +56,8 @@
                 android:layout_margin="10dp"
                 android:orientation="vertical">
 
-                <com.google.android.material.textfield.TextInputLayout
+                <Spinner
                     android:id="@+id/emailSelector"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -66,40 +65,29 @@
                     android:layout_marginEnd="10dp"
                     android:hint="@string/select_an_email">
 
-                    <AutoCompleteTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:completionThreshold="1"
-                        android:textSize="14sp" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                </Spinner>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/enterSubjectField"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
-                    android:hint="@string/subject"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:hint="@string/subject">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/subjectField"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="text"
                         android:textSize="14sp">
-                    </EditText>
+                    </com.google.android.material.textfield.TextInputEditText>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:id="@+id/messageBox"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:layout_marginStart="10dp"
@@ -108,7 +96,6 @@
                     android:layout_marginBottom="10dp">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/messageBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="start|top"
