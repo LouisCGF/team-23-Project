@@ -104,7 +104,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //TABLE_USERS
         db.execSQL("CREATE TABLE USERS (" + COLUMN_USER_ID
                 + " INTEGER PRIMARY KEY ," + COLUMN_EMAIL_ADDRESS
-                + " TEXT ," + COLUMN_FIRST_NAME
+                + " EMAIL ," + COLUMN_FIRST_NAME
                 + " TEXT ," + COLUMN_LAST_NAME
                 + " TEXT ," + COLUMN_PASSWORD + " TEXT);");
 
