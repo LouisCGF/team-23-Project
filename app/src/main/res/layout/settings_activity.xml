@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     android:background="@color/primaryTextColor"
     android:focusableInTouchMode="true"
-    tools:context="com.example.team_23_project.Activities.ContactUsActivity"
+    tools:context=".UserSettings"
     android:gravity="center"
     android:padding="4dp">
 
@@ -21,19 +21,18 @@
         android:layout_marginBottom="650dp">
 
         <TextView
-            android:id="@+id/contactUsText"
+            android:id="@+id/settingsText"
             style="@style/viewParent.headerText.NoMode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_alignParentStart="true"
             android:layout_centerInParent="true"
-            android:text="@string/contactUsText"
+            android:gravity="center"
+            android:text="@string/settings"
             android:textColor="@color/whiteTextColor"
             tools:ignore="TextContrastCheck" />
 
     </RelativeLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -57,14 +56,60 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/emailSelector"
+                    android:id="@+id/themeSelector"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
-                    android:hint="@string/select_an_email">
+                    android:hint="@string/choose_theme"
+                    >
+
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:completionThreshold="1"
+                        android:textSize="16sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/easdasd"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:hint="@string/subject"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Colour Blind Mode"
+                        android:textSize="16sp" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/colourBlindModeSwitch"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textSizeSelector"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:hint="@string/text_size">
 
                     <AutoCompleteTextView
                         android:layout_width="match_parent"
@@ -75,68 +120,19 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/enterSubjectField"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:hint="@string/subject"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <EditText
-                        android:id="@+id/subjectField"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:textSize="14sp">
-                    </EditText>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/messageBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="start|top"
-                        android:hint="@string/enter_your_message_here"
-                        android:inputType="textMultiLine"
-                        android:lines="20"
-                        android:overScrollMode="always"
-                        android:scrollbarStyle="insideInset"
-                        android:scrollbars="vertical"
-                        android:scrollHorizontally="false"
-                        android:textSize="14sp" />
-                </com.google.android.material.textfield.TextInputLayout>
+                <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+                    android:id="@+id/saveSettingsButton"
+                    style="@style/loginButton"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="110dp"
+                    android:text="@string/save" />
 
                 <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
-                    android:id="@+id/buttonSend"
+                    android:id="@+id/feedbackButtonSettings"
                     style="@style/loginButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/loginViewsMargin"
-                    android:background="@drawable/button_background_blue"
-                    android:text="@string/send"
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold"
-                    app:initialCornerAngle="27dp"
-                    app:spinning_bar_color="#FFF"
-                    app:spinning_bar_padding="6dp"
-                    app:spinning_bar_width="4dp" />
+                    android:layout_marginTop="25dp"
+                    android:text="@string/feedback" />
 
             </LinearLayout>
 
@@ -145,4 +141,5 @@
     </LinearLayout>
 
 </RelativeLayout>
+
 

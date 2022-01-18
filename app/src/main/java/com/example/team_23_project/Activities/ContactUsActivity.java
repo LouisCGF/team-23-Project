@@ -23,7 +23,7 @@ public class ContactUsActivity extends AppCompatActivity {
 
         String[] emails = getResources().getStringArray(R.array.emails);
 
-        //mEditTextSubject = findViewById(R.id.subjectField);
+        mEditTextSubject = findViewById(R.id.subjectField);
         mEditTextMessage = findViewById(R.id.messageBox);
 
         AutoCompleteTextView editText = findViewById(R.id.emailSelector);

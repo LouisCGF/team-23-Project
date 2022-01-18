@@ -7,6 +7,7 @@ import android.view.View;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -32,14 +33,23 @@ public class UserSettings extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Getting connection
-        setContentView(R.layout.user_settings);
+        setContentView(R.layout.settings_activity);
 
+        /*
         // For Light and Dark Mode Spinner:
         Spinner dropdown = findViewById(R.id.lightDarkSpinner);
         String[] items = new String[]{"Light Mode", "Dark Mode"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
+         */
+
+        // Button selector for Light and Dark Modes
+        String[] themes = getResources().getStringArray(R.array.themes);
+
+        AutoCompleteTextView editText = findViewById(R.id.themeSelector);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, themes);
+        editText.setAdapter(adapter);
 
 
         // In order for the Settings functionality to work:
