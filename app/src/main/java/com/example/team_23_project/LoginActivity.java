@@ -75,8 +75,6 @@ public class LoginActivity extends AppCompatActivity {
         checkLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println(inputName);
-                System.out.println(inputPassword);
 
                 if (TextUtils.isEmpty(inputName) || TextUtils.isEmpty(inputPassword)) {
                     loginName.setError("Please enter an email");
@@ -84,18 +82,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 } else if (!validateLogin(inputName.toString(), inputPassword.toString())){
 
-                    counter--;
                     loginName.setError("Incorrect email or password");
                     loginPassword.setError("Incorrect email or password");
-
-
-                    //String text = String.format(res.getString(R.string.num_of_attempts), counter); // <- more robust way instead of setText("num attempts remaining" + counter)
-                    //loginAttempts.setText(text);
-
-                    if (counter == 0) {
-                        checkLogin.setEnabled(false);
-                    }
-
 
                 } else {
 

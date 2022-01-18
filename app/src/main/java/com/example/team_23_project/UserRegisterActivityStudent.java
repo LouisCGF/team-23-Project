@@ -130,10 +130,7 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
         submitStudentReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                passwordStudentReg.removeView(lowerCaseLetter);
-                passwordStudentReg.removeView(upperCaseLetter);
-                passwordStudentReg.removeView(oneNumber);
-                passwordStudentReg.removeView(characterCount);
+                removePasswordValidationText();
                 TextInputLayout[] inputFields = {firstNameStudent, lastNameStudent, emailAdrStudent, courseStudent, stageStudent, passwordStudentReg, passwordConfirmStudentReg};
                 boolean valid = true;
                 for (TextInputLayout inputField : inputFields){
@@ -161,10 +158,7 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                passwordStudentReg.removeView(lowerCaseLetter);
-                passwordStudentReg.removeView(upperCaseLetter);
-                passwordStudentReg.removeView(oneNumber);
-                passwordStudentReg.removeView(characterCount);
+                removePasswordValidationText();
                 validatePassword(passwordStudentReg.getEditText().getText().toString());
             }
 
@@ -182,19 +176,11 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
         Pattern uppercase = Pattern.compile("[A-Z]");
         Pattern lowercase = Pattern.compile("[a-z]");
         Pattern digit = Pattern.compile("[0-9]");
-        passwordStudentReg.addView(lowerCaseLetter);
-        passwordStudentReg.addView(upperCaseLetter);
-        passwordStudentReg.addView(oneNumber);
-        passwordStudentReg.addView(characterCount);
+        addPasswordValidationText();
 
         if (TextUtils.isEmpty(passwordStudentReg.getEditText().getText())){
-            passwordStudentReg.removeView(lowerCaseLetter);
-            passwordStudentReg.removeView(upperCaseLetter);
-            passwordStudentReg.removeView(oneNumber);
-            passwordStudentReg.removeView(characterCount);
-
+            removePasswordValidationText();
         }
-
 
         if (!lowercase.matcher(password).find()) { // <- If lowercase character is not present
             lowerCaseLetter.setTextColor(-43230);
@@ -224,6 +210,20 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
             characterCount.setTextColor(Color.parseColor("#6EFF94"));
         }
         return valid;
+    }
+
+    public void addPasswordValidationText(){
+        TextView[] textViews = {lowerCaseLetter, upperCaseLetter, oneNumber, characterCount};
+        for (TextView textView : textViews) {
+            passwordStudentReg.addView(textView);
+        }
+    }
+
+    public void removePasswordValidationText(){
+        TextView[] textViews = {lowerCaseLetter, upperCaseLetter, oneNumber, characterCount};
+        for (TextView textView : textViews) {
+            passwordStudentReg.removeView(textView);
+        }
     }
 
     public void submitStudent() {
