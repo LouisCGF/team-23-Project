@@ -16,8 +16,9 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class ContactUsActivity extends AppCompatActivity {
 
-    private TextInputLayout mEditTextSubject;
-    private TextInputLayout mEditTextMessage;
+    private TextInputLayout emailSubject;
+    private TextInputLayout emailMessage;
+    private Spinner emailSelector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -26,13 +27,13 @@ public class ContactUsActivity extends AppCompatActivity {
 
         String[] emails = getResources().getStringArray(R.array.emails);
 
-        mEditTextSubject = findViewById(R.id.enterSubjectField);
-        mEditTextMessage = findViewById(R.id.messageBox);
+        emailSubject = findViewById(R.id.enterSubjectField);
+        emailMessage = findViewById(R.id.messageBox);
 
-        Spinner editText = findViewById(R.id.emailSelector);
+        emailSelector = findViewById(R.id.emailSelector);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, emails);
-        editText.setAdapter(adapter);
+        emailSelector.setAdapter(adapter);
 
 
         Button buttonSend = findViewById(R.id.buttonSend);
@@ -45,13 +46,13 @@ public class ContactUsActivity extends AppCompatActivity {
     }
 
     private void sendMail() {
-        String[] emails = getResources().getStringArray(R.array.emails);
+        String selectedEmail = emailSelector.getSelectedItem().toString();
 
-        String subject = mEditTextSubject.getEditText().getText().toString();
-        String message = mEditTextMessage.getEditText().getText().toString();
+        String subject = emailSubject.getEditText().getText().toString();
+        String message = emailMessage.getEditText().getText().toString();
 
         Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_EMAIL, emails);
+        intent.putExtra(Intent.EXTRA_EMAIL, selectedEmail);
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
         intent.putExtra(Intent.EXTRA_TEXT, message);
 
