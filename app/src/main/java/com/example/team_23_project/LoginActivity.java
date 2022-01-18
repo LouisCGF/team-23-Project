@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -105,6 +106,45 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent( LoginActivity.this, HomePageActivity.class);
                     startActivity(intent);
                 }
+            }
+        });
+
+        loginName.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Can ignore this method, don't need it but cannot remove as it is required by TextWatcher
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!TextUtils.isEmpty(loginName.getEditText().getText())){
+                    loginName.setError(null);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Can ignore this method, don't need it but cannot remove as it is required by TextWatcher
+            }
+        });
+
+        loginPassword.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Can ignore this method, don't need it but cannot remove as it is required by TextWatcher
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!TextUtils.isEmpty(loginPassword.getEditText().getText())){
+                    loginPassword.setError(null);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Can ignore this method, don't need it but cannot remove as it is required by TextWatcher
             }
         });
 

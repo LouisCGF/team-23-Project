@@ -156,7 +156,7 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
         Objects.requireNonNull(passwordStudentReg.getEditText()).addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
+                // Can ignore this method, don't need it but cannot remove as it is required by TextWatcher
             }
 
             @Override
@@ -170,7 +170,7 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                // Can ignore this method, don't need it but cannot remove as it is required by TextWatcher
             }
         });
 
