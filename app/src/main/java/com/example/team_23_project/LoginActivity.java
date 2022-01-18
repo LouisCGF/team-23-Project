@@ -182,11 +182,21 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean validateLogin(String name, String password) {
 
-        userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE_USERS + " where "
-                + DatabaseHelper.COLUMN_EMAIL_ADDRESS + "=" + name + " and " + DatabaseHelper.COLUMN_PASSWORD + "=" + password,
-                new String[] {name, password});
+        try{
+            userCursor = db.rawQuery("select COLUMN_EMAIL_ADDRESS from " + DatabaseHelper.TABLE_USERS + " where " + DatabaseHelper.COLUMN_EMAIL_ADDRESS +
+                    "=" + name, new String[]{name});
+        } catch (Exception e){
+            return false;
+        }
+        String fetchedPassword = (db.rawQuery("select COLUMN_PASSWORD from" + DatabaseHelper.TABLE_USERS + "where" + DatabaseHelper.COLUMN_EMAIL_ADDRESS + "=" + name, new String[]{name})).toString();
+        if (fetchedPassword.equals(password)){
+            return true;
+        }
+        return false;
 
-        return userCursor.getCount() > 1;
+//        userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE_USERS + " where "
+//                + DatabaseHelper.COLUMN_EMAIL_ADDRESS + "=" + name + " and " + DatabaseHelper.COLUMN_PASSWORD + "=" + password,
+//                new String[] {name, password});
     }
 
 
