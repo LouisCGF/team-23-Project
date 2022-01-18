@@ -4,22 +4,30 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import org.w3c.dom.Text;
+
+import java.util.Objects;
+import java.util.regex.Pattern;
 
 public class UserRegisterActivityStudent extends AppCompatActivity {
 
@@ -32,6 +40,11 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
     TextInputLayout stageStudent;
     TextInputLayout passwordStudentReg;
     TextInputLayout passwordConfirmStudentReg;
+
+    TextView lowerCaseLetter;
+    TextView upperCaseLetter;
+    TextView oneNumber;
+    TextView characterCount;
 
     Button submitStudentReg;
 
@@ -54,6 +67,23 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
         stageStudent = findViewById(R.id.studentStageInput);
         passwordStudentReg = findViewById(R.id.studentPassInput);
         passwordConfirmStudentReg = findViewById(R.id.studentConfPassInput);
+
+        lowerCaseLetter = new TextView(this);
+        upperCaseLetter = new TextView(this);
+        oneNumber = new TextView(this);
+        characterCount = new TextView(this);
+        lowerCaseLetter.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT));
+        lowerCaseLetter.setText("One lower case letter");
+        lowerCaseLetter.setTextSize(12);
+        upperCaseLetter.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT));
+        upperCaseLetter.setText("One upper case letter");
+        upperCaseLetter.setTextSize(12);
+        oneNumber.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT));
+        oneNumber.setText("One number");
+        oneNumber.setTextSize(12);
+        characterCount.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT));
+        characterCount.setText("At least 8 character");
+        characterCount.setTextSize(12);
 
         submitStudentReg = findViewById(R.id.submitStudentRegBtn);
         ImageView minusButton = findViewById(R.id.minusButton);
@@ -99,6 +129,10 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
         submitStudentReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                passwordStudentReg.removeView(lowerCaseLetter);
+                passwordStudentReg.removeView(upperCaseLetter);
+                passwordStudentReg.removeView(oneNumber);
+                passwordStudentReg.removeView(characterCount);
                 TextInputLayout[] inputFields = {firstNameStudent, lastNameStudent, emailAdrStudent, courseStudent, stageStudent, passwordStudentReg, passwordConfirmStudentReg};
                 boolean valid = true;
                 for (TextInputLayout inputField : inputFields){
@@ -109,12 +143,83 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
                     }
                     inputField.setError(null);
                 }
+                if (!validatePassword(passwordStudentReg.getEditText().getText().toString())){
+                    valid = false;
+                }
                 if (valid){
                     submitStudent();
                 }
             }
         });
 
+        Objects.requireNonNull(passwordStudentReg.getEditText()).addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                passwordStudentReg.removeView(lowerCaseLetter);
+                passwordStudentReg.removeView(upperCaseLetter);
+                passwordStudentReg.removeView(oneNumber);
+                passwordStudentReg.removeView(characterCount);
+                validatePassword(passwordStudentReg.getEditText().getText().toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+    }
+
+    public boolean validatePassword(String password) {
+        boolean valid = true;
+        // check for pattern
+        Pattern uppercase = Pattern.compile("[A-Z]");
+        Pattern lowercase = Pattern.compile("[a-z]");
+        Pattern digit = Pattern.compile("[0-9]");
+        passwordStudentReg.addView(lowerCaseLetter);
+        passwordStudentReg.addView(upperCaseLetter);
+        passwordStudentReg.addView(oneNumber);
+        passwordStudentReg.addView(characterCount);
+
+        // if lowercase character is not present
+        if (!lowercase.matcher(password).find()) {
+            lowerCaseLetter.setTextColor(Color.RED);
+            valid = false;
+
+        } else {
+            // if lowercase character is  present
+            lowerCaseLetter.setTextColor(Color.GREEN);
+        }
+
+        // if uppercase character is not present
+        if (!uppercase.matcher(password).find()) {
+            upperCaseLetter.setTextColor(Color.RED);
+        } else {
+            // if uppercase character is  present
+            upperCaseLetter.setTextColor(Color.GREEN);
+            valid = false;
+        }
+        // if digit is not present
+        if (!digit.matcher(password).find()) {
+            oneNumber.setTextColor(Color.RED);
+        } else {
+            // if digit is present
+            oneNumber.setTextColor(Color.GREEN);
+            valid = false;
+        }
+        // if password length is less than 8
+        if (password.length() < 8) {
+            characterCount.setTextColor(Color.RED);
+        } else {
+            characterCount.setTextColor(Color.GREEN);
+            valid = false;
+        }
+        return valid;
     }
 
     public void submitStudent() {
