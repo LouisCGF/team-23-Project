@@ -2,6 +2,7 @@ package com.example.team_23_project;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -32,19 +33,19 @@ import java.util.regex.Pattern;
 public class UserRegisterActivityStudent extends AppCompatActivity {
 
     // Fields in the student register page
-    TextInputLayout firstNameStudent;
-    TextInputLayout lastNameStudent;
-    TextInputLayout studentNumber;
-    TextInputLayout emailAdrStudent;
-    TextInputLayout courseStudent;
-    TextInputLayout stageStudent;
-    TextInputLayout passwordStudentReg;
-    TextInputLayout passwordConfirmStudentReg;
+    private TextInputLayout firstNameStudent;
+    private TextInputLayout lastNameStudent;
+    private TextInputLayout studentNumber;
+    private TextInputLayout emailAdrStudent;
+    private TextInputLayout courseStudent;
+    private TextInputLayout stageStudent;
+    private TextInputLayout passwordStudentReg;
+    private TextInputLayout passwordConfirmStudentReg;
 
-    TextView lowerCaseLetter;
-    TextView upperCaseLetter;
-    TextView oneNumber;
-    TextView characterCount;
+    private TextView lowerCaseLetter;
+    private TextView upperCaseLetter;
+    private TextView oneNumber;
+    private TextView characterCount;
 
     Button submitStudentReg;
 
@@ -74,16 +75,16 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
         characterCount = new TextView(this);
         lowerCaseLetter.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT));
         lowerCaseLetter.setText("One lower case letter");
-        lowerCaseLetter.setTextSize(12);
+        lowerCaseLetter.setTextSize(11);
         upperCaseLetter.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT));
         upperCaseLetter.setText("One upper case letter");
-        upperCaseLetter.setTextSize(12);
+        upperCaseLetter.setTextSize(11);
         oneNumber.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT));
-        oneNumber.setText("One number");
-        oneNumber.setTextSize(12);
+        oneNumber.setText("At least one number");
+        oneNumber.setTextSize(11);
         characterCount.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT));
         characterCount.setText("At least 8 character");
-        characterCount.setTextSize(12);
+        characterCount.setTextSize(11);
 
         submitStudentReg = findViewById(R.id.submitStudentRegBtn);
         ImageView minusButton = findViewById(R.id.minusButton);
@@ -186,38 +187,41 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
         passwordStudentReg.addView(oneNumber);
         passwordStudentReg.addView(characterCount);
 
-        // if lowercase character is not present
-        if (!lowercase.matcher(password).find()) {
-            lowerCaseLetter.setTextColor(Color.RED);
-            valid = false;
+        if (TextUtils.isEmpty(passwordStudentReg.getEditText().getText())){
+            passwordStudentReg.removeView(lowerCaseLetter);
+            passwordStudentReg.removeView(upperCaseLetter);
+            passwordStudentReg.removeView(oneNumber);
+            passwordStudentReg.removeView(characterCount);
 
-        } else {
-            // if lowercase character is  present
-            lowerCaseLetter.setTextColor(Color.GREEN);
         }
 
-        // if uppercase character is not present
-        if (!uppercase.matcher(password).find()) {
-            upperCaseLetter.setTextColor(Color.RED);
-        } else {
-            // if uppercase character is  present
-            upperCaseLetter.setTextColor(Color.GREEN);
+
+        if (!lowercase.matcher(password).find()) { // <- If lowercase character is not present
+            lowerCaseLetter.setTextColor(-43230);
             valid = false;
+        } else { // <- If lowercase character is  present
+            lowerCaseLetter.setTextColor(Color.parseColor("#6EFF94"));
         }
-        // if digit is not present
-        if (!digit.matcher(password).find()) {
-            oneNumber.setTextColor(Color.RED);
-        } else {
-            // if digit is present
-            oneNumber.setTextColor(Color.GREEN);
+
+        if (!uppercase.matcher(password).find()) { // <- If uppercase character is not present
+            upperCaseLetter.setTextColor(-43230);
             valid = false;
+        } else { // <- If uppercase character is  present
+            upperCaseLetter.setTextColor(Color.parseColor("#6EFF94"));
         }
-        // if password length is less than 8
-        if (password.length() < 8) {
-            characterCount.setTextColor(Color.RED);
-        } else {
-            characterCount.setTextColor(Color.GREEN);
+
+        if (!digit.matcher(password).find()) { // <- If digit is not present
+            oneNumber.setTextColor(-43230);
             valid = false;
+        } else { // <- If digit is present
+            oneNumber.setTextColor(Color.parseColor("#6EFF94")); // <- If digit is present
+        }
+
+        if (password.length() < 8) { // <- If password length is less than 8
+            characterCount.setTextColor(-43230);
+            valid = false;
+        } else { // <- If password length is at least 8
+            characterCount.setTextColor(Color.parseColor("#6EFF94"));
         }
         return valid;
     }
@@ -245,14 +249,6 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
         goHome();
     }
 
-    public void changeStatusBarColor(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-
-            Window window = getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(getResources().getColor(R.color.register_bk_color));
-        }
-    }
 
     // Method for closing the database and transferring user to the next stage. Name and properties of the class can be changed.
     private void goHome() {
