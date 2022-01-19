@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
@@ -49,6 +50,7 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
     private FloatingActionButton secondFloorCorridorButton;
     private FloatingActionButton room2015Button;
     private FloatingActionButton room2022Button;
+    private FloatingActionButton secondFloorCorridor2Button;
     private FloatingActionButton thirdFloorButton;
     private FloatingActionButton thirdFloorCorridorButton;
     private FloatingActionButton room3015Button;
@@ -65,6 +67,7 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
     private TextView secondFloorCorridorTxt;
     private TextView room2015Txt;
     private TextView room2022Txt;
+    private TextView secondFloorCorridor2Txt;
     private TextView thirdFloorCorridorTxt;
     private TextView room3015Txt;
     private TextView room3018Txt;
@@ -117,11 +120,13 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
         secondFloorCorridorButton = findViewById(R.id.secondFloorCorridorButton);
         room2015Button = findViewById(R.id.room2015Button);
         room2022Button = findViewById(R.id.room2022Button);
+        secondFloorCorridor2Button = findViewById(R.id.secondFloorCorridor2Button);
 
         // -- Second Floor Button Text --
         secondFloorCorridorTxt = findViewById(R.id.secondFloorCorridorTxt);
         room2015Txt = findViewById(R.id.room2015Txt);
         room2022Txt = findViewById(R.id.room2022Txt);
+        secondFloorCorridor2Txt = findViewById(R.id.secondFloorCorridor2Txt);
 
         // -- Third Floor Buttons --
         thirdFloorButton = findViewById(R.id.thirdFloorButton);
@@ -277,6 +282,15 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
             }
         });
 
+        secondFloorCorridor2Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                currentPosition = outsideLectureRoom;
+                retractButtons(2);
+                onStreetViewPanoramaReady(streetViewPanoramaMain);
+            }
+        });
+
         // -- THIRD FLOOR --
 
         thirdFloorCorridorButton.setOnClickListener(new View.OnClickListener() {
@@ -372,17 +386,21 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
                     secondFloorCorridorButton.setVisibility(View.VISIBLE);
                     room2015Button.setVisibility(View.VISIBLE);
                     room2022Button.setVisibility(View.VISIBLE);
+                    secondFloorCorridor2Button.setVisibility(View.VISIBLE);
                     secondFloorCorridorTxt.setVisibility(View.VISIBLE);
                     room2015Txt.setVisibility(View.VISIBLE);
                     room2022Txt.setVisibility(View.VISIBLE);
+                    secondFloorCorridor2Txt.setVisibility(View.VISIBLE);
 
                 } else{
                     secondFloorCorridorButton.setVisibility(View.INVISIBLE);
                     room2015Button.setVisibility(View.INVISIBLE);
                     room2022Button.setVisibility(View.INVISIBLE);
+                    secondFloorCorridor2Button.setVisibility(View.INVISIBLE);
                     secondFloorCorridorTxt.setVisibility(View.INVISIBLE);
                     room2015Txt.setVisibility(View.INVISIBLE);
                     room2022Txt.setVisibility(View.INVISIBLE);
+                    secondFloorCorridor2Txt.setVisibility(View.VISIBLE);
                 }
                 break;
 
@@ -473,18 +491,22 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
                     secondFloorCorridorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
                     room2015Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
                     room2022Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+                    secondFloorCorridor2Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
                     secondFloorCorridorTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
                     room2015Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
                     room2022Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
+                    secondFloorCorridor2Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.from_bottom_anim));
 
                 } else{
                     secondFloorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.rotate_close_anim));
                     secondFloorCorridorButton.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
                     room2015Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
                     room2022Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
+                    secondFloorCorridor2Button.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
                     secondFloorCorridorTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
                     room2015Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
                     room2022Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
+                    secondFloorCorridor2Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
                 }
                 break;
 
@@ -586,7 +608,9 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
             LatLng position = streetViewPanoramaLocation.position;
             String locationText = getLocationText(position);
 
-            Toast.makeText(BuildingViewActivity.this, "Location Updated to " + locationText, Toast.LENGTH_SHORT).show();
+            Toast locationUpdatedToast = Toast.makeText(BuildingViewActivity.this, "Location Updated to " + locationText, Toast.LENGTH_SHORT);
+            locationUpdatedToast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
+            locationUpdatedToast.show();
         }
 
     };
@@ -630,6 +654,9 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
         }
         if (String.format("%.4f", secondFloorCorridor.latitude).equals(posLatStr) && String.format("%.4f", secondFloorCorridor.longitude).equals(posLongStr)){
             return "Second Floor Corridor";
+        }
+        if (String.format("%.4f", outsideLectureRoom.latitude).equals(posLatStr) && String.format("%.4f", outsideLectureRoom.longitude).equals(posLongStr)){
+            return "Second Floor Corridor 2";
         }
         if (String.format("%.4f", thirdFloorCorridor.latitude).equals(posLatStr) && String.format("%.4f", thirdFloorCorridor.longitude).equals(posLongStr)){
             return "Third Floor Corridor";

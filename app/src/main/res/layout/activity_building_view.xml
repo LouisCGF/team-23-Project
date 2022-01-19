@@ -298,6 +298,32 @@
         android:textColor="@color/white"
         android:visibility="invisible"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/secondFloorCorridor2Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="165dp"
+        android:layout_marginBottom="300dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_corridor_icon"
+        android:backgroundTint="@color/teal_700"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/secondFloorCorridor2Txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="225dp"
+        android:layout_marginBottom="323dp"
+        android:text="Corridor 2"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:visibility="invisible"/>
+
 
 
 
