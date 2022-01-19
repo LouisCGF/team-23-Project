@@ -133,7 +133,7 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
                 removePasswordValidationText();
                 TextInputLayout[] inputFields = {firstNameStudent, lastNameStudent, emailAdrStudent, courseStudent, stageStudent, passwordStudentReg, passwordConfirmStudentReg};
                 boolean valid = true;
-                for (TextInputLayout inputField : inputFields){
+                for (TextInputLayout inputField : inputFields){ // <- If any field is left blank
                     if (TextUtils.isEmpty(inputField.getEditText().getText())){
                         valid = false;
                         inputField.setError("You must fill out this field");
@@ -141,7 +141,12 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
                     }
                     inputField.setError(null);
                 }
-                if (!validatePassword(passwordStudentReg.getEditText().getText().toString())){
+                if (!validatePassword(passwordStudentReg.getEditText().getText().toString())){ // <- If password doesn't match password rules
+                    valid = false;
+                }
+                if (!passwordStudentReg.getEditText().getText().toString().equals(passwordConfirmStudentReg.getEditText().getText().toString())){ // <- If both password fields do not match
+                    passwordStudentReg.setError("Passwords do not match");
+                    passwordConfirmStudentReg.setError("Passwords do not match");
                     valid = false;
                 }
                 if (valid){

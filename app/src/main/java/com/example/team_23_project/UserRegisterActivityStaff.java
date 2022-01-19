@@ -137,6 +137,11 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
                 if (!validatePassword(passwordStaffReg.getEditText().getText().toString())){
                     valid = false;
                 }
+                if (!passwordStaffReg.getEditText().getText().toString().equals(passwordConfirmStaffReg.getEditText().getText().toString())){
+                    passwordStaffReg.setError("Passwords do not match");
+                    passwordConfirmStaffReg.setError("Passwords do not match");
+                    valid = false;
+                }
                 if (valid){
                     submitStaff();
                 }

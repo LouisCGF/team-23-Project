@@ -70,7 +70,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/firstNameStaffTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#FFFFFF"
+                            android:backgroundTint="@color/black"
                             android:hint="@string/first_name"
                             android:inputType="textPersonName"
                             android:maxLines="1" />
@@ -86,7 +86,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/lastNameStaffTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#FFFFFF"
+                            android:backgroundTint="@color/black"
                             android:hint="@string/last_name"
                             android:inputType="textPersonName"
                             android:maxLines="1" />
@@ -102,7 +102,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/emailAdrStaffTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#FFFFFF"
+                            android:backgroundTint="@color/black"
                             android:hint="@string/email"
                             android:inputType="textEmailAddress"
                             android:maxLines="1" />
@@ -118,7 +118,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/schoolStaffTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#FFFFFF"
+                            android:backgroundTint="@color/black"
                             android:hint="@string/school"
                             android:inputType="text"
                             android:maxLines="1" />
@@ -134,7 +134,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/adminTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#FFFFFF"
+                            android:backgroundTint="@color/black"
                             android:hint="@string/admin"
                             android:inputType="text"
                             android:maxLines="1" />
@@ -150,7 +150,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/passwordStaffRegTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#FFFFFF"
+                            android:backgroundTint="@color/black"
                             android:hint="@string/password"
                             android:inputType="textPassword"
                             android:maxLines="1" />
@@ -166,7 +166,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/passwordConfirmStaffRegTxt"
                             style="@style/modifiedEditText"
-                            android:backgroundTint="#FFFFFF"
+                            android:backgroundTint="@color/black"
                             android:hint="@string/confirm_password"
                             android:inputType="textPassword"
                             android:maxLines="1" />

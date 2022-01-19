@@ -62,7 +62,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editEmailTxt"
                     style="@style/modifiedEditText"
-                    android:backgroundTint="@color/white"
+                    android:backgroundTint="@color/black"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress"
                     android:maxLines="1" />
@@ -78,7 +78,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editPasswordTxt"
                     style="@style/modifiedEditText"
-                    android:backgroundTint="@color/white"
+                    android:backgroundTint="@color/black"
                     android:hint="@string/password"
                     android:inputType="textPassword"
                     android:maxLines="1" />
