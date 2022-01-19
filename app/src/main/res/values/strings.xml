@@ -66,10 +66,9 @@
 
 
     <string-array name="emails">
+        <item>test@email.com</item>
         <item>c0034793@newcastle.ac.uk</item>
-        <item>test2@gmail.com</item>
         <item>bogdanNotATest@gmail.com</item>
-        <item>yetanother@gmail.com</item>
         <item>c0080358@newcastle.ac.uk</item>
     </string-array>
 
