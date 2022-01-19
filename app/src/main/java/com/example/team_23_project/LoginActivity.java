@@ -168,23 +168,25 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private boolean validateLogin(String name, String password) {
+    private boolean validateLogin(String email, String password) {
 
-        try{
-            userCursor = db.rawQuery("select COLUMN_EMAIL_ADDRESS from " + DatabaseHelper.TABLE_USERS + " where " + DatabaseHelper.COLUMN_EMAIL_ADDRESS +
-                    "=" + name, new String[]{name});
-        } catch (Exception e){
+
+        Cursor userCursor1 = db.rawQuery("select " + DatabaseHelper.COLUMN_EMAIL_ADDRESS  + "=?" +  " from " + DatabaseHelper.TABLE_USERS + " where " + DatabaseHelper.COLUMN_EMAIL_ADDRESS +
+                    "=" + "'" + email + "'", new String[]{email});
+
+        if (userCursor1.getCount() == 0){ // <- Email is not in database
             return false;
         }
-        String fetchedPassword = (db.rawQuery("select COLUMN_PASSWORD from" + DatabaseHelper.TABLE_USERS + "where" + DatabaseHelper.COLUMN_EMAIL_ADDRESS + "=" + name, new String[]{name})).toString();
-        if (fetchedPassword.equals(password)){
-            return true;
-        }
-        return false;
+        System.out.println("valid email in database");
+        userCursor1.close();
 
-//        userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE_USERS + " where "
-//                + DatabaseHelper.COLUMN_EMAIL_ADDRESS + "=" + name + " and " + DatabaseHelper.COLUMN_PASSWORD + "=" + password,
-//                new String[] {name, password});
+        Cursor userCursor2 = db.rawQuery("select " + DatabaseHelper.COLUMN_PASSWORD  + "=?" + " from " + DatabaseHelper.TABLE_USERS + " where " + DatabaseHelper.COLUMN_EMAIL_ADDRESS + "=" + "'" + email + "'", new String[]{email});
+        userCursor2.moveToNext();
+        String fetchedPassword = userCursor2.getString(0);
+        userCursor2.close();
+
+        return fetchedPassword.equals(password);
+
     }
 
 
