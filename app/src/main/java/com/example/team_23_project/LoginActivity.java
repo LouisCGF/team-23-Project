@@ -9,19 +9,15 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.team_23_project.Activities.FAQandQAActivity;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.security.NoSuchAlgorithmException;
@@ -179,7 +175,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean validateLogin(String email, String inputtedPassword) throws InvalidKeySpecException, NoSuchAlgorithmException {
 
-        PBKDF2WithHmacSHA1Hash hasher = new PBKDF2WithHmacSHA1Hash();
+        PBKDF2WithHmacSHA512Hash hasher = new PBKDF2WithHmacSHA512Hash();
 
         Cursor cursor = db.rawQuery("select " + DatabaseHelper.COLUMN_USER_ID + " from "
                 + DatabaseHelper.TABLE_USERS + " where " + DatabaseHelper.COLUMN_EMAIL_ADDRESS + "=?", new String[]{email});
@@ -193,7 +189,7 @@ public class LoginActivity extends AppCompatActivity {
 
         String retrievedPassword = cursor1.getString(0);
 
-        return hasher.validatePBKDF2WithHmacSHA1Password(inputtedPassword, retrievedPassword);
+        return hasher.validatePBKDF2WithHmacSHA512Password(inputtedPassword, retrievedPassword);
     }
 
 

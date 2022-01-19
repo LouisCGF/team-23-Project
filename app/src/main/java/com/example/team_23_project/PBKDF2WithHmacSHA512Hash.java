@@ -9,22 +9,22 @@ import java.security.spec.KeySpec;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
-public class PBKDF2WithHmacSHA1Hash {
+public class PBKDF2WithHmacSHA512Hash {
 
-    protected String hashPBKDF2WithHmacSHA1Password(String plainText) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    protected String hashPBKDF2WithHmacSHA512Password(String plainText) throws NoSuchAlgorithmException, InvalidKeySpecException {
         int iterations = 1000;
         char[] chars = plainText.toCharArray();
         byte[] salt = getSalt();
 
         PBEKeySpec spec = new PBEKeySpec(chars, salt, iterations, 64 * 8);
-        SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+        SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
 
         byte[] hash = secretKeyFactory.generateSecret(spec).getEncoded();
         return iterations + ":" + toHex(salt) + ":" + toHex(hash);
 
     }
 
-    protected boolean validatePBKDF2WithHmacSHA1Password(String inputtedPassword, String storedPassword) throws NoSuchAlgorithmException, InvalidKeySpecException{
+    protected boolean validatePBKDF2WithHmacSHA512Password(String inputtedPassword, String storedPassword) throws NoSuchAlgorithmException, InvalidKeySpecException{
         String[] parts = storedPassword.split(":");
         int iterations = Integer.parseInt(parts[0]);
 
@@ -32,7 +32,7 @@ public class PBKDF2WithHmacSHA1Hash {
         byte[] hash = fromHex(parts[2]);
 
         PBEKeySpec spec = new PBEKeySpec(inputtedPassword.toCharArray(), salt, iterations, hash.length * 8);
-        SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+        SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA512");
         byte[] testHash = secretKeyFactory.generateSecret(spec).getEncoded();
 
         int diff = hash.length ^ testHash.length;

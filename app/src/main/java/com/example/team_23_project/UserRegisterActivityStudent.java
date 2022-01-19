@@ -237,8 +237,8 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
         ContentValues cv2 = new ContentValues();
 
         // -- HASHING PASSWORD --
-        PBKDF2WithHmacSHA1Hash hasher = new PBKDF2WithHmacSHA1Hash();
-        String hashedPassword = hasher.hashPBKDF2WithHmacSHA1Password(passwordStudentReg.getEditText().getText().toString());
+        PBKDF2WithHmacSHA512Hash hasher = new PBKDF2WithHmacSHA512Hash();
+        String hashedPassword = hasher.hashPBKDF2WithHmacSHA512Password(passwordStudentReg.getEditText().getText().toString());
 
         cv1.put(DatabaseHelper.COLUMN_FIRST_NAME,firstNameStudent.getEditText().getText().toString());
         cv1.put(DatabaseHelper.COLUMN_LAST_NAME, lastNameStudent.getEditText().getText().toString());

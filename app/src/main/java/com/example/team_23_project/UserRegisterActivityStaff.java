@@ -14,13 +14,11 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.security.NoSuchAlgorithmException;
@@ -238,8 +236,8 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
         ContentValues cv2 = new ContentValues();
 
         // -- HASHING PASSWORD --
-        PBKDF2WithHmacSHA1Hash hasher = new PBKDF2WithHmacSHA1Hash();
-        String hashedPassword = hasher.hashPBKDF2WithHmacSHA1Password(passwordStaffReg.getEditText().getText().toString());
+        PBKDF2WithHmacSHA512Hash hasher = new PBKDF2WithHmacSHA512Hash();
+        String hashedPassword = hasher.hashPBKDF2WithHmacSHA512Password(passwordStaffReg.getEditText().getText().toString());
 
         cv1.put(DatabaseHelper.COLUMN_FIRST_NAME,firstNameStaff.getEditText().getText().toString());
         cv1.put(DatabaseHelper.COLUMN_LAST_NAME, lastNameStaff.getEditText().getText().toString());
