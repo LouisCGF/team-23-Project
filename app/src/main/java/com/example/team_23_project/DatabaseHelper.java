@@ -106,7 +106,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + " INTEGER PRIMARY KEY ," + COLUMN_EMAIL_ADDRESS
                 + " VARCHAR(219) ," + COLUMN_FIRST_NAME
                 + " TEXT ," + COLUMN_LAST_NAME
-                + " TEXT ," + COLUMN_PASSWORD + " TEXT);");
+                + " TEXT ," + COLUMN_PASSWORD + " VARCHAR(200))"); // <- Length of password hash is 166
 
 
         // Add initial values into the table (if some are incorrect, change them)

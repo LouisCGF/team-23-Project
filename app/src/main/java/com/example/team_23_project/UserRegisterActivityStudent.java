@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -144,7 +145,12 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
                     valid = false;
                 }
                 if (valid){
-                    submitStudent();
+                    try {
+                        submitStudent();
+                    } catch (InvalidKeySpecException | NoSuchAlgorithmException e) { // <- Password hash failed
+                        Toast.makeText(UserRegisterActivityStudent.this, "Something went wrong, please try again", Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+                    }
                 }
             }
         });
@@ -225,14 +231,19 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
         }
     }
 
-    public void submitStudent() {
+    public void submitStudent() throws InvalidKeySpecException, NoSuchAlgorithmException {
         // Putting data into the database after clicking on the submit button.
         ContentValues cv1 = new ContentValues();
         ContentValues cv2 = new ContentValues();
+
+        // -- HASHING PASSWORD --
+        PBKDF2WithHmacSHA1Hash hasher = new PBKDF2WithHmacSHA1Hash();
+        String hashedPassword = hasher.hashPBKDF2WithHmacSHA1Password(passwordStudentReg.getEditText().getText().toString());
+
         cv1.put(DatabaseHelper.COLUMN_FIRST_NAME,firstNameStudent.getEditText().getText().toString());
         cv1.put(DatabaseHelper.COLUMN_LAST_NAME, lastNameStudent.getEditText().getText().toString());
         cv1.put(DatabaseHelper.COLUMN_EMAIL_ADDRESS, emailAdrStudent.getEditText().getText().toString());
-        cv1.put(DatabaseHelper.COLUMN_PASSWORD, passwordStudentReg.getEditText().getText().toString());
+        cv1.put(DatabaseHelper.COLUMN_PASSWORD, hashedPassword);
         cv2.put(DatabaseHelper.COLUMN_COURSE, courseStudent.getEditText().getText().toString());
         cv2.put(DatabaseHelper.COLUMN_STAGE, stageStudent.getEditText().getText().toString());
 

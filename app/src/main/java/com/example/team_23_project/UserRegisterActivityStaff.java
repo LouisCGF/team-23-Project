@@ -16,12 +16,15 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
@@ -143,7 +146,12 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
                     valid = false;
                 }
                 if (valid){
-                    submitStaff();
+                    try {
+                        submitStaff();
+                    } catch (InvalidKeySpecException | NoSuchAlgorithmException e) { // <- Password hash failed
+                        Toast.makeText(UserRegisterActivityStaff.this, "Something went wrong, please try again", Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+                    }
                 }
             }
         });
@@ -224,14 +232,19 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
         }
     }
 
-    public void submitStaff() {
+    public void submitStaff() throws InvalidKeySpecException, NoSuchAlgorithmException {
         // Putting data into the database after clicking on the submit button.
         ContentValues cv1 = new ContentValues();
         ContentValues cv2 = new ContentValues();
+
+        // -- HASHING PASSWORD --
+        PBKDF2WithHmacSHA1Hash hasher = new PBKDF2WithHmacSHA1Hash();
+        String hashedPassword = hasher.hashPBKDF2WithHmacSHA1Password(passwordStaffReg.getEditText().getText().toString());
+
         cv1.put(DatabaseHelper.COLUMN_FIRST_NAME,firstNameStaff.getEditText().getText().toString());
         cv1.put(DatabaseHelper.COLUMN_LAST_NAME, lastNameStaff.getEditText().getText().toString());
         cv1.put(DatabaseHelper.COLUMN_EMAIL_ADDRESS, emailAdrStaff.getEditText().getText().toString());
-        cv1.put(DatabaseHelper.COLUMN_PASSWORD, passwordStaffReg.getEditText().getText().toString());
+        cv1.put(DatabaseHelper.COLUMN_PASSWORD, hashedPassword);
         cv2.put(DatabaseHelper.COLUMN_SCHOOL, schoolStaff.getEditText().getText().toString());
         cv2.put(DatabaseHelper.COLUMN_ADMIN, admin.getEditText().getText().toString());
 

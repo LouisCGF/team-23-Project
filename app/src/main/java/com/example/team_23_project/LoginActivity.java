@@ -24,6 +24,9 @@ import com.example.team_23_project.Activities.FAQandQAActivity;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
 public class LoginActivity extends AppCompatActivity {
 
     private TextInputLayout loginName;
@@ -66,7 +69,6 @@ public class LoginActivity extends AppCompatActivity {
         plusIcon = findViewById(R.id.plusIcon);
 
         inputName = loginName.getEditText().getText();
-        inputPassword = loginPassword.getEditText().getText();
 
         sqlHelper = new DatabaseHelper(this);
         db = sqlHelper.getWritableDatabase();
@@ -76,23 +78,30 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (TextUtils.isEmpty(inputName) || TextUtils.isEmpty(inputPassword)) {
+                if (TextUtils.isEmpty(inputName) || TextUtils.isEmpty(loginPassword.getEditText().getText())) {
                     loginName.setError("Please enter an email");
                     loginPassword.setError("Please enter a password");
 
-                } else if (!validateLogin(inputName.toString(), inputPassword.toString())){
-
-                    loginName.setError("Incorrect email or password");
-                    loginPassword.setError("Incorrect email or password");
-
                 } else {
+                    try {
+                        if (!validateLogin(inputName.toString(), loginPassword.getEditText().getText().toString())){
 
-                    Toast.makeText(LoginActivity.this, "Login was successful",
-                            Toast.LENGTH_SHORT).show();
+                            loginName.setError("Incorrect email or password");
+                            loginPassword.setError("Incorrect email or password");
+
+                        } else {
+
+                            Toast.makeText(LoginActivity.this, "Login was successful",
+                                    Toast.LENGTH_SHORT).show();
 
 
-                    Intent intent = new Intent( LoginActivity.this, HomePageActivity.class);
-                    startActivity(intent);
+                            Intent intent = new Intent( LoginActivity.this, HomePageActivity.class);
+                            startActivity(intent);
+                        }
+                    } catch (InvalidKeySpecException | NoSuchAlgorithmException e) { // <- Password hash failed
+                        Toast.makeText(LoginActivity.this, "Something went wrong, please try again", Toast.LENGTH_SHORT).show();
+                        e.printStackTrace();
+                    }
                 }
             }
         });
@@ -168,14 +177,23 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private boolean validateLogin(String email, String password) {
+    private boolean validateLogin(String email, String inputtedPassword) throws InvalidKeySpecException, NoSuchAlgorithmException {
+
+        PBKDF2WithHmacSHA1Hash hasher = new PBKDF2WithHmacSHA1Hash();
 
         Cursor cursor = db.rawQuery("select " + DatabaseHelper.COLUMN_USER_ID + " from "
-                + DatabaseHelper.TABLE_USERS + " where " + DatabaseHelper.COLUMN_EMAIL_ADDRESS + "=?" + " and " + DatabaseHelper.COLUMN_PASSWORD + "=?", new String[]{email, password});
+                + DatabaseHelper.TABLE_USERS + " where " + DatabaseHelper.COLUMN_EMAIL_ADDRESS + "=?", new String[]{email});
 
+        if (cursor.getCount() == 0){ // <- Email does not exist in database
+            return false;
+        }
+        Cursor cursor1 = db.rawQuery("select " + DatabaseHelper.COLUMN_PASSWORD + " from "
+                + DatabaseHelper.TABLE_USERS + " where " + DatabaseHelper.COLUMN_EMAIL_ADDRESS + "=?", new String[]{email});
+        cursor1.moveToNext();
 
-        return cursor.getCount() > 0;
+        String retrievedPassword = cursor1.getString(0);
 
+        return hasher.validatePBKDF2WithHmacSHA1Password(inputtedPassword, retrievedPassword);
     }
 
 
