@@ -127,12 +127,10 @@
     <string name="search_for_university_button">Search For University Button</string>
     <string name="search_for_n_university">Search For\n University</string>
     <string name="settings_button_image">Settings Button Image</string>
-    <string name="settings">Settings</string>
     <string name="faqs_button_image">FAQs Button Image</string>
     <string name="faqs">FAQs</string>
     <string name="logout_button_image">Logout Button Image</string>
     <string name="logout">Logout</string>
-    <string name="no_results">No Results</string>
     <string name="no_results">No Results</string>
     <string name="logo_1_image">Logo 1 Image</string>
     <string name="logo_2_image">Logo 2 Image</string>
