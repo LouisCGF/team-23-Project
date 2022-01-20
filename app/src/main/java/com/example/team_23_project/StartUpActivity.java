@@ -5,9 +5,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
-import com.example.team_23_project.databaseConnection.DbManager;
-import com.example.team_23_project.databaseConnection.InsertData;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Handler;
@@ -69,10 +66,6 @@ public class StartUpActivity extends AppCompatActivity {
 
     }
 
-    public void startDbApp(View view){
-        new DbManager(this);
-        startActivity(new Intent(this, InsertData.class));
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
