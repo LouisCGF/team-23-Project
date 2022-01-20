@@ -192,6 +192,4 @@ public class LoginActivity extends AppCompatActivity {
         return hasher.validatePBKDF2WithHmacSHA512Password(inputtedPassword, retrievedPassword);
     }
 
-
-
 }
