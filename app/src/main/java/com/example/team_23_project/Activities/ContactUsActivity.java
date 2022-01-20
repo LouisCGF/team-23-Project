@@ -12,12 +12,26 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
 
+/**
+ * Activity class for contact_us.xml. Extends AppCompatActivity
+ *
+ * @author Bogdan Caplan, Louis Ware
+ * @version 1.0
+ *
+ */
 public class ContactUsActivity extends AppCompatActivity {
 
     private TextInputLayout emailSubject;
     private TextInputLayout emailMessage;
     private Spinner emailSelector;
 
+    /**
+     * Used to start the activity
+     *
+     * @author Bogdan Caplan, Louis Ware
+     *
+     * @param savedInstanceState reference to a Bundle object
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -38,6 +52,13 @@ public class ContactUsActivity extends AppCompatActivity {
         buttonSend.setOnClickListener(v -> sendMail());
     }
 
+    /**
+     * Retrieves input from the email selector, subject and message fields and opens an Android mail
+     * interface with the input information
+     *
+     * @author Bogdan Caplan, Louis Ware
+     *
+     */
     private void sendMail() {
         String selectedEmail = emailSelector.getSelectedItem().toString();
 
@@ -52,5 +73,4 @@ public class ContactUsActivity extends AppCompatActivity {
         intent.setType("message/rfc822");
         startActivity(Intent.createChooser(intent, "Choose an email client"));
     }
-
 }

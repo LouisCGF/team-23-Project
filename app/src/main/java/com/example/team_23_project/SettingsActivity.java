@@ -6,8 +6,22 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
 
+/**
+ * Activity class for settings_activity.xml. Extends AppCompatActivity
+ *
+ * @author Louis Ware
+ * @version 1.0
+ *
+ */
 public class SettingsActivity extends AppCompatActivity {
 
+    /**
+     * Used to start the activity
+     *
+     * @author Louis Ware
+     *
+     * @param savedInstanceState reference to a Bundle object
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +38,12 @@ public class SettingsActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Class for the settings fragment
+     *
+     * @author auto-generated
+     *
+     */
     public static class SettingsFragment extends PreferenceFragmentCompat {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {

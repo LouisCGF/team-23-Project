@@ -24,6 +24,13 @@ import java.security.spec.InvalidKeySpecException;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
+/**
+ * Activity class for register_student.xml. Extends AppCompatActivity
+ *
+ * @author Louis Ware, Nikita Artimenko
+ * @version 1.0
+ *
+ */
 public class UserRegisterActivityStudent extends AppCompatActivity {
 
     // Fields in the student register page
@@ -48,6 +55,13 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
 
     long userId=0;
 
+    /**
+     * Used to start the activity
+     *
+     * @author Louis Ware
+     *
+     * @param savedInstanceState reference to a Bundle object
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -159,6 +173,16 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
                 // Can ignore this method, don't need it but cannot remove as it is required by TextWatcher
             }
 
+            /**
+             * Method called while text is being changed
+             *
+             * @author Louis Ware
+             *
+             * @param s Default param
+             * @param start Default param
+             * @param before Default param
+             * @param count Default param
+             */
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 removePasswordValidationText();
@@ -174,6 +198,15 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
 
 // -------------------------------------------------------------------------------------------------
             // -- Password Validation
+
+    /**
+     * Check password entered follows the password policy
+     *
+     * @author Louis Ware
+     *
+     * @param password The password entered
+     * @return true if the password entered follows the password policy, false if not
+     */
     public boolean validatePassword(String password) {
         boolean valid = true;
         // check for pattern
@@ -216,6 +249,12 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
         return valid;
     }
 
+    /**
+     * Displays the password policy text underneath the password field
+     *
+     * @author Louis Ware
+     *
+     */
     public void addPasswordValidationText(){
         TextView[] textViews = {lowerCaseLetter, upperCaseLetter, oneNumber, characterCount};
         for (TextView textView : textViews) {
@@ -223,6 +262,12 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
         }
     }
 
+    /**
+     * Removes the password policy text underneath the password field
+     *
+     * @author Louis Ware
+     *
+     */
     public void removePasswordValidationText(){
         TextView[] textViews = {lowerCaseLetter, upperCaseLetter, oneNumber, characterCount};
         for (TextView textView : textViews) {
@@ -232,6 +277,14 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
 
 // -------------------------------------------------------------------------------------------------
 
+    /**
+     * Inserts all data from the input fields into the user table in the database
+     *
+     * @author Nikita Artimenko, (Louis Ware - only added password hashing)
+     *
+     * @throws InvalidKeySpecException if the password hashing has failed
+     * @throws NoSuchAlgorithmException if the password hashing has failed
+     */
     public void submitStudent() throws InvalidKeySpecException, NoSuchAlgorithmException {
         // Putting data into the database after clicking on the submit button.
         ContentValues cv1 = new ContentValues();
@@ -260,7 +313,12 @@ public class UserRegisterActivityStudent extends AppCompatActivity {
         goHome();
     }
 
-    // Method for closing the database and transferring user to the next stage. Name and properties of the class can be changed.
+    /**
+     * Closes the database and transfers the user to the next stage
+     *
+     * @author Nikita Artimenko
+     *
+     */
     private void goHome() {
         db.close();
 

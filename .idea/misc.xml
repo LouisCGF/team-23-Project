@@ -25,6 +25,7 @@
         <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/layout/activity_home_page.xml" value="0.264" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/layout/activity_searchbar.xml" value="0.1" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/layout/activity_searchbar_buildings.xml" value="0.1308876811594203" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/layout/contact_us.xml" value="0.10170940170940171" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/layout/content_main.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/layout/fragment_first.xml" value="0.264" />
@@ -38,8 +39,14 @@
         <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.11794871794871795" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.11794871794871795" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/team23Project/app/src/main/res/xml/root_preferences.xml" value="0.264" />
+        <entry key="..\:/Users/louis/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_list_item_1.xml" value="0.20512820512820512" />
       </map>
     </option>
+  </component>
+  <component name="JavadocGenerationManager">
+    <option name="OUTPUT_DIRECTORY" value="$USER_HOME$/OneDrive/Documents/JavaDoc Team 23 Project" />
+    <option name="OPTION_DOCUMENT_TAG_AUTHOR" value="true" />
+    <option name="OPTION_INCLUDE_LIBS" value="true" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

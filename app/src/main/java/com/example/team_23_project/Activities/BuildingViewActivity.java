@@ -19,6 +19,14 @@ import com.google.android.gms.maps.model.StreetViewPanoramaCamera;
 import com.google.android.gms.maps.model.StreetViewPanoramaOrientation;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+/**
+ * Activity class for activity_building_view.xml. Extends AppCompactActivity and implements OnStreetViewPanoramaReadyCallback
+ * Uses the Google Maps SDK API to load and render panoramas
+ *
+ * @author Louis Ware
+ * @version 1.0
+ *
+ */
 public class BuildingViewActivity extends AppCompatActivity implements OnStreetViewPanoramaReadyCallback {
 
     private StreetViewPanorama streetViewPanoramaMain;
@@ -80,6 +88,13 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
 
     private LatLng currentPosition;
 
+    /**
+     * Used to start the activity
+     *
+     * @author Louis Ware
+     *
+     * @param savedInstanceState reference to a Bundle object
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -287,6 +302,14 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
 
 // -------------------------------------------------------------------------------------------------
 
+    /**
+     * Sets the visibility of the navigation buttons to visible or invisible, depending on whether
+     * they are currently open or not
+     *
+     * @author Louis Ware
+     *
+     * @param buttonPressed The floor button pressed
+     */
     public void setVisibility(int buttonPressed){
         switch (buttonPressed){
             case 0: // <- Ground Floor
@@ -382,6 +405,13 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
         }
     }
 
+    /**
+     * Sets the animation of the navigation buttons to a closing or opening animation
+     *
+     * @author Louis Ware
+     *
+     * @param buttonPressed The floor button pressed
+     */
     public void setAnimation(int buttonPressed){
         switch (buttonPressed){
             case 0: // <- Ground Floor
@@ -489,6 +519,13 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
         }
     }
 
+    /**
+     * Retracts navigation buttons for a given floor button
+     *
+     * @author Louis Ware
+     *
+     * @param button The floor button pressed
+     */
     public void retractButtons(int button){
         setVisibility(button);
         setAnimation(button);
@@ -506,6 +543,14 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
         }
     }
 
+    /**
+     * Finds and then retracts any floor buttons that are currently open, except for the one that
+     * has just been pressed
+     *
+     * @author Louis Ware
+     *
+     * @param current The floor button that has just been pressed
+     */
     public void retractOpenButtonsExceptCurrent(int current){ // <- Closes any other currently open button except for the one pressed
         boolean[] pressedButtons = {groundFloorClicked, firstFloorClicked, secondFloorClicked, thirdFloorClicked, fourthFloorClicked};
         for (int i = 0; i < pressedButtons.length; i++){
@@ -521,6 +566,14 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
 
 // -------------------------------------------------------------------------------------------------
 
+    /**
+     * Renders the panorama for a room
+     *
+     * @author Louis Ware
+     *
+     * @param streetViewPanorama StreetViewPanorama object used for setting the position and attributes
+     *                           for the panorama camera
+     */
     @Override
     public void onStreetViewPanoramaReady(@NonNull StreetViewPanorama streetViewPanorama) {
         streetViewPanoramaMain = streetViewPanorama;
@@ -547,6 +600,14 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
 
     };
 
+    /**
+     * Uses the current position of the panorama to return the current panorama the user is in
+     *
+     * @author Louis Ware
+     *
+     * @param position Current position of the panorama
+     * @return The room or corridor the user is currently in as a String
+     */
     @SuppressLint("DefaultLocale")
     public String getLocationText(LatLng position){
         // There's probably a much better way of doing this.

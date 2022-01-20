@@ -4,6 +4,13 @@ import  android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+/**
+ * Class for all database functionality - retrieving and inserting
+ *
+ * @author Bogdan Caplan, Nikita Artimenko
+ * @version 1.0
+ *
+ */
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "app.db";
     private static final int SCHEMA = 1;
@@ -58,9 +65,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, SCHEMA);
     }
 
-    // Declare each table in a different sql query (It makes easier to see a declaration of each table)
+    /**
+     * Creates all necessary tables in the database
+     *
+     * @author Bogdan Caplan, Nikita Artimenko
+     *
+     * @param db SQLite database used
+     */
     @Override
-    public void onCreate(SQLiteDatabase db) {
+    public void onCreate(SQLiteDatabase db) { // Declare each table in a different sql query (It makes easier to see a declaration of each table)
 
         //TABLE_ACCESSIBILITY
         db.execSQL("CREATE TABLE ACCESSIBILITY (" + COLUMN_BUILDING_NAME
@@ -143,6 +156,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + "( 1, 'paul@email.com', 'Paul', 'Smith', 'Smith123!');");
     }
 
+    /**
+     * Clears all tables in the old database if the database has been upgraded
+     *
+     * @author Nikita Artimenko
+     *
+     * @param db Upgraded database
+     * @param oldVersion Schema related integer of database to be dropped
+     * @param newVersion Schema related integer of new database
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion,  int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_ACCESSIBILITY + TABLE_BUILDINGS + TABLE_ROOMS
@@ -150,6 +172,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + TABLE_USERS);
         onCreate(db);
     }
-
-
 }

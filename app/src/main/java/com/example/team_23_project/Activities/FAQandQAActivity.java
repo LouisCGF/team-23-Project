@@ -8,10 +8,24 @@ import android.widget.Button;
 
 import com.example.team_23_project.R;
 
+/**
+ * Activity class used for activity_faq_and_qa
+ *
+ * @author Louis Ware, Nikita Artimenko
+ * @version 1.0
+ *
+ */
 public class FAQandQAActivity extends AppCompatActivity {
 
     Button contactFromFaq;
 
+    /**
+     * Used to start the activity
+     *
+     * @author Louis Ware, Nikita Artimenko
+     *
+     * @param savedInstanceState reference to a Bundle object
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

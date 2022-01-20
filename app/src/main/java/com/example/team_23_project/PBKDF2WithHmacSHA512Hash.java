@@ -8,8 +8,26 @@ import java.security.spec.InvalidKeySpecException;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
+/**
+ * Class for hashing passwords and validating a password against a hashed password.
+ * Uses the PBKDF2-HMAC-SHA512 hashing algorithm and salted using a 16-byte salt
+ *
+ * @author Louis Ware
+ * @version 1.0
+ *
+ */
 public class PBKDF2WithHmacSHA512Hash {
 
+    /**
+     * Hashes a given password using the PBKDF2-HMAC-SHA512 hashing algorithm
+     *
+     * @author Louis Ware
+     *
+     * @param plainText plain text password to be hashed
+     * @return hashed password in the format [iterations]:[salt]:[hash output in hexadecimal]
+     * @throws NoSuchAlgorithmException if the hashing algorithm has failed
+     * @throws InvalidKeySpecException if the hashing algorithm has failed
+     */
     protected String hashPBKDF2WithHmacSHA512Password(String plainText) throws NoSuchAlgorithmException, InvalidKeySpecException {
         int iterations = 1000;
         char[] chars = plainText.toCharArray();
@@ -20,9 +38,19 @@ public class PBKDF2WithHmacSHA512Hash {
 
         byte[] hash = secretKeyFactory.generateSecret(spec).getEncoded();
         return iterations + ":" + toHex(salt) + ":" + toHex(hash);
-
     }
 
+    /**
+     * Checks a plain text password is equal to the hashed password stored in the database
+     *
+     * @author Louis Ware
+     *
+     * @param inputtedPassword plain text password
+     * @param storedPassword hashed stored password
+     * @return true is passwords are equal, false if not
+     * @throws NoSuchAlgorithmException if the hashing algorithm has failed
+     * @throws InvalidKeySpecException if the hashing algorithm has failed
+     */
     protected boolean validatePBKDF2WithHmacSHA512Password(String inputtedPassword, String storedPassword) throws NoSuchAlgorithmException, InvalidKeySpecException{
         String[] parts = storedPassword.split(":");
         int iterations = Integer.parseInt(parts[0]);
@@ -41,6 +69,14 @@ public class PBKDF2WithHmacSHA512Hash {
         return diff == 0;
     }
 
+    /**
+     * Generates a random 16-byte salt using a secure pseudo-random function
+     *
+     * @author Louis Ware
+     *
+     * @return 16-byte salt in a byte array
+     * @throws NoSuchAlgorithmException if the algorithm has failed
+     */
     protected byte[] getSalt() throws NoSuchAlgorithmException{
         SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
         byte[] salt = new byte[16];
@@ -48,6 +84,14 @@ public class PBKDF2WithHmacSHA512Hash {
         return salt;
     }
 
+    /**
+     * Converts a 16-byte salt to hexadecimal
+     *
+     * @author Louis Ware
+     *
+     * @param array 16-byte salt to be converted
+     * @return hexadecimal representation of the 16-byte salt
+     */
     protected static String toHex(byte[] array){
         BigInteger bi = new BigInteger(1, array);
         String hex = bi.toString(16);
@@ -60,6 +104,14 @@ public class PBKDF2WithHmacSHA512Hash {
         }
     }
 
+    /**
+     * Converts a hexadecimal representation of a 16-byte salt back into a 16-byte salt
+     *
+     * @author Louis Ware
+     *
+     * @param hex hexadecimal representation of the 16-byte salt
+     * @return 16-byte salt in a byte array
+     */
     protected static byte[] fromHex(String hex){
         byte[] bytes = new byte[hex.length() / 2];
         for(int i = 0; i < bytes.length ;i++){
@@ -68,5 +120,4 @@ public class PBKDF2WithHmacSHA512Hash {
 
         return bytes;
     }
-
 }

@@ -23,6 +23,13 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Objects;
 
+/**
+ * Activity class for fragment_first.xml. Extends AppCompatActivity
+ *
+ * @author Louis Ware, Nikita Artimenko
+ * @version 1.0
+ *
+ */
 public class LoginActivity extends AppCompatActivity {
 
     private TextInputLayout loginName;
@@ -33,6 +40,13 @@ public class LoginActivity extends AppCompatActivity {
     DatabaseHelper sqlHelper;
     SQLiteDatabase db;
 
+    /**
+     * Used to start the activity
+     *
+     * @author Louis Ware, Nikita Artimenko
+     *
+     * @param savedInstanceState reference to a Bundle object
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,6 +108,16 @@ public class LoginActivity extends AppCompatActivity {
                 // Can ignore this method, don't need it but cannot remove as it is required by TextWatcher
             }
 
+            /**
+             * Method called while text is being changed
+             *
+             * @author Louis Ware
+             *
+             * @param s Default param
+             * @param start Default param
+             * @param before Default param
+             * @param count Default param
+             */
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (!TextUtils.isEmpty(loginName.getEditText().getText())){
@@ -113,6 +137,16 @@ public class LoginActivity extends AppCompatActivity {
                 // Can ignore this method, don't need it but cannot remove as it is required by TextWatcher
             }
 
+            /**
+             * Method called while text is being changed
+             *
+             * @author Louis Ware
+             *
+             * @param s Default param
+             * @param start Default param
+             * @param before Default param
+             * @param count Default param
+             */
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (!TextUtils.isEmpty(loginPassword.getEditText().getText())){
@@ -148,6 +182,17 @@ public class LoginActivity extends AppCompatActivity {
 
 // -------------------------------------------------------------------------------------------------
 
+    /**
+     * Validates login details the user has entered against the details stored in the database
+     *
+     * @author Louis Ware, Nikita Artimenko
+     *
+     * @param email The email the user has just entered
+     * @param inputtedPassword The password the user has just entered
+     * @return true if details are valid, false if not
+     * @throws InvalidKeySpecException if password hashing algorithm has failed
+     * @throws NoSuchAlgorithmException if password hashing algorithm has failed
+     */
     private boolean validateLogin(String email, String inputtedPassword) throws InvalidKeySpecException, NoSuchAlgorithmException {
 
         PBKDF2WithHmacSHA512Hash passwordHasher = new PBKDF2WithHmacSHA512Hash();
@@ -169,5 +214,4 @@ public class LoginActivity extends AppCompatActivity {
 
         return passwordHasher.validatePBKDF2WithHmacSHA512Password(inputtedPassword, retrievedPassword);
     }
-
 }

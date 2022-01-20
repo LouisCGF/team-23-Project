@@ -14,6 +14,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.team_23_project.Activities.BuildingViewActivity;
 
+/**
+ * Activity class for activity_searchbar_buildings.xml. Extends AppCompatActivity
+ *
+ * @author Louis Ware
+ * @version 1.0
+ *
+ */
 public class SearchBarBuildings extends AppCompatActivity {
 
     ListView listView;
@@ -24,6 +31,13 @@ public class SearchBarBuildings extends AppCompatActivity {
 
     ArrayAdapter<String> arrayAdapter;
 
+    /**
+     * Used to start the activity
+     *
+     * @author Louis Ware
+     *
+     * @param savedInstanceState reference to a Bundle object
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +62,14 @@ public class SearchBarBuildings extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Specifies the options menu for the activity
+     *
+     * @author Louis Ware
+     *
+     * @param menu reference to a Menu object
+     * @return true if the menu should be displayed, false if not
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -65,14 +86,20 @@ public class SearchBarBuildings extends AppCompatActivity {
                 return false;
             }
 
+            /**
+             * Method called when new text has been entered into the search bar
+             *
+             * @author Louis Ware
+             *
+             * @param newText the updated text in the search bar
+             * @return false
+             */
             @Override
             public boolean onQueryTextChange(String newText) {
                 arrayAdapter.getFilter().filter(newText);
                 return false;
             }
         });
-
-
         return super.onCreateOptionsMenu(menu);
     }
 }
