@@ -15,7 +15,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="12dp"
-        android:text="Welcome!"
+        android:text="@string/welcome"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -48,23 +48,23 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_search_24"/>
+                    android:src="@drawable/ic_baseline_search_24"
+                    android:contentDescription="@string/search_for_university_button" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Search For\n University"
+                    android:text="@string/search_for_n_university"
                     android:textSize="16sp"
                     android:textColor="@color/black" />
 
-
             </LinearLayout>
-
 
         </androidx.cardview.widget.CardView>
 
@@ -87,23 +87,23 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_settings_24"/>
+                    android:src="@drawable/ic_baseline_settings_24"
+                    android:contentDescription="@string/settings_button_image" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Settings"
+                    android:text="@string/settings"
                     android:textSize="16sp"
                     android:textColor="@color/black" />
 
-
             </LinearLayout>
-
 
         </androidx.cardview.widget.CardView>
 
@@ -126,23 +126,23 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_question_answer_24"/>
+                    android:src="@drawable/ic_baseline_question_answer_24"
+                    android:contentDescription="@string/faqs_button_image" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="FAQs"
+                    android:text="@string/faqs"
                     android:textSize="16sp"
                     android:textColor="@color/black" />
 
-
             </LinearLayout>
-
 
         </androidx.cardview.widget.CardView>
 
@@ -165,27 +165,25 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_exit_to_app_24"/>
+                    android:src="@drawable/ic_baseline_exit_to_app_24"
+                    android:contentDescription="@string/logout_button_image" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Logout"
+                    android:text="@string/logout"
                     android:textSize="16sp"
                     android:textColor="@color/black" />
 
-
             </LinearLayout>
 
-
         </androidx.cardview.widget.CardView>
-
-
 
     </GridLayout>
 

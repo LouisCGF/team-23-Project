@@ -13,7 +13,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,8 +43,8 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="168dp"
                     android:layout_marginTop="8dp"
-                    android:src="@drawable/white_logo" />
-
+                    android:src="@drawable/white_logo"
+                    android:contentDescription="@string/logo_image" />
 
             </RelativeLayout>
 
@@ -201,6 +202,5 @@
         </LinearLayout>
 
     </ScrollView>
-
 
 </RelativeLayout>

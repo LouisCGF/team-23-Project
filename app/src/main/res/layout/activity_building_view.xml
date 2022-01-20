@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.BuildingViewActivity">
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/googleMapsStreetView"
         android:name="com.google.android.gms.maps.SupportStreetViewPanoramaFragment"
         android:layout_centerInParent="true"/>
+
 
     <!-- Ground Floor -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -24,7 +24,8 @@
         android:layout_marginBottom="60dp"
         android:clickable="true"
         android:focusable="true"
-        android:src="@drawable/ic_plus_icon" />
+        android:src="@drawable/ic_plus_icon"
+        android:contentDescription="@string/first_floor_button" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,7 +33,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="30dp"
         android:layout_marginBottom="18dp"
-        android:text="Ground\n  Floor"
+        android:text="@string/ground_n_floor"
         android:textStyle="bold"
         android:textColor="@color/white"/>
 
@@ -48,7 +49,8 @@
         android:focusable="true"
         android:src="@drawable/ic_main_entrance_icon"
         android:backgroundTint="@color/teal_700"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:contentDescription="@string/entrance_button" />
 
     <TextView
         android:id="@+id/entranceTxt"
@@ -57,7 +59,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="85dp"
         android:layout_marginBottom="143dp"
-        android:text="Entrance"
+        android:text="@string/entrance"
         android:textStyle="bold"
         android:visibility="invisible"
         android:textColor="@color/white"/>
@@ -74,7 +76,8 @@
         android:focusable="true"
         android:src="@drawable/ic_room_icon"
         android:backgroundTint="@color/teal_700"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:contentDescription="@string/room_g003_button" />
 
     <TextView
         android:id="@+id/g003Txt"
@@ -83,7 +86,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="85dp"
         android:layout_marginBottom="203dp"
-        android:text="Room G.003"
+        android:text="@string/room_g_003"
         android:textStyle="bold"
         android:visibility="invisible"
         android:textColor="@color/white"/>
@@ -100,7 +103,8 @@
         android:clickable="true"
         android:focusable="true"
         android:src="@drawable/ic_room_icon"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:contentDescription="@string/ground_floor_lifts_button" />
 
     <TextView
         android:id="@+id/groundFloorLiftsTxt"
@@ -109,13 +113,10 @@
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="85dp"
         android:layout_marginBottom="263dp"
-        android:text="Ground Floor Lifts"
+        android:text="@string/ground_floor_lifts"
         android:textStyle="bold"
         android:visibility="invisible"
         android:textColor="@color/white"/>
-
-
-
 
 
     <!-- First Floor -->
@@ -129,7 +130,8 @@
         android:layout_marginBottom="60dp"
         android:clickable="true"
         android:focusable="true"
-        android:src="@drawable/ic_plus_icon" />
+        android:src="@drawable/ic_plus_icon"
+        android:contentDescription="@string/first_floor_button" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -137,7 +139,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="109dp"
         android:layout_marginBottom="18dp"
-        android:text="First\nFloor"
+        android:text="@string/first_nfloor"
         android:textStyle="bold"
         android:textColor="@color/white"/>
 
@@ -153,7 +155,8 @@
         android:focusable="true"
         android:src="@drawable/ic_room_icon"
         android:backgroundTint="@color/teal_700"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:contentDescription="@string/lecture_theatre_button" />
 
     <TextView
         android:id="@+id/lectureTheatreTxt"
@@ -162,7 +165,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="145dp"
         android:layout_marginBottom="143dp"
-        android:text="Lecture Theatre"
+        android:text="@string/lecture_theatre"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:visibility="invisible"/>
@@ -179,7 +182,8 @@
         android:focusable="true"
         android:src="@drawable/ic_corridor_icon"
         android:backgroundTint="@color/teal_700"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:contentDescription="@string/first_floor_corridor_button" />
 
     <TextView
         android:id="@+id/firstFloorCorridorTxt"
@@ -188,13 +192,10 @@
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="145dp"
         android:layout_marginBottom="198dp"
-        android:text="Corridor"
+        android:text="@string/corridor"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:visibility="invisible"/>
-
-
-
 
 
     <!-- Second Floor -->
@@ -208,7 +209,8 @@
         android:layout_marginBottom="60dp"
         android:clickable="true"
         android:focusable="true"
-        android:src="@drawable/ic_plus_icon" />
+        android:src="@drawable/ic_plus_icon"
+        android:contentDescription="@string/second_floor_button" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -216,7 +218,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="170dp"
         android:layout_marginBottom="18dp"
-        android:text="Second\n  Floor"
+        android:text="@string/second_n_floor"
         android:textStyle="bold"
         android:textColor="@color/white"/>
 
@@ -232,7 +234,8 @@
         android:focusable="true"
         android:src="@drawable/ic_corridor_icon"
         android:backgroundTint="@color/teal_700"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:contentDescription="@string/second_floor_corridor_button" />
 
     <TextView
         android:id="@+id/secondFloorCorridorTxt"
@@ -241,7 +244,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="225dp"
         android:layout_marginBottom="143dp"
-        android:text="Corridor"
+        android:text="@string/corridor"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:visibility="invisible"/>
@@ -258,7 +261,8 @@
         android:focusable="true"
         android:src="@drawable/ic_room_icon"
         android:backgroundTint="@color/teal_700"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:contentDescription="@string/room_2_015_button" />
 
     <TextView
         android:id="@+id/room2015Txt"
@@ -267,7 +271,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="225dp"
         android:layout_marginBottom="203dp"
-        android:text="Room 2.015"
+        android:text="@string/room_2_015"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:visibility="invisible"/>
@@ -284,7 +288,8 @@
         android:focusable="true"
         android:src="@drawable/ic_room_icon"
         android:backgroundTint="@color/teal_700"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:contentDescription="@string/room_2_022_button" />
 
     <TextView
         android:id="@+id/room2022Txt"
@@ -293,7 +298,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="225dp"
         android:layout_marginBottom="263dp"
-        android:text="Room 2.022"
+        android:text="@string/room_2_022"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:visibility="invisible"/>
@@ -310,7 +315,8 @@
         android:focusable="true"
         android:src="@drawable/ic_corridor_icon"
         android:backgroundTint="@color/teal_700"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:contentDescription="@string/second_floor_corridor_2_button" />
 
     <TextView
         android:id="@+id/secondFloorCorridor2Txt"
@@ -319,13 +325,10 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="225dp"
         android:layout_marginBottom="323dp"
-        android:text="Corridor 2"
+        android:text="@string/corridor_2"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:visibility="invisible"/>
-
-
-
 
 
     <!-- Third Floor -->
@@ -339,7 +342,8 @@
         android:layout_marginBottom="60dp"
         android:clickable="true"
         android:focusable="true"
-        android:src="@drawable/ic_plus_icon" />
+        android:src="@drawable/ic_plus_icon"
+        android:contentDescription="@string/third_floor_button" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -347,7 +351,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="248dp"
         android:layout_marginBottom="18dp"
-        android:text="Third\nFloor"
+        android:text="@string/third_nfloor"
         android:textStyle="bold"
         android:textColor="@color/white"/>
 
@@ -363,7 +367,8 @@
         android:focusable="true"
         android:src="@drawable/ic_corridor_icon"
         android:backgroundTint="@color/teal_700"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:contentDescription="@string/third_floor_corridor_button" />
 
     <TextView
         android:id="@+id/thirdFloorCorridorTxt"
@@ -372,7 +377,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="288dp"
         android:layout_marginBottom="138dp"
-        android:text="Corridor"
+        android:text="@string/corridor"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:visibility="invisible"/>
@@ -389,7 +394,8 @@
         android:focusable="true"
         android:src="@drawable/ic_room_icon"
         android:backgroundTint="@color/teal_700"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:contentDescription="@string/room_3_015_button" />
 
     <TextView
         android:id="@+id/room3015Txt"
@@ -398,7 +404,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="288dp"
         android:layout_marginBottom="198dp"
-        android:text="Room 3.015"
+        android:text="@string/room_3_015"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:visibility="invisible"/>
@@ -415,7 +421,8 @@
         android:focusable="true"
         android:src="@drawable/ic_room_icon"
         android:backgroundTint="@color/teal_700"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:contentDescription="@string/room_3_018_button" />
 
     <TextView
         android:id="@+id/room3018Txt"
@@ -424,11 +431,10 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="288dp"
         android:layout_marginBottom="258dp"
-        android:text="Room 3.018"
+        android:text="@string/room_3_018"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:visibility="invisible"/>
-
 
 
     <!-- Fourth Floor -->
@@ -442,7 +448,8 @@
         android:layout_marginBottom="60dp"
         android:clickable="true"
         android:focusable="true"
-        android:src="@drawable/ic_plus_icon" />
+        android:src="@drawable/ic_plus_icon"
+        android:contentDescription="@string/fourth_floor_button" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -450,7 +457,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="313dp"
         android:layout_marginBottom="18dp"
-        android:text="Fourth\n Floor"
+        android:text="@string/fourth_n_floor"
         android:textStyle="bold"
         android:textColor="@color/white"/>
 
@@ -466,7 +473,8 @@
         android:focusable="true"
         android:src="@drawable/ic_corridor_icon"
         android:backgroundTint="@color/teal_700"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:contentDescription="@string/fourth_floor_corridor_button" />
 
     <TextView
         android:id="@+id/fourthFloorCorridorTxt"
@@ -475,7 +483,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="248dp"
         android:layout_marginBottom="138dp"
-        android:text="Corridor"
+        android:text="@string/corridor"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:visibility="invisible"/>
@@ -492,7 +500,8 @@
         android:focusable="true"
         android:src="@drawable/ic_room_icon"
         android:backgroundTint="@color/teal_700"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:contentDescription="@string/room_4_005_button" />
 
     <TextView
         android:id="@+id/room4005Txt"
@@ -501,11 +510,9 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="228dp"
         android:layout_marginBottom="198dp"
-        android:text="Room 4.005"
+        android:text="@string/room_4_005"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:visibility="invisible"/>
-
-
 
 </RelativeLayout>

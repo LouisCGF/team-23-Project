@@ -56,6 +56,11 @@
     <string name="register">Register</string>
     <string name="already_have_an_account_sign_in">Already Have an Account? Sign in</string>
 
+    <string name="one_lower_case_letter">One lower case letter</string>
+    <string name="one_upper_case_letter">One upper case letter</string>
+    <string name="at_least_one_number">At least one number</string>
+    <string name="at_least_8_characters">At least 8 characters</string>
+
     <!-- FAQs -->
     <string name="question1">Q: My University/Building doesn\'t have support, when will it?</string>
     <string name="answer1">A: Right now, we only have support for Newcastle University, we will have support for other Universities in future updates</string>
@@ -84,4 +89,55 @@
     <string name="save">Save</string>
     <string name="feedback">Feedback</string>
     <string name="back_to_main_page">Back To Main Page</string>
+    <string name="first_floor_button">First Floor Button</string>
+    <string name="ground_n_floor">Ground\n Floor</string>
+    <string name="entrance_button">Entrance Button</string>
+    <string name="entrance">Entrance</string>
+    <string name="room_g003_button">Room G003 Button</string>
+    <string name="room_g_003">Room G.003</string>
+    <string name="ground_floor_lifts_button">Ground Floor Lifts Button</string>
+    <string name="ground_floor_lifts">Ground Floor Lifts</string>
+    <string name="first_nfloor">First\nFloor</string>
+    <string name="lecture_theatre_button">Lecture Theatre Button</string>
+    <string name="lecture_theatre">Lecture Theatre</string>
+    <string name="first_floor_corridor_button">First Floor Corridor Button</string>
+    <string name="corridor">Corridor</string>
+    <string name="second_floor_button">Second Floor Button</string>
+    <string name="second_n_floor">Second\n Floor</string>
+    <string name="second_floor_corridor_button">Second Floor Corridor Button</string>
+    <string name="room_2_015_button">Room 2.015 Button</string>
+    <string name="room_2_015">Room 2.015</string>
+    <string name="room_2_022_button">Room 2.022 Button</string>
+    <string name="room_2_022">Room 2.022</string>
+    <string name="second_floor_corridor_2_button">Second Floor Corridor 2 Button</string>
+    <string name="corridor_2">Corridor 2</string>
+    <string name="third_floor_button">Third Floor Button</string>
+    <string name="third_nfloor">Third\nFloor</string>
+    <string name="third_floor_corridor_button">Third Floor Corridor Button</string>
+    <string name="room_3_015_button">Room 3.015 Button</string>
+    <string name="room_3_015">Room 3.015</string>
+    <string name="room_3_018_button">Room 3.018 Button</string>
+    <string name="room_3_018">Room 3.018</string>
+    <string name="fourth_floor_button">Fourth Floor Button</string>
+    <string name="fourth_n_floor">Fourth\n Floor</string>
+    <string name="fourth_floor_corridor_button">Fourth Floor Corridor Button</string>
+    <string name="room_4_005_button">Room 4.005 Button</string>
+    <string name="room_4_005">Room 4.005</string>
+    <string name="welcome">Welcome!</string>
+    <string name="search_for_university_button">Search For University Button</string>
+    <string name="search_for_n_university">Search For\n University</string>
+    <string name="settings_button_image">Settings Button Image</string>
+    <string name="settings">Settings</string>
+    <string name="faqs_button_image">FAQs Button Image</string>
+    <string name="faqs">FAQs</string>
+    <string name="logout_button_image">Logout Button Image</string>
+    <string name="logout">Logout</string>
+    <string name="no_results">No Results</string>
+    <string name="no_results">No Results</string>
+    <string name="logo_1_image">Logo 1 Image</string>
+    <string name="logo_2_image">Logo 2 Image</string>
+    <string name="plus_icon_image">Plus Icon Image</string>
+    <string name="logo_image">Logo Image</string>
+    <string name="logo_image_register">Logo Image Register</string>
+    <string name="minus_button_image">Minus Button Image</string>
 </resources>

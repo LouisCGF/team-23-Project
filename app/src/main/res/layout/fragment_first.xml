@@ -38,7 +38,8 @@
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="0dp"
-                    android:src="@drawable/blue_logo" />
+                    android:src="@drawable/blue_logo"
+                    android:contentDescription="@string/logo_1_image" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -48,8 +49,8 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="188dp"
                     android:layout_marginTop="56dp"
-                    android:src="@drawable/logo_blue_text" />
-
+                    android:src="@drawable/logo_blue_text"
+                    android:contentDescription="@string/logo_2_image" />
 
             </RelativeLayout>
 
@@ -156,7 +157,6 @@
 
             </LinearLayout>
 
-
         </LinearLayout>
 
     </ScrollView>
@@ -177,6 +177,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="11dp"
         android:layout_marginBottom="30dp"
-        android:src="@drawable/ic_add_img" />
+        android:src="@drawable/ic_add_img"
+        android:contentDescription="@string/plus_icon_image" />
 
 </RelativeLayout>

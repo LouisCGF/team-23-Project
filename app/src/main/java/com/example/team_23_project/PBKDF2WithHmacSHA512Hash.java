@@ -4,7 +4,6 @@ import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
-import java.security.spec.KeySpec;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
@@ -36,8 +35,7 @@ public class PBKDF2WithHmacSHA512Hash {
         byte[] testHash = secretKeyFactory.generateSecret(spec).getEncoded();
 
         int diff = hash.length ^ testHash.length;
-        for(int i = 0; i < hash.length && i < testHash.length; i++)
-        {
+        for(int i = 0; i < hash.length && i < testHash.length; i++){
             diff |= hash[i] ^ testHash[i];
         }
         return diff == 0;
@@ -50,7 +48,7 @@ public class PBKDF2WithHmacSHA512Hash {
         return salt;
     }
 
-    protected static String toHex(byte[] array) throws NoSuchAlgorithmException{
+    protected static String toHex(byte[] array){
         BigInteger bi = new BigInteger(1, array);
         String hex = bi.toString(16);
 
@@ -62,10 +60,9 @@ public class PBKDF2WithHmacSHA512Hash {
         }
     }
 
-    protected static byte[] fromHex(String hex) throws NoSuchAlgorithmException{
+    protected static byte[] fromHex(String hex){
         byte[] bytes = new byte[hex.length() / 2];
-        for(int i = 0; i < bytes.length ;i++)
-        {
+        for(int i = 0; i < bytes.length ;i++){
             bytes[i] = (byte) Integer.parseInt(hex.substring(2 * i, 2 * i + 2), 16);
         }
 

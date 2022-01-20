@@ -43,7 +43,8 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="168dp"
                     android:layout_marginTop="8dp"
-                    android:src="@drawable/white_logo" />
+                    android:src="@drawable/white_logo"
+                    android:contentDescription="@string/logo_image_register" />
 
 
             </RelativeLayout>
@@ -187,7 +188,6 @@
                         app:spinning_bar_padding="6dp"
                         app:spinning_bar_width="4dp" />
 
-
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
@@ -213,6 +213,7 @@
         android:layout_marginEnd="11dp"
         android:layout_marginBottom="30dp"
         android:adjustViewBounds="false"
-        android:src="@drawable/ic_back_img" />
+        android:src="@drawable/ic_back_img"
+        android:contentDescription="@string/minus_button_image" />
 
 </RelativeLayout>

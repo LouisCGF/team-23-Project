@@ -1,7 +1,6 @@
 package com.example.team_23_project;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
@@ -22,28 +21,17 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 
     private TextInputLayout loginName;
     private TextInputLayout loginPassword;
-    private TextView loginAttempts;
-
-    private Button checkLogin;
-    private TextView regStu;
-    private TextView regSta;
-    private TextView faq;
-    private ImageView plusIcon;
 
     private Editable inputName;
-    private Editable inputPassword;
-
-    private boolean isValid = false;
-    private int counter = 5;
 
     DatabaseHelper sqlHelper;
     SQLiteDatabase db;
-    Cursor userCursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,48 +44,46 @@ public class LoginActivity extends AppCompatActivity {
 
         loginName = findViewById(R.id.textInputEmail);
         loginPassword = findViewById(R.id.textInputPassword);
-        loginAttempts = findViewById(R.id.numoOfAtemptstxt);
 
-        checkLogin = findViewById(R.id.loginBtn);
-        regStu = findViewById(R.id.regStuBtn);
-        regSta = findViewById(R.id.regStaBtn);
-        faq = findViewById(R.id.faqBtn);
-        plusIcon = findViewById(R.id.plusIcon);
+        Button checkLogin = findViewById(R.id.loginBtn);
 
-        inputName = loginName.getEditText().getText();
+        TextView regStu = findViewById(R.id.regStuBtn);
+        TextView regSta = findViewById(R.id.regStaBtn);
+        TextView faq = findViewById(R.id.faqBtn);
+
+        ImageView plusIcon = findViewById(R.id.plusIcon);
+
+        inputName = Objects.requireNonNull(loginName.getEditText()).getText();
 
         sqlHelper = new DatabaseHelper(this);
         db = sqlHelper.getWritableDatabase();
-        Resources res = getResources();
 
-        checkLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+// -------------------------------------------------------------------------------------------------
 
-                if (TextUtils.isEmpty(inputName) || TextUtils.isEmpty(loginPassword.getEditText().getText())) {
-                    loginName.setError("Please enter an email");
-                    loginPassword.setError("Please enter a password");
+        checkLogin.setOnClickListener(view -> {
 
-                } else {
-                    try {
-                        if (!validateLogin(inputName.toString(), loginPassword.getEditText().getText().toString())){
+            if (TextUtils.isEmpty(inputName) || TextUtils.isEmpty(Objects.requireNonNull(loginPassword.getEditText()).getText())) {
+                loginName.setError("Please enter an email");
+                loginPassword.setError("Please enter a password");
 
-                            loginName.setError("Incorrect email or password");
-                            loginPassword.setError("Incorrect email or password");
+            } else {
+                try {
+                    if (!validateLogin(inputName.toString(), loginPassword.getEditText().getText().toString())){
 
-                        } else {
+                        loginName.setError("Incorrect email or password");
+                        loginPassword.setError("Incorrect email or password");
 
-                            Toast.makeText(LoginActivity.this, "Login was successful",
-                                    Toast.LENGTH_SHORT).show();
+                    } else {
 
+                        Toast.makeText(LoginActivity.this, "Login was successful",
+                                Toast.LENGTH_SHORT).show();
 
-                            Intent intent = new Intent( LoginActivity.this, HomePageActivity.class);
-                            startActivity(intent);
-                        }
-                    } catch (InvalidKeySpecException | NoSuchAlgorithmException e) { // <- Password hash failed
-                        Toast.makeText(LoginActivity.this, "Something went wrong, please try again", Toast.LENGTH_SHORT).show();
-                        e.printStackTrace();
+                        Intent intent = new Intent( LoginActivity.this, HomePageActivity.class);
+                        startActivity(intent);
                     }
+                } catch (InvalidKeySpecException | NoSuchAlgorithmException e) { // <- Password hash failed
+                    Toast.makeText(LoginActivity.this, "Something went wrong, please try again", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
                 }
             }
         });
@@ -113,7 +99,6 @@ public class LoginActivity extends AppCompatActivity {
                 if (!TextUtils.isEmpty(loginName.getEditText().getText())){
                     loginName.setError(null);
                 }
-
             }
 
             @Override
@@ -122,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        loginPassword.getEditText().addTextChangedListener(new TextWatcher() {
+        Objects.requireNonNull(loginPassword.getEditText()).addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 // Can ignore this method, don't need it but cannot remove as it is required by TextWatcher
@@ -141,41 +126,31 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        regStu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LoginActivity.this.startActivity( new Intent( LoginActivity.this, UserRegisterActivityStudent.class ));
-                overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
-            }
+// -------------------------------------------------------------------------------------------------
+
+        regStu.setOnClickListener(v -> {
+            LoginActivity.this.startActivity( new Intent( LoginActivity.this, UserRegisterActivityStudent.class ));
+            overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
         });
 
-        regSta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LoginActivity.this.startActivity( new Intent( LoginActivity.this, UserRegisterActivityStaff.class ));
-                overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
-            }
+        regSta.setOnClickListener(v -> {
+            LoginActivity.this.startActivity( new Intent( LoginActivity.this, UserRegisterActivityStaff.class ));
+            overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
         });
 
-        faq.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LoginActivity.this.startActivity( new Intent( LoginActivity.this, FAQandQAActivity.class));
-            }
-        });
+        faq.setOnClickListener(v -> LoginActivity.this.startActivity( new Intent( LoginActivity.this, FAQandQAActivity.class)));
 
-        plusIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LoginActivity.this.startActivity( new Intent( LoginActivity.this, UserRegisterActivityStudent.class));
-                overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
-            }
+        plusIcon.setOnClickListener(v -> {
+            LoginActivity.this.startActivity( new Intent( LoginActivity.this, UserRegisterActivityStudent.class));
+            overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
         });
     }
 
+// -------------------------------------------------------------------------------------------------
+
     private boolean validateLogin(String email, String inputtedPassword) throws InvalidKeySpecException, NoSuchAlgorithmException {
 
-        PBKDF2WithHmacSHA512Hash hasher = new PBKDF2WithHmacSHA512Hash();
+        PBKDF2WithHmacSHA512Hash passwordHasher = new PBKDF2WithHmacSHA512Hash();
 
         Cursor cursor = db.rawQuery("select " + DatabaseHelper.COLUMN_USER_ID + " from "
                 + DatabaseHelper.TABLE_USERS + " where " + DatabaseHelper.COLUMN_EMAIL_ADDRESS + "=?", new String[]{email});
@@ -189,7 +164,10 @@ public class LoginActivity extends AppCompatActivity {
 
         String retrievedPassword = cursor1.getString(0);
 
-        return hasher.validatePBKDF2WithHmacSHA512Password(inputtedPassword, retrievedPassword);
+        cursor.close();
+        cursor1.close();
+
+        return passwordHasher.validatePBKDF2WithHmacSHA512Password(inputtedPassword, retrievedPassword);
     }
 
 }

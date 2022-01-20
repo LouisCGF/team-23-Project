@@ -5,13 +5,10 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,7 +25,6 @@ import java.util.regex.Pattern;
 
 public class UserRegisterActivityStaff extends AppCompatActivity {
 
-    // Fields in the staff register page
     private TextInputLayout firstNameStaff;
     private TextInputLayout lastNameStaff;
     private TextInputLayout emailAdrStaff;
@@ -53,9 +49,10 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Getting connection.
         setContentView(R.layout.register_staff);
 
+// -------------------------------------------------------------------------------------------------
+                      // -- All fields --
         firstNameStaff = findViewById(R.id.staffFirstNameInput);
         lastNameStaff = findViewById(R.id.staffLastNameInput);
         emailAdrStaff = findViewById(R.id.staffEmailInput);
@@ -64,22 +61,26 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
         passwordStaffReg = findViewById(R.id.staffPassInput);
         passwordConfirmStaffReg = findViewById(R.id.staffConfPassInput);
 
+// -------------------------------------------------------------------------------------------------
+            // -- Password validation text --
         lowerCaseLetter = new TextView(this);
         upperCaseLetter = new TextView(this);
         oneNumber = new TextView(this);
         characterCount = new TextView(this);
         lowerCaseLetter.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT));
-        lowerCaseLetter.setText("One lower case letter");
+        lowerCaseLetter.setText(R.string.one_lower_case_letter);
         lowerCaseLetter.setTextSize(11);
         upperCaseLetter.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT));
-        upperCaseLetter.setText("One upper case letter");
+        upperCaseLetter.setText(R.string.one_upper_case_letter);
         upperCaseLetter.setTextSize(11);
         oneNumber.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT));
-        oneNumber.setText("At least one number");
+        oneNumber.setText(R.string.at_least_one_number);
         oneNumber.setTextSize(11);
         characterCount.setLayoutParams(new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT));
-        characterCount.setText("At least 8 character");
+        characterCount.setText(R.string.at_least_8_characters);
         characterCount.setTextSize(11);
+
+// -------------------------------------------------------------------------------------------------
 
         submitStaffReg = findViewById(R.id.submitStaffRegBtn);
         TextView backToSignIn = findViewById(R.id.backToSignIn);
@@ -97,59 +98,54 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
             userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE_STAFF_INFO
                     + " where " + DatabaseHelper.COLUMN_USER_ID + "=?", new String[]{String.valueOf(userId)});
             userCursor.moveToFirst();
-            schoolStaff.getEditText().setText(userCursor.getString(1));
-            admin.getEditText().setText(userCursor.getString(2));
+            Objects.requireNonNull(schoolStaff.getEditText()).setText(userCursor.getString(1));
+            Objects.requireNonNull(admin.getEditText()).setText(userCursor.getString(2));
             userCursor.close();
 
             // Connection and reading of the Users table
             userCursor = db.rawQuery("select * from " + DatabaseHelper.TABLE_USERS + " where "
                     + DatabaseHelper.COLUMN_USER_ID + "=?", new String[]{String.valueOf(userId)});
-            firstNameStaff.getEditText().setText(userCursor.getString(1));
-            lastNameStaff.getEditText().setText(userCursor.getString(2));
-            emailAdrStaff.getEditText().setText(userCursor.getString(3));
-            passwordStaffReg.getEditText().setText(userCursor.getString(4));
-            passwordConfirmStaffReg.getEditText().setText(userCursor.getString(5));
+            Objects.requireNonNull(firstNameStaff.getEditText()).setText(userCursor.getString(1));
+            Objects.requireNonNull(lastNameStaff.getEditText()).setText(userCursor.getString(2));
+            Objects.requireNonNull(emailAdrStaff.getEditText()).setText(userCursor.getString(3));
+            Objects.requireNonNull(passwordStaffReg.getEditText()).setText(userCursor.getString(4));
+            Objects.requireNonNull(passwordConfirmStaffReg.getEditText()).setText(userCursor.getString(5));
             userCursor.close();
-
         }
 
-        backToSignIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                UserRegisterActivityStaff.this.startActivity(new Intent(UserRegisterActivityStaff.this, LoginActivity.class));
-                overridePendingTransition(R.anim.slide_in_left, R.anim.stay);
-            }
+// -------------------------------------------------------------------------------------------------
+            // -- All on click listeners
+        backToSignIn.setOnClickListener(v -> {
+            UserRegisterActivityStaff.this.startActivity(new Intent(UserRegisterActivityStaff.this, LoginActivity.class));
+            overridePendingTransition(R.anim.slide_in_left, R.anim.stay);
         });
 
-        submitStaffReg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                removePasswordValidationText();
-                TextInputLayout[] inputFields = {firstNameStaff, lastNameStaff, emailAdrStaff, schoolStaff, admin, passwordStaffReg, passwordConfirmStaffReg};
-                boolean valid = true;
-                for (TextInputLayout inputField : inputFields){
-                    if (TextUtils.isEmpty(inputField.getEditText().getText())){
-                        valid = false;
-                        inputField.setError("You must fill out this field");
-                        continue;
-                    }
-                    inputField.setError(null);
-                }
-                if (!validatePassword(passwordStaffReg.getEditText().getText().toString())){
+        submitStaffReg.setOnClickListener(v -> {
+            removePasswordValidationText();
+            TextInputLayout[] inputFields = {firstNameStaff, lastNameStaff, emailAdrStaff, schoolStaff, admin, passwordStaffReg, passwordConfirmStaffReg};
+            boolean valid = true;
+            for (TextInputLayout inputField : inputFields){
+                if (TextUtils.isEmpty(Objects.requireNonNull(inputField.getEditText()).getText())){
                     valid = false;
+                    inputField.setError("You must fill out this field");
+                    continue;
                 }
-                if (!passwordStaffReg.getEditText().getText().toString().equals(passwordConfirmStaffReg.getEditText().getText().toString())){
-                    passwordStaffReg.setError("Passwords do not match");
-                    passwordConfirmStaffReg.setError("Passwords do not match");
-                    valid = false;
-                }
-                if (valid){
-                    try {
-                        submitStaff();
-                    } catch (InvalidKeySpecException | NoSuchAlgorithmException e) { // <- Password hash failed
-                        Toast.makeText(UserRegisterActivityStaff.this, "Something went wrong, please try again", Toast.LENGTH_SHORT).show();
-                        e.printStackTrace();
-                    }
+                inputField.setError(null);
+            }
+            if (!validatePassword(Objects.requireNonNull(passwordStaffReg.getEditText()).getText().toString())){
+                valid = false;
+            }
+            if (!passwordStaffReg.getEditText().getText().toString().equals(Objects.requireNonNull(passwordConfirmStaffReg.getEditText()).getText().toString())){
+                passwordStaffReg.setError("Passwords do not match");
+                passwordConfirmStaffReg.setError("Passwords do not match");
+                valid = false;
+            }
+            if (valid){
+                try {
+                    submitStaff();
+                } catch (InvalidKeySpecException | NoSuchAlgorithmException e) { // <- Password hash failed
+                    Toast.makeText(UserRegisterActivityStaff.this, "Something went wrong, please try again", Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
                 }
             }
         });
@@ -174,6 +170,8 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
 
     }
 
+// -------------------------------------------------------------------------------------------------
+             // -- Password Validation
     public boolean validatePassword(String password) {
         boolean valid = true;
         // check for pattern
@@ -182,7 +180,7 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
         Pattern digit = Pattern.compile("[0-9]");
         addPasswordValidationText();
 
-        if (TextUtils.isEmpty(passwordStaffReg.getEditText().getText())){
+        if (TextUtils.isEmpty(Objects.requireNonNull(passwordStaffReg.getEditText()).getText())){
             removePasswordValidationText();
         }
 
@@ -230,6 +228,8 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
         }
     }
 
+// -------------------------------------------------------------------------------------------------
+
     public void submitStaff() throws InvalidKeySpecException, NoSuchAlgorithmException {
         // Putting data into the database after clicking on the submit button.
         ContentValues cv1 = new ContentValues();
@@ -237,14 +237,14 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
 
         // -- HASHING PASSWORD --
         PBKDF2WithHmacSHA512Hash hasher = new PBKDF2WithHmacSHA512Hash();
-        String hashedPassword = hasher.hashPBKDF2WithHmacSHA512Password(passwordStaffReg.getEditText().getText().toString());
+        String hashedPassword = hasher.hashPBKDF2WithHmacSHA512Password(Objects.requireNonNull(passwordStaffReg.getEditText()).getText().toString());
 
-        cv1.put(DatabaseHelper.COLUMN_FIRST_NAME,firstNameStaff.getEditText().getText().toString());
-        cv1.put(DatabaseHelper.COLUMN_LAST_NAME, lastNameStaff.getEditText().getText().toString());
-        cv1.put(DatabaseHelper.COLUMN_EMAIL_ADDRESS, emailAdrStaff.getEditText().getText().toString());
+        cv1.put(DatabaseHelper.COLUMN_FIRST_NAME, Objects.requireNonNull(firstNameStaff.getEditText()).getText().toString());
+        cv1.put(DatabaseHelper.COLUMN_LAST_NAME, Objects.requireNonNull(lastNameStaff.getEditText()).getText().toString());
+        cv1.put(DatabaseHelper.COLUMN_EMAIL_ADDRESS, Objects.requireNonNull(emailAdrStaff.getEditText()).getText().toString());
         cv1.put(DatabaseHelper.COLUMN_PASSWORD, hashedPassword);
-        cv2.put(DatabaseHelper.COLUMN_SCHOOL, schoolStaff.getEditText().getText().toString());
-        cv2.put(DatabaseHelper.COLUMN_ADMIN, admin.getEditText().getText().toString());
+        cv2.put(DatabaseHelper.COLUMN_SCHOOL, Objects.requireNonNull(schoolStaff.getEditText()).getText().toString());
+        cv2.put(DatabaseHelper.COLUMN_ADMIN, Objects.requireNonNull(admin.getEditText()).getText().toString());
 
         if (userId > 0) {
             db.update(DatabaseHelper.TABLE_STAFF_INFO, cv2, DatabaseHelper.COLUMN_USER_ID
@@ -256,15 +256,6 @@ public class UserRegisterActivityStaff extends AppCompatActivity {
             db.insert(DatabaseHelper.TABLE_USERS, null, cv1);
         }
         goHome();
-    }
-
-    public void changeStatusBarColor(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-
-            Window window = getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(getResources().getColor(R.color.register_bk_color));
-        }
     }
 
     // Method for closing the database and transferring user to the next stage. Name and properties of the class can be changed.

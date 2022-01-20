@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
@@ -17,7 +16,6 @@ import com.google.android.gms.maps.StreetViewPanorama;
 import com.google.android.gms.maps.SupportStreetViewPanoramaFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.StreetViewPanoramaCamera;
-import com.google.android.gms.maps.model.StreetViewPanoramaLocation;
 import com.google.android.gms.maps.model.StreetViewPanoramaOrientation;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -94,6 +92,7 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
 
         currentPosition = entrance;
 
+// -------------------------------------------------------------------------------------------------
         
         // -- Ground Floor Buttons --
         groundFloorButton = findViewById(R.id.groundFloorButton);
@@ -148,201 +147,145 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
         fourthFloorCorridorTxt = findViewById(R.id.fourthFloorCorridorTxt);
         room4005Txt = findViewById(R.id.room4005Txt);
 
-        fourthFloorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setVisibility(4);
-                setAnimation(4);
-                fourthFloorClicked = !fourthFloorClicked;
-                retractOpenButtonsExceptCurrent(4);
+// -------------------------------------------------------------------------------------------------
 
-            }
+        fourthFloorButton.setOnClickListener(v -> {
+            setVisibility(4);
+            setAnimation(4);
+            fourthFloorClicked = !fourthFloorClicked;
+            retractOpenButtonsExceptCurrent(4);
+
         });
 
-        thirdFloorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setVisibility(3);
-                setAnimation(3);
-                thirdFloorClicked = !thirdFloorClicked;
-                retractOpenButtonsExceptCurrent(3);
+        thirdFloorButton.setOnClickListener(v -> {
+            setVisibility(3);
+            setAnimation(3);
+            thirdFloorClicked = !thirdFloorClicked;
+            retractOpenButtonsExceptCurrent(3);
 
-            }
         });
 
-        secondFloorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setVisibility(2);
-                setAnimation(2);
-                secondFloorClicked = !secondFloorClicked;
-                retractOpenButtonsExceptCurrent(2);
+        secondFloorButton.setOnClickListener(v -> {
+            setVisibility(2);
+            setAnimation(2);
+            secondFloorClicked = !secondFloorClicked;
+            retractOpenButtonsExceptCurrent(2);
 
-            }
         });
 
-        firstFloorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setVisibility(1);
-                setAnimation(1);
-                firstFloorClicked = !firstFloorClicked;
-                retractOpenButtonsExceptCurrent(1);
+        firstFloorButton.setOnClickListener(v -> {
+            setVisibility(1);
+            setAnimation(1);
+            firstFloorClicked = !firstFloorClicked;
+            retractOpenButtonsExceptCurrent(1);
 
-            }
         });
 
-        groundFloorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setVisibility(0);
-                setAnimation(0);
-                groundFloorClicked = !groundFloorClicked;
-                retractOpenButtonsExceptCurrent(0);
+        groundFloorButton.setOnClickListener(v -> {
+            setVisibility(0);
+            setAnimation(0);
+            groundFloorClicked = !groundFloorClicked;
+            retractOpenButtonsExceptCurrent(0);
 
-            }
         });
 
-
+// -------------------------------------------------------------------------------------------------
 
         // -- GROUND FLOOR --
-        entranceButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = entrance;
-                retractButtons(0);
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
+        entranceButton.setOnClickListener(v -> {
+            currentPosition = entrance;
+            retractButtons(0);
+            onStreetViewPanoramaReady(streetViewPanoramaMain);
         });
 
-        g003Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = roomG003;
-                retractButtons(0);
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
+        g003Button.setOnClickListener(v -> {
+            currentPosition = roomG003;
+            retractButtons(0);
+            onStreetViewPanoramaReady(streetViewPanoramaMain);
         });
 
-        groundFloorLiftsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = groundFloorLifts;
-                retractButtons(0);
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
+        groundFloorLiftsButton.setOnClickListener(v -> {
+            currentPosition = groundFloorLifts;
+            retractButtons(0);
+            onStreetViewPanoramaReady(streetViewPanoramaMain);
         });
 
         // -- FIRST FLOOR --
 
-        lectureTheatreButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = lectureRoom1006;
-                retractButtons(1);
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
+        lectureTheatreButton.setOnClickListener(v -> {
+            currentPosition = lectureRoom1006;
+            retractButtons(1);
+            onStreetViewPanoramaReady(streetViewPanoramaMain);
         });
 
-        firstFloorCorridorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = firstFloorCorridor;
-                retractButtons(1);
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
+        firstFloorCorridorButton.setOnClickListener(v -> {
+            currentPosition = firstFloorCorridor;
+            retractButtons(1);
+            onStreetViewPanoramaReady(streetViewPanoramaMain);
         });
 
         // -- SECOND FLOOR --
 
-        secondFloorCorridorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = secondFloorCorridor;
-                retractButtons(2);
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
+        secondFloorCorridorButton.setOnClickListener(v -> {
+            currentPosition = secondFloorCorridor;
+            retractButtons(2);
+            onStreetViewPanoramaReady(streetViewPanoramaMain);
         });
 
-        room2015Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = room2015;
-                retractButtons(2);
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
+        room2015Button.setOnClickListener(v -> {
+            currentPosition = room2015;
+            retractButtons(2);
+            onStreetViewPanoramaReady(streetViewPanoramaMain);
         });
 
-        room2022Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = room2022;
-                retractButtons(2);
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
+        room2022Button.setOnClickListener(v -> {
+            currentPosition = room2022;
+            retractButtons(2);
+            onStreetViewPanoramaReady(streetViewPanoramaMain);
         });
 
-        secondFloorCorridor2Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = outsideLectureRoom;
-                retractButtons(2);
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
+        secondFloorCorridor2Button.setOnClickListener(v -> {
+            currentPosition = outsideLectureRoom;
+            retractButtons(2);
+            onStreetViewPanoramaReady(streetViewPanoramaMain);
         });
 
         // -- THIRD FLOOR --
 
-        thirdFloorCorridorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = thirdFloorCorridor;
-                retractButtons(3);
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
+        thirdFloorCorridorButton.setOnClickListener(v -> {
+            currentPosition = thirdFloorCorridor;
+            retractButtons(3);
+            onStreetViewPanoramaReady(streetViewPanoramaMain);
         });
 
-        room3015Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = room3015;
-                retractButtons(3);
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
+        room3015Button.setOnClickListener(v -> {
+            currentPosition = room3015;
+            retractButtons(3);
+            onStreetViewPanoramaReady(streetViewPanoramaMain);
         });
 
-       room3018Button.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               currentPosition = room3018;
-               retractButtons(3);
-               onStreetViewPanoramaReady(streetViewPanoramaMain);
-           }
+       room3018Button.setOnClickListener(v -> {
+           currentPosition = room3018;
+           retractButtons(3);
+           onStreetViewPanoramaReady(streetViewPanoramaMain);
        });
 
        // -- FOURTH FLOOR --
 
-        fourthFloorCorridorButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = fourthFloorCorridor;
-                retractButtons(4);
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
+        fourthFloorCorridorButton.setOnClickListener(v -> {
+            currentPosition = fourthFloorCorridor;
+            retractButtons(4);
+            onStreetViewPanoramaReady(streetViewPanoramaMain);
         });
 
-        room4005Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentPosition = room4005;
-                retractButtons(4);
-                onStreetViewPanoramaReady(streetViewPanoramaMain);
-            }
+        room4005Button.setOnClickListener(v -> {
+            currentPosition = room4005;
+            retractButtons(4);
+            onStreetViewPanoramaReady(streetViewPanoramaMain);
         });
-
-
-
     }
+
+// -------------------------------------------------------------------------------------------------
 
     public void setVisibility(int buttonPressed){
         switch (buttonPressed){
@@ -363,7 +306,6 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
                     g003Txt.setVisibility(View.INVISIBLE);
                     groundFloorLiftsTxt.setVisibility(View.INVISIBLE);
                 }
-
                 break;
 
             case 1: // <- First Floor
@@ -400,7 +342,7 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
                     secondFloorCorridorTxt.setVisibility(View.INVISIBLE);
                     room2015Txt.setVisibility(View.INVISIBLE);
                     room2022Txt.setVisibility(View.INVISIBLE);
-                    secondFloorCorridor2Txt.setVisibility(View.VISIBLE);
+                    secondFloorCorridor2Txt.setVisibility(View.INVISIBLE);
                 }
                 break;
 
@@ -435,11 +377,9 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
                     room4005Button.setVisibility(View.INVISIBLE);
                     fourthFloorCorridorTxt.setVisibility(View.INVISIBLE);
                     room4005Txt.setVisibility(View.INVISIBLE);
-
                 }
                 break;
         }
-
     }
 
     public void setAnimation(int buttonPressed){
@@ -462,9 +402,7 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
                     entranceTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
                     g003Txt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
                     groundFloorLiftsTxt.setAnimation(AnimationUtils.loadAnimation(BuildingViewActivity.this, R.anim.to_bottom_anim));
-
                 }
-
                 break;
 
             case 1: // <- First Floor
@@ -549,7 +487,6 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
                 }
                 break;
         }
-
     }
 
     public void retractButtons(int button){
@@ -582,7 +519,7 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
 
     }
 
-
+// -------------------------------------------------------------------------------------------------
 
     @Override
     public void onStreetViewPanoramaReady(@NonNull StreetViewPanorama streetViewPanorama) {
@@ -602,16 +539,11 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
 
     }
 
-    private final StreetViewPanorama.OnStreetViewPanoramaChangeListener panoramaChangeListener = new StreetViewPanorama.OnStreetViewPanoramaChangeListener() {
-        @Override
-        public void onStreetViewPanoramaChange(@NonNull StreetViewPanoramaLocation streetViewPanoramaLocation) {
-            LatLng position = streetViewPanoramaLocation.position;
-            String locationText = getLocationText(position);
+    private final StreetViewPanorama.OnStreetViewPanoramaChangeListener panoramaChangeListener = streetViewPanoramaLocation -> {
+        LatLng position = streetViewPanoramaLocation.position;
+        String locationText = getLocationText(position);
 
-            Toast locationUpdatedToast = Toast.makeText(BuildingViewActivity.this, "Location Updated to " + locationText, Toast.LENGTH_SHORT);
-            locationUpdatedToast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
-            locationUpdatedToast.show();
-        }
+        Toast.makeText(BuildingViewActivity.this, "Location Updated to " + locationText, Toast.LENGTH_SHORT).show();
 
     };
 

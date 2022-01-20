@@ -2,18 +2,12 @@ package com.example.team_23_project;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.PopupWindow;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +21,6 @@ public class SearchBarBuildings extends AppCompatActivity {
             "and NESCI", "Business School", "Faculty of Medical Sciences", "Old Library Building",
             "Armstrong Building", "Bedson Building", "Students Union", "Herschel Building", "Politic" +
             "s Building", "Newcastle Law School", "Architecture Building", "Medical School"};
-    // will get buildings from database later, for now it's hardcoded in a String array
 
     ArrayAdapter<String> arrayAdapter;
 
@@ -38,20 +31,18 @@ public class SearchBarBuildings extends AppCompatActivity {
 
         listView = findViewById(R.id.listView);
 
-        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, buildings);
+        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, buildings);
         listView.setAdapter(arrayAdapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String selectedItem = (String) parent.getItemAtPosition(position);
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            String selectedItem = (String) parent.getItemAtPosition(position);
 
-                if (!selectedItem.equals("Urban Sciences Building")){
-                    showPopUpWindowBuilding(view);
-                } else{
-                    Intent intent = new Intent(SearchBarBuildings.this, BuildingViewActivity.class);
-                    SearchBarBuildings.this.startActivity(intent);
-                }
+            if (!selectedItem.equals("Urban Sciences Building")){
+                Toast.makeText(SearchBarBuildings.this, "We're sorry, but we do not have support for this building yet",
+                        Toast.LENGTH_SHORT).show();
+            } else{
+                Intent intent = new Intent(SearchBarBuildings.this, BuildingViewActivity.class);
+                SearchBarBuildings.this.startActivity(intent);
             }
         });
 
@@ -83,32 +74,5 @@ public class SearchBarBuildings extends AppCompatActivity {
 
 
         return super.onCreateOptionsMenu(menu);
-    }
-
-    public void showPopUpWindowBuilding(View view) {
-
-        // inflate the layout of the popup window
-        LayoutInflater inflater = (LayoutInflater)
-                getSystemService(LAYOUT_INFLATER_SERVICE);
-        View popupView = inflater.inflate(R.layout.popup_window_2, null);
-
-        // create the popup window
-        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
-        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-        boolean focusable = true; // lets taps outside the popup also dismiss it
-        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
-
-        // show the popup window
-        // which view you pass in doesn't matter, it is only used for the window tolken
-        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
-
-        // dismiss the popup window when touched
-        popupView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                popupWindow.dismiss();
-                return true;
-            }
-        });
     }
 }
