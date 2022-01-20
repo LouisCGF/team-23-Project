@@ -12,7 +12,7 @@ import javax.crypto.spec.PBEKeySpec;
  * Class for hashing passwords and validating a password against a hashed password.
  * Uses the PBKDF2-HMAC-SHA512 hashing algorithm and salted using a 16-byte salt
  *
- * @author Louis Ware
+ * @author Louis Ware, Nikita Artimenko
  * @version 1.0
  *
  */
@@ -21,7 +21,7 @@ public class PBKDF2WithHmacSHA512Hash {
     /**
      * Hashes a given password using the PBKDF2-HMAC-SHA512 hashing algorithm
      *
-     * @author Louis Ware
+     * @author Louis Ware, Nikita Artimenko
      *
      * @param plainText plain text password to be hashed
      * @return hashed password in the format [iterations]:[salt]:[hash output in hexadecimal]
