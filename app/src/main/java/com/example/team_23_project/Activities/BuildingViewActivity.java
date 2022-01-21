@@ -610,8 +610,6 @@ public class BuildingViewActivity extends AppCompatActivity implements OnStreetV
      */
     @SuppressLint("DefaultLocale")
     public String getLocationText(LatLng position){
-        // There's probably a much better way of doing this.
-        // Probably gonna remove this in a bit cos it looks awful
         String posLatStr = String.format("%.4f", position.latitude);
         String posLongStr = String.format("%.4f", position.longitude);
 
