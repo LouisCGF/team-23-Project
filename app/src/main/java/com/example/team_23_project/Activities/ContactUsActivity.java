@@ -15,7 +15,7 @@ import java.util.Objects;
 /**
  * Activity class for contact_us.xml. Extends AppCompatActivity
  *
- * @author Bogdan Caplan, Louis Ware
+ * @author Bogdan Caplan
  * @version 1.0
  *
  */
@@ -28,7 +28,7 @@ public class ContactUsActivity extends AppCompatActivity {
     /**
      * Used to start the activity
      *
-     * @author Bogdan Caplan, Louis Ware
+     * @author Bogdan Caplan
      *
      * @param savedInstanceState reference to a Bundle object
      */
@@ -56,7 +56,7 @@ public class ContactUsActivity extends AppCompatActivity {
      * Retrieves input from the email selector, subject and message fields and opens an Android mail
      * interface with the input information
      *
-     * @author Bogdan Caplan, Louis Ware
+     * @author Bogdan Caplan
      *
      */
     private void sendMail() {
